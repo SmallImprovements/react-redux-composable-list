@@ -1,13 +1,12 @@
-import React from 'react';
-
-const Table = () =>
-  <p>table</p>;
-
-const Row = () =>
-  <p>row</p>;
-
-export default Table;
+import {
+  reducers,
+  actionCreators,
+  selectors
+} from './ducks';
 
 export {
-  Row
-}
+  actionCreators,
+  selectors
+};
+
+export default reducers;

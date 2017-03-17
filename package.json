@@ -4,7 +4,13 @@
   "description": "A data grid solution in React and Redux",
   "main": "dist/bundle.js",
   "dependencies": {
-    "react": "^15.4.2"
+    "classnames": "^2.2.5",
+    "lodash": "^4.17.4",
+    "ramda": "^0.23.0",
+    "react": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "recompose": "^0.22.0",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.9.0",
@@ -14,10 +20,12 @@
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "css-loader": "^0.27.3",
+    "mocha": "^2.5.3",
+    "style-loader": "^0.14.1"
   },
   "scripts": {
-    "test": "env NODE_PATH=$NODE_PATH:$PWD/src ./node_modules/.bin/mocha --compilers js:babel-register --reporter spec src/*.spec.js src/**/*.spec.js --require mocha.config"
+    "test": "mocha --compilers js:babel-core/register --require ./mocha.config.js 'src/**/*spec.js'"
   },
   "repository": {
     "type": "git",
