@@ -14,24 +14,25 @@ const getLinkClass = (sortKey, isActive) =>
     }
   );
 
-                // <Icon icon="fa fa-magic" />
 const CellMagicHeader = ({
   primarySort,
   magicSorts,
   isActive,
   isReverse,
   onSort,
-  onSetMagic
+  onSetMagic,
+  children
 }) =>
-  <div className={classNames('light', 'custom-column', 'header')}>
+  <div className={classNames('custom-column', 'header')}>
     <a
       onClick={() => onSort(primarySort.sortKey, primarySort.sortFn)}
       className={getLinkClass(primarySort.sortKey, isActive)}>
       {primarySort.label}
-      {' '}
+      &nbsp;
       <SortCaret isActive={isActive(primarySort.sortKey)} isReverse={isReverse} />
     </a>
     <a className={classNames('column-selector-sign', getLinkClass(primarySort.sortKey, isActive))}>
+      {children}
     </a>
     <ul className="custom-column-selector">
       <li
@@ -41,11 +42,11 @@ const CellMagicHeader = ({
       </li>
       {map(magicSorts, ({ sortKey, sortFn, label }, key) =>
         <li key={key}>
-            <a
-                onClick={() => onSetMagic(sortKey)}
-                className={getLinkClass(sortKey, isActive)}>
-                {label}
-            </a>
+          <a
+            onClick={() => onSetMagic(sortKey)}
+            className={getLinkClass(sortKey, isActive)}>
+            {label}
+          </a>
         </li>
       )}
     </ul>

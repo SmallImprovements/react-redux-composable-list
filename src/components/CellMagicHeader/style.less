@@ -1,7 +1,87 @@
 .header {
   position: relative;
+      display: flex;
+  a {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+  }
 
   & > * {
     display: inline;
   }
+}
+
+.inline {
+    box-sizing: border-box;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.active {
+    font-weight: 700;
+}
+
+
+.custom-column {
+    > div {
+        position: relative;
+    }
+
+    .column-selector-sign {
+        margin-left: 10px;
+
+        &:hover {
+            + .custom-column-selector {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    li.custom-column-selector-info {
+        color: #828282;
+    }
+}
+
+.custom-column-selector {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    left: -(10px);
+    top: calc(100% - 5px);
+    min-width: calc(100% + 10px);
+    margin: 12px 0 0 0;
+    padding: 10px 0;
+    list-style-type: none;
+    background: #FFFFFF;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 3px 3px;
+    transition: all .2s;
+
+    &:hover {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    li {
+        margin: 0;
+        cursor: pointer;
+        a, &.custom-column-selector-info {
+            display: block;
+            width: 100%;
+            padding: 10px 10px;
+        }
+
+        a:hover {
+            background: #4495d8;
+            color: #FFFFFF;
+        }
+        &.custom-column-selector-info {
+            padding-top: 0;
+            cursor: default;
+        }
+    }
 }
