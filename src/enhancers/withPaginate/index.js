@@ -1,8 +1,9 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { reduce } from 'lodash';
 
-import { selectors } from '../../../ducks';
-import { Pagination } from '../../../components';
+import { selectors } from '../../ducks';
+import { Pagination } from '../../components';
 
 const paginateList = (list, paginationSize) =>
   reduce(list, (memo, item, i) => {
@@ -14,7 +15,7 @@ const paginateList = (list, paginationSize) =>
     return memo;
   }, []);
 
-const withPaginate = (Table) => {
+const withPaginate = (DataGrid) => {
   const WithPaginate = (props) =>
     <div>
       <Pagination
@@ -23,7 +24,7 @@ const withPaginate = (Table) => {
         currentPage={props.currentPage}
         dotted={true}
       />
-        <Table { ...props } />
+        <DataGrid { ...props } />
       <Pagination
         stateKey={props.stateKey}
         paginatedLists={props.paginatedLists}

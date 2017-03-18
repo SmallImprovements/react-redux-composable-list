@@ -1,3 +1,4 @@
+import React from 'react';
 import { map, noop } from 'lodash';
 import classNames from 'classnames';
 
@@ -6,7 +7,7 @@ function getTooltip(page, step, get = noop) {
   const toValue = get(step[step.length - 1]);
 
   return !(fromValue || toValue)
-    ? `Page ${page + 1}`;
+    ? `Page ${page + 1}`
     : `Page ${page + 1} - From ${fromValue || 'N/A'} to ${toValue || 'N/A'}`;
 }
 

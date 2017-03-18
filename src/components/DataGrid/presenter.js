@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import * as styles from '../styles';
+import '../style.css';
 
-class Table extends Component {
+class DataGrid extends Component {
   getChildContext() {
     const {
       stateKey,
@@ -25,8 +25,8 @@ class Table extends Component {
 
     return (
       <div
-        className={className}
-        style={style || styles.table}
+        className={className || 'data-grid'}
+        style={style}
       >
         {children}
       </div>
@@ -34,22 +34,22 @@ class Table extends Component {
   }
 }
 
-Table.defaultProps = {
+DataGrid.defaultProps = {
   preselected: [],
   unselectables: [],
   className: '',
 };
 
-Table.propTypes = {
+DataGrid.propTypes = {
   stateKey: PropTypes.string.isRequired,
   preselected: PropTypes.array,
   unselectables: PropTypes.array,
 };
 
-Table.childContextTypes = {
+DataGrid.childContextTypes = {
   stateKey: PropTypes.string,
   preselected: PropTypes.array,
   unselectables: PropTypes.array,
 };
 
-export default Table;
+export default DataGrid;

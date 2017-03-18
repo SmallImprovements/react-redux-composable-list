@@ -1,0 +1,20 @@
+.selectable {
+  cursor: pointer;
+  &:hover {
+    background-color: #f4f7fa;
+  }
+}
+
+.selected {
+  cursor: pointer;
+  background: #63b5ff;
+
+  &, a {
+    color: #ffffff;
+  }
+}
+
+.unselectable {
+  cursor: default;
+  color: #aaaaaa;
+}

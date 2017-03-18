@@ -1,11 +1,12 @@
+import React from 'react';
 import { connect } from 'react-redux';
 
-import { selectors } from '../../../ducks';
+import { selectors } from '../../ducks';
 
 const sortList = (fn) => (list) => fn ? fn(list) : list;
 
-const withSort = (Table) => {
-  const WithSort = (props) => <Table { ...props } />;
+const withSort = (DataGrid) => {
+  const WithSort = (props) => <DataGrid { ...props } />;
 
   const mapStateToProps = (state, { list, stateKey }) => {
     const { sortFn } = selectors.getSort(state, stateKey);

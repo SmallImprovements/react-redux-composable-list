@@ -1,0 +1,29 @@
+.cell-body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell {
+  padding: 5px;
+  display: inline-block;
+}
+
+.row {
+  display: flex;
+  min-height: 36px;
+  line-height: 24px;
+  white-space: nowrap;
+  border-bottom: lightgrey 1px dotted;
+}
+
+.data-grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.empty {
+  margin: 100px 0;
+  text-align: center;
+  color: 828282;
+}

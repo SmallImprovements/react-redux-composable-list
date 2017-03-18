@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styles from '../styles';
+import '../style.css';
 
 const HeaderCell = ({
   style,
@@ -7,8 +7,8 @@ const HeaderCell = ({
   children
 }) =>
   <div
-    className={className}
-    style={syle || styles.cell}
+    className={className || 'cell'}
+    style={style}
   >
     {children}
   </div>;

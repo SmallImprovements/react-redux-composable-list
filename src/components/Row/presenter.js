@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styles from '../styles';
+import '../style.css';
 
 const Row = ({
   style,
@@ -7,8 +7,8 @@ const Row = ({
   children
 }) =>
   <div
-    className={className}
-    style={style || styles.row}
+    className={className || 'row'}
+    style={style}
   >
     {children}
   </div>;

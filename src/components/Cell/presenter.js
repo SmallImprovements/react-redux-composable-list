@@ -1,7 +1,9 @@
 import React from 'react';
-import * as styles from '../styles';
+// import * as styles from '../styles';
+import '../style.css';
+import cs from 'classnames';
 
-const cellStyle = { ...styles.cell, ...styles.cellBody };
+// const cellStyle = { ...styles.cell, ...styles.cellBody };
 
 const Cell = ({
   style,
@@ -9,8 +11,8 @@ const Cell = ({
   children
 }) =>
   <div
-    className={className}
-    style={style || cellStyle}
+    className={className || cs('cell', 'cell-body')}
+    style={style}
   >
     {children}
   </div>;

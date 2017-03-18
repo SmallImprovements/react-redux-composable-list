@@ -1,6 +1,8 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getContext } from 'recompose';
+
 import { actionCreators, selectors } from '../../ducks';
 import RowSelectable from './presenter';
 import { selectHelper } from '../../helper';
