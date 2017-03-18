@@ -5,6 +5,7 @@ import HeaderCell from './HeaderCell';
 
 import Pagination from './Pagination';
 import RowSelectable from './RowSelectable';
+import CellSort from './CellSort';
 
 export {
   DataGrid,
@@ -14,4 +15,5 @@ export {
 
   Pagination,
   RowSelectable,
+  CellSort,
 };

@@ -22,7 +22,7 @@ function doTableSort(stateKey, sortKey, sortFn) {
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TABLE_SORT:
-      return applyResetByStateKeys(state, action);
+      return applyTableSort(state, action);
     case RESET_BY_STATE_KEYS:
       return applyResetByStateKeys(state, action);
   }

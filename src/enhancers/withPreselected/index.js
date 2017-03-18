@@ -1,40 +1,26 @@
 import React, { Component } from 'react';
-import { findIndex } from 'lodash';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-const withRemove = (DataGrid) => {
-  return class WithRemove extends Component {
-    constructor(props) {
-      super(props);
+import { actionCreators } from '../../ducks';
 
-      this.state = {
-        list: props.list,
-      };
-
-      this.onRemoveItem = this.onRemoveItem.bind(this);
-    }
-
-    onRemoveItem(id) {
-      const { list } = this.state;
-      const index = findIndex(list, (item) => item.id === id);
-      this.setState({
-        ...this.state,
-        list: [
-          ...list.slice(0, index),
-          ...list.slice(index + 1)
-        ]
-      });
+const withPreselected = (preselected) => (DataGrid) => {
+  class WithPreselected extends Component {
+    componentDidMount() {
+      const { onSelectItems } = this.props;
+      onSelectItems(preselected);
     }
 
     render() {
-      return (
-        <DataGrid
-          { ...this.props }
-          list={this.state.list}
-          onRemoveItem={this.onRemoveItem}
-        />
-      );
+      return <DataGrid { ...this.props } />;
     }
   };
+
+  const mapDispatchToProps = (dispatch, { stateKey }) => ({
+    onSelectItems: bindActionCreators((ids) => actionCreators.doSelectItems(stateKey, ids, true), dispatch),
+  });
+
+  return connect(() => ({}), mapDispatchToProps)(WithPreselected);
 };
 
-export default withRemove;
+export default withPreselected;
