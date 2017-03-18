@@ -1,9 +1,6 @@
 import React from 'react';
-// import * as styles from '../styles';
-import '../style.css';
+import '../style.less';
 import cs from 'classnames';
-
-// const cellStyle = { ...styles.cell, ...styles.cellBody };
 
 const Cell = ({
   style,

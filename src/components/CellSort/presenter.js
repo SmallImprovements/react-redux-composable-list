@@ -1,12 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './style.css';
+import SortCaret from '../../helper/components/SortCaret';
 
-function SortCaret({ isActive, isReverse }) {
-  const icon = isReverse ? 'asc' : 'desc';
-  return !!isActive && <span className={icon} />;
-}
+import './style.less';
 
 function CellSort({ isActive, isReverse, onSort, children }) {
   const linkClass = classNames(

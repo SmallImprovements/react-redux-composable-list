@@ -6,6 +6,8 @@ import HeaderCell from './HeaderCell';
 import Pagination from './Pagination';
 import RowSelectable from './RowSelectable';
 import CellSort from './CellSort';
+import CellMagic from './CellMagic';
+import CellMagicHeader from './CellMagicHeader';
 
 export {
   DataGrid,
@@ -16,4 +18,6 @@ export {
   Pagination,
   RowSelectable,
   CellSort,
+  CellMagicHeader,
+  CellMagic,
 };

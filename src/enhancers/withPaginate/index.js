@@ -5,9 +5,11 @@ import { reduce } from 'lodash';
 import { selectors } from '../../ducks';
 import { Pagination } from '../../components';
 
-const paginateList = (list, paginationSize) =>
+const DEFAULT_PAGINATION_SIZE = 15;
+
+const paginateList = (list, size) =>
   reduce(list, (memo, item, i) => {
-    if (i % paginationSize) {
+    if (i % size) {
       memo[memo.length - 1].push(item);
     } else {
       memo[memo.length] = [item];
@@ -15,7 +17,7 @@ const paginateList = (list, paginationSize) =>
     return memo;
   }, []);
 
-const withPaginate = (DataGrid) => {
+const withPaginate = ({ size = DEFAULT_PAGINATION_SIZE }) => (DataGrid) => {
   const WithPaginate = (props) =>
     <div>
       <Pagination
@@ -33,8 +35,8 @@ const withPaginate = (DataGrid) => {
       />
     </div>;
 
-  const mapStateToProps = (state, { list, stateKey, paginationSize = 15 }) => {
-    const paginatedLists = paginateList(list, paginationSize);
+  const mapStateToProps = (state, { list, stateKey }) => {
+    const paginatedLists = paginateList(list, size);
     const currentPage = selectors.getCurrentPage(state, stateKey, paginatedLists);
     const paginatedList = paginatedLists[currentPage];
     return {

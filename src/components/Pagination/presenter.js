@@ -2,6 +2,8 @@ import React from 'react';
 import { map, noop } from 'lodash';
 import classNames from 'classnames';
 
+import './style.less';
+
 function getTooltip(page, step, get = noop) {
   const fromValue = get(step[0]);
   const toValue = get(step[step.length - 1]);

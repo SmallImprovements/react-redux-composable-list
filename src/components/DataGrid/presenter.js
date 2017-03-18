@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import '../style.css';
+import '../style.less';
 
 class DataGrid extends Component {
   getChildContext() {

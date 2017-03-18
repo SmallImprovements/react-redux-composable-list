@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { selectHelper } from '../../helper';
 
-import './style.css';
+import './style.less';
 
 const CLASS_MAPPING = {
   [selectHelper.SELECT_STATES.selected]: 'selected',
