@@ -4,7 +4,6 @@ import Cell from './Cell';
 import HeaderCell from './HeaderCell';
 
 import Pagination from './Pagination';
-import RowSelectable from './RowSelectable';
 import CellSort from './CellSort';
 import CellMagic from './CellMagic';
 import CellMagicHeader from './CellMagicHeader';
@@ -16,7 +15,6 @@ export {
   HeaderCell,
 
   Pagination,
-  RowSelectable,
   CellSort,
   CellMagicHeader,
   CellMagic,

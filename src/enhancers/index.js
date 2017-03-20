@@ -2,7 +2,8 @@ import withFilter from './withFilter';
 import withSort from './withSort';
 import withPaginate from './withPaginate';
 import withRemove from './withRemove';
-import withPreselected from './withPreselected';
+import withSelectables from './withSelectables';
+import withPreselectables from './withPreselectables';
 import withUnselectables from './withUnselectables';
 
 export {
@@ -10,6 +11,7 @@ export {
   withSort,
   withPaginate,
   withRemove,
-  withPreselected,
+  withSelectables,
+  withPreselectables,
   withUnselectables,
 };

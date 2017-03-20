@@ -1,3 +1,3 @@
-import Row from './presenter';
+import RowSelectable from './container';
 
-export default Row;
+export default RowSelectable;
