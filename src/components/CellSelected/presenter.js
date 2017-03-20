@@ -1,20 +1,9 @@
-import React, { PropTypes } from 'react';
-import { select } from '../../helper/services';
+import React, { PropTypes, createElement } from 'react';
 
-import './style.less';
-
-const CLASS_MAPPING = {
-  [select.SELECT_STATES.selected]: 'fa fa-check-square react-select-checkbox-selected',
-  [select.SELECT_STATES.notSelected]: 'fa fa-square-o react-select-checkbox-deselected',
-  [select.SELECT_STATES.preSelected]: 'fa fa-check react-select-checkbox-preselected',
-  [select.SELECT_STATES.unselectable]: 'react-select-checkbox-unselectable'
-};
-
-const CellSelected = ({ state }) =>
-  <div className="select-checkbox">
-    {CLASS_MAPPING[state]}
+const CellSelected = ({ state, children }) =>
+  <div>
+    {children[state]}
   </div>;
-// <i className={CLASS_MAPPING[state]}></i>
 
 CellSelected.propTypes = {
   state: PropTypes.string.isRequired,

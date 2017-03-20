@@ -7,7 +7,8 @@ import { actionCreators, selectors } from '../../ducks';
 import RowSelectable from './presenter';
 import { select } from '../../helper/services';
 
-const isSelectableRow = (isSelectable, id) => isSelectable && id;
+const isSelectableRow = (isSelectable, id) =>
+  isSelectable && !(id === undefined || id === null);
 
 const mapStateToProps = (
   state, {
