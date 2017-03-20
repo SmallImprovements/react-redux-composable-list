@@ -7,6 +7,8 @@ import { actionCreators, selectors } from '../../ducks';
 import RowSelectable from './presenter';
 import { selectHelper } from '../../helper';
 
+const isSelectableRow = (isSelectable, id) => isSelectable && id;
+
 const mapStateToProps = (
   state, {
     stateKey,
@@ -15,11 +17,13 @@ const mapStateToProps = (
     preselected = [],
     unselectables = []
 }) => {
-  const isSelected = isSelectable
+  const hasSelectableRow = isSelectableRow(isSelectable, id);
+
+  const isSelected = hasSelectableRow
     ? selectors.getIsSelected(state, stateKey, id)
     : false;
 
-  const selectState = isSelectable
+  const selectState = hasSelectableRow
     ? selectHelper.getSelectState(id, isSelected, preselected, unselectables)
     : null;
 
@@ -30,7 +34,7 @@ const mapStateToProps = (
 }
 
 const mapDispatchToProps = (dispatch, { stateKey, isSelectable, id }) => ({
-  onSelect: isSelectable
+  onSelect: isSelectableRow(isSelectable, id)
     ? bindActionCreators(() => actionCreators.doSelectItem(stateKey, id), dispatch)
     : () => {}
 });
