@@ -4,13 +4,13 @@ import { getContext } from 'recompose';
 
 import { selectors } from '../../ducks';
 import CellSelected from './presenter';
-import { selectHelper } from '../../helper';
+import { select } from '../../helper/services';
 
 const mapStateToProps = (state, { stateKey, id, preselected = [], unselectables = [] }) => {
   const isSelected = selectors.getIsSelected(state, stateKey, id);
 
   return {
-    state: selectHelper.getSelectState(id, isSelected, preselected, unselectables),
+    state: select.getSelectState(id, isSelected, preselected, unselectables),
   };
 }
 

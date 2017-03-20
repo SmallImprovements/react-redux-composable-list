@@ -1,15 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { selectHelper } from '../../helper';
+import { select } from '../../helper/services';
 
 import './style.less';
 
 const CLASS_MAPPING = {
-  [selectHelper.SELECT_STATES.selected]: 'selected',
-  [selectHelper.SELECT_STATES.notSelected]: 'selectable',
-  [selectHelper.SELECT_STATES.preSelected]: 'unselectable',
-  [selectHelper.SELECT_STATES.unselectable]: 'unselectable',
+  [select.SELECT_STATES.selected]: 'selected',
+  [select.SELECT_STATES.notSelected]: 'selectable',
+  [select.SELECT_STATES.preSelected]: 'unselectable',
+  [select.SELECT_STATES.unselectable]: 'unselectable',
 };
 
 const Row = ({
@@ -30,8 +30,8 @@ const RowSelectable = ({
     CLASS_MAPPING[selectState]
   );
 
-  const onClick = selectState === selectHelper.SELECT_STATES.selected ||
-    selectState === selectHelper.SELECT_STATES.notSelected
+  const onClick = selectState === select.SELECT_STATES.selected ||
+    selectState === select.SELECT_STATES.notSelected
       ? onSelect
       : () => {};
 

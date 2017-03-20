@@ -5,7 +5,7 @@ import { getContext } from 'recompose';
 
 import { actionCreators, selectors } from '../../ducks';
 import RowSelectable from './presenter';
-import { selectHelper } from '../../helper';
+import { select } from '../../helper/services';
 
 const isSelectableRow = (isSelectable, id) => isSelectable && id;
 
@@ -24,7 +24,7 @@ const mapStateToProps = (
     : false;
 
   const selectState = hasSelectableRow
-    ? selectHelper.getSelectState(id, isSelected, preselected, unselectables)
+    ? select.getSelectState(id, isSelected, preselected, unselectables)
     : null;
 
   return {

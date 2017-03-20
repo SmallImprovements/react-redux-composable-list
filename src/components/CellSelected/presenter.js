@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
-import { selectHelper } from '../../helper';
+import { select } from '../../helper/services';
 
 import './style.less';
 
 const CLASS_MAPPING = {
-  [selectHelper.SELECT_STATES.selected]: 'fa fa-check-square react-select-checkbox-selected',
-  [selectHelper.SELECT_STATES.notSelected]: 'fa fa-square-o react-select-checkbox-deselected',
-  [selectHelper.SELECT_STATES.preSelected]: 'fa fa-check react-select-checkbox-preselected',
-  [selectHelper.SELECT_STATES.unselectable]: 'react-select-checkbox-unselectable'
+  [select.SELECT_STATES.selected]: 'fa fa-check-square react-select-checkbox-selected',
+  [select.SELECT_STATES.notSelected]: 'fa fa-square-o react-select-checkbox-deselected',
+  [select.SELECT_STATES.preSelected]: 'fa fa-check react-select-checkbox-preselected',
+  [select.SELECT_STATES.unselectable]: 'react-select-checkbox-unselectable'
 };
 
 const CellSelected = ({ state }) =>
