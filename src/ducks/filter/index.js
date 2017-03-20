@@ -1,4 +1,4 @@
-import { findIndex } from 'lodash';
+import { findIndex, map, omit } from 'lodash';
 
 import { applyResetByStateKeys, RESET_BY_STATE_KEYS } from '../reset';
 
@@ -10,24 +10,34 @@ const FILTER_RESET = `${SLICE_NAME}/FILTER_RESET`;
 
 const INITIAL_STATE = {};
 
-function doSetQueryFilter(stateKey, string) {
-  const key = 'user.name';
-  if (!string) {
-      return createAction(FILTER_REMOVE)({ stateKey, key });
-  }
-
+function doSetFilter(stateKey, key, fn) {
   return {
     type: FILTER_SET,
     payload: {
       stateKey,
-      fn: (item) => item.name.match(new RegExp(string, 'i')),
+      fn,
+      key,
+    }
+  };
+}
+
+function doRemoveFilter(stateKey, key) {
+  return {
+    type: FILTER_REMOVE,
+    payload: {
+      stateKey,
       key,
     }
   };
 }
 
 function doResetFilter(stateKey) {
-  return createAction(FILTER_RESET)({ stateKey });
+  return {
+    type: FILTER_RESET,
+    payload: {
+      stateKey,
+    }
+  };
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -47,22 +57,24 @@ const reducer = (state = INITIAL_STATE, action) => {
 function applySetFilter(state, action) {
   const { stateKey, fn, key } = action.payload;
   const container = getContainer(state, stateKey);
-  const oldFilterI = findIndex(container, (filter) => filter.key === key);
-  if (oldFilterI !== -1) {
-    container.splice(oldFilterI, 1);
-  }
-  container.push({ fn, key });
-  return { ...state, [stateKey]: container.slice() };
+  return {
+    ...state,
+    [stateKey]: {
+      ...container,
+      [key]: fn,
+    }
+  };
 }
 
 function applyRemoveFilter(state, action) {
   const { stateKey, key } = action.payload;
   const container = getContainer(state, stateKey);
-  const oldFilterI = findIndex(container, (filter) => filter.key === key);
-  if (oldFilterI !== -1) {
-    container.splice(oldFilterI, 1);
-  }
-  return { ...state, [stateKey]: container.slice() };
+  return {
+    ...state,
+    [stateKey]: {
+      ...omit(container, key),
+    }
+  };
 }
 
 function applyResetFilter(state, action) {
@@ -74,8 +86,8 @@ function getContainer(state, stateKey) {
   return state[stateKey] || [];
 }
 
-function getFilters(globalState, stateKey) {
-  return globalState[SLICE_NAME][stateKey] || [];
+function getFilters(state, stateKey) {
+  return map(state[SLICE_NAME][stateKey] || {}, filter => filter);
 }
 
 const selectors = {
@@ -83,7 +95,8 @@ const selectors = {
 };
 
 const actionCreators = {
-  doSetQueryFilter,
+  doSetFilter,
+  doRemoveFilter,
   doResetFilter
 };
 
