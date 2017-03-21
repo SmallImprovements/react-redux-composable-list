@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { every, filter } from 'lodash';
+import { some, filter } from 'lodash';
 
 import { selectors } from '../../ducks';
 
 const filterList = (fns) => {
-  const filterFn = (item) => every(fns, (fn) => fn(item));
+  const filterFn = (item) => some(fns, (fn) => fn(item));
   return (list) => fns.length ? filter(list, filterFn) : list;
 };
 
-const withFilter = (DataGrid) => {
-  const WithFilter = (props) => <DataGrid { ...props } />;
+const withFilterOr = (DataGrid) => {
+  const WithFilterOr = (props) => <DataGrid { ...props } />;
 
   const mapStateToProps = (state, { list, stateKey }) => {
     const filterFns = selectors.getFilters(state, stateKey);
@@ -19,7 +19,7 @@ const withFilter = (DataGrid) => {
     };
   };
 
-  return connect(mapStateToProps)(WithFilter);
+  return connect(mapStateToProps)(WithFilterOr);
 };
 
-export default withFilter;
+export default withFilterOr;

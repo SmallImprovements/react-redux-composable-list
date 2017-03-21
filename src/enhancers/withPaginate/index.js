@@ -41,7 +41,7 @@ const withPaginate = ({ size = DEFAULT_PAGINATION_SIZE }) => (DataGrid) => {
     const paginatedList = paginatedLists[currentPage];
     return {
       paginatedLists,
-      list: paginatedList,
+      list: paginatedList || [],
       currentPage,
     };
   };
