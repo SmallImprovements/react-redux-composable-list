@@ -1,6 +1,8 @@
 import React from 'react';
 
-const withPreselectables = (preselected) => (DataGrid) => (props) =>
-  <DataGrid preselected={preselected} { ...props } />;
+const withPreselectables = ({
+  ids = [],
+}) => (DataGrid) => (props) =>
+  <DataGrid preselected={ids} { ...props } />;
 
 export default withPreselectables;

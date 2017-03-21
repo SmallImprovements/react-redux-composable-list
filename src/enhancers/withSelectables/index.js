@@ -4,11 +4,13 @@ import { bindActionCreators } from 'redux';
 
 import { actionCreators } from '../../ducks';
 
-const withSelectables = (selected = []) => (DataGrid) => {
+const withSelectables = ({
+  ids = [],
+}) => (DataGrid) => {
   class WithSelectables extends Component {
     componentDidMount() {
       const { onSelectItems } = this.props;
-      onSelectItems(selected);
+      onSelectItems(ids);
     }
 
     render() {

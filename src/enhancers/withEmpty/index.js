@@ -1,8 +1,8 @@
 import React from 'react';
 
-const withEmpty = (Empty) => (DataGrid) => (props) =>
+const withEmpty = (configuration) => (DataGrid) => (props) =>
   (props.list !== null && props.list.length)
     ? <DataGrid { ...props } />
-    : <Empty />;
+    : <configuration.component />;
 
 export default withEmpty;

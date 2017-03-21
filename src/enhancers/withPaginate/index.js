@@ -17,7 +17,9 @@ const paginateList = (list, size) =>
     return memo;
   }, []);
 
-const withPaginate = ({ size = DEFAULT_PAGINATION_SIZE }) => (DataGrid) => {
+const withPaginate = ({
+  size = DEFAULT_PAGINATION_SIZE
+}) => (DataGrid) => {
   const WithPaginate = (props) =>
     <div>
       <Pagination
