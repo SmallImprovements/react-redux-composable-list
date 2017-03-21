@@ -1,0 +1,19 @@
+{
+  "gitbook": "3.2.2",
+  "title": "react-redux-compose-table",
+  "plugins": ["edit-link", "prism", "-highlight", "github", "anchorjs"],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/rwieruch/react-redux-compose-table/tree/master",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/rwieruch/react-redux-compose-table/"
+    },
+    "theme-default": {
+      "styles": {
+        "website": "build/gitbook.css"
+      }
+    }
+  }
+}
