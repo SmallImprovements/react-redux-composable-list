@@ -23,10 +23,13 @@
     "css-loader": "^0.27.3",
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
+    "gitbook-cli": "^2.3.0",
     "mocha": "^2.5.3",
     "style-loader": "^0.14.1"
   },
   "scripts": {
+    "docs:prepare": "gitbook install",
+    "docs:watch": "npm run docs:prepare && gitbook serve",
     "test": "mocha --compilers js:babel-core/register --require ./mocha.config.js 'src/**/*spec.js'"
   },
   "repository": {
