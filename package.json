@@ -3,14 +3,15 @@
   "version": "0.1.1",
   "description": "Composeable data table solution in React and Redux",
   "main": "dist/bundle.js",
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "redux": "^3.0.0",
+    "react-redux": "^4.0.0 || ^5.0.0"
+  },
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
-    "ramda": "^0.23.0",
-    "react": "^15.4.2",
-    "react-redux": "^5.0.3",
-    "recompose": "^0.22.0",
-    "redux": "^3.6.0"
+    "recompose": "^0.22.0"
   },
   "devDependencies": {
     "babel-core": "^6.9.0",
@@ -32,9 +33,12 @@
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
     "mocha": "^2.5.3",
-    "style-loader": "^0.14.1"
+    "style-loader": "^0.14.1",
+    "webpack": "1.12.2"
   },
   "scripts": {
+    "build-dev": "webpack --progress --profile --colors --config ./webpack.config.dev.js",
+    "build-dist": "webpack -p --config ./webpack.config.prod.js",
     "docs:prepare": "gitbook install",
     "docs:watch": "npm run docs:prepare && gitbook serve",
     "test": "mocha --compilers js:babel-core/register --require ./mocha.config.js 'src/**/*spec.js'",
