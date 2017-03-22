@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { Icon } from 'react-fa'
 
-import { components, enhancements, actionCreators } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-data-grid';
 
 const {
   DataGrid,
@@ -28,13 +29,13 @@ const {
 
 const WIDTHS = {
   SMALL: {
-    width: '25%',
+    width: '10%',
   },
   MEDIUM: {
-    width: '50%',
+    width: '20%',
   },
   LARGE: {
-    width: '75%',
+    width: '70%',
   },
 };
 
@@ -77,20 +78,20 @@ const SelectSortDataGrid = ({
     unselectables={unselectables}
     preselected={preselected}>
     <Row>
-      <HeaderCell style={WIDTHS.MEDIUM}>
+      <HeaderCell style={WIDTHS.LARGE}>
         <Sort
           sortKey={'title'}
           sortFn={titleSort}>
           Title
         </Sort>
       </HeaderCell>
-      <HeaderCell style={WIDTHS.SMALL}>
+      <HeaderCell style={WIDTHS.MEDIUM}>
         <CellMagicHeader
           magicSorts={magicSorts}>
-          (FONT AWESOME MGC)
+          <Icon name="magic" />
         </CellMagicHeader>
       </HeaderCell>
-      <HeaderCell style={WIDTHS.SMALL}>
+      <HeaderCell style={{ ...WIDTHS.SMALL, textAlign: 'right' }}>
         <SortSelected
           sortKey={'selected'}>
           Selected
@@ -99,17 +100,17 @@ const SelectSortDataGrid = ({
     </Row>
     {list.map(item =>
       <Row key={item.id} id={item.id}>
-        <Cell style={WIDTHS.MEDIUM}>{item.title}</Cell>
-        <Cell style={WIDTHS.SMALL}>
+        <Cell style={WIDTHS.LARGE}>{item.title}</Cell>
+        <Cell style={WIDTHS.MEDIUM}>
           <CellMagic item={item} magicSorts={magicSorts} />
         </Cell>
-        <Cell style={WIDTHS.SMALL}>
+        <Cell style={{ ...WIDTHS.SMALL, textAlign: 'right' }}>
           <CellSelected id={item.id}>
             {{
-              SELECTED: <span>FONTAWESONE SELECTED</span>,
-              NOT_SELECTED: <span>FONTAWESONE NOT_SELECTED</span>,
-              PRE_SELECTED: <span>FONTAWESONE PRE_SELECTED</span>,
-              UNSELECTABLE: <span>FONTAWESONE UNSELECTABLE</span>,
+              SELECTED: <Icon name="check-square-o" />,
+              NOT_SELECTED: <Icon name="square-o" />,
+              PRE_SELECTED: <Icon name="check-square-o" />,
+              UNSELECTABLE: <Icon name="square-o" />,
             }}
           </CellSelected>
         </Cell>
@@ -130,32 +131,6 @@ const EmptyBecauseNoList = () =>
     <h3>Nothing to see!</h3>
     <p>Sorry, there is no content.</p>
   </div>
-
-// External Filter Component that consumes the action API of the library
-
-const InputField = ({ onChange }) =>
-  <div style={{ textAlign: 'center', paddingBottom: '20px' }}>
-    Filter Title or Comment: <input
-      type="text"
-      onChange={e => onChange(e.target.value)}
-    />
-  </div>
-
-const getStringFilterFn = query => item =>
-  item.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-  item.comment.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-
-const mapDispatchToPropsStringFilter = (dispatch, props) => ({
-  onChange: (query) => query !== ''
-    ? dispatch(actionCreators.doSetFilter(props.stateKey, 'SOME_FILTER', getStringFilterFn(query)))
-    : dispatch(actionCreators.doRemoveFilter(props.stateKey, 'SOME_FILTER'))
-});
-
-const Filter = connect(null, mapDispatchToPropsStringFilter)(InputField);
-
-export {
-  Filter,
-};
 
 export default compose(
   withEmpty({ component: EmptyBecauseNoList }),

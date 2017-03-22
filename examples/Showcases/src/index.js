@@ -19,7 +19,6 @@ import FilterMultipleDataGrid, { Filters as TitleCommentAndFilter } from './exam
 import FilterMultipleOrDataGrid, { Filters as TitleCommentOrFilter } from './examples/multiple-filter-or';
 import InfiniteDataGrid from './examples/infinite';
 import PaginationDataGrid from './examples/pagination';
-import EverythingDataGrid, { Filter } from './examples/everything';
 
 const store = configureStore();
 
@@ -97,12 +96,6 @@ const SHOWCASE_EXAMPLES = {
     label: 'With Pagination',
     Component: PaginationDataGrid,
   },
-  EVERYTHING: {
-    id: 'EVERYTHING',
-    label: 'Everything at Once',
-    Component: EverythingDataGrid,
-    ExternalApiConsumerComponent: Filter,
-  }
 };
 
 class App extends Component {
