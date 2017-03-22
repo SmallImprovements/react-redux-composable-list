@@ -8,9 +8,9 @@ import SortCaret from '../../helper/components/SortCaret';
 
 const getLinkClass = (sortKey, isActive) =>
   classNames(
-    'inline',
+    'react-redux-data-grid-row-magic-header-inline',
     {
-      'active': isActive(sortKey)
+      'react-redux-data-grid-row-magic-header-active': isActive(sortKey)
     }
   );
 
@@ -23,7 +23,10 @@ const CellMagicHeader = ({
   onSetMagic,
   children
 }) =>
-  <div className={classNames('custom-column', 'header')}>
+  <div className={classNames(
+      'react-redux-data-grid-row-magic-header-custom-column',
+      'react-redux-data-grid-row-magic-header'
+    )}>
     <a
       onClick={() => onSort(primarySort.sortKey, primarySort.sortFn)}
       className={getLinkClass(primarySort.sortKey, isActive)}>
@@ -31,13 +34,16 @@ const CellMagicHeader = ({
       &nbsp;
       <SortCaret isActive={isActive(primarySort.sortKey)} isReverse={isReverse} />
     </a>
-    <a className={classNames('column-selector-sign', getLinkClass(primarySort.sortKey, isActive))}>
+    <a className={classNames(
+        'react-redux-data-grid-row-magic-header-column-selector-sign',
+        getLinkClass(primarySort.sortKey, isActive
+      ))}>
       {children}
     </a>
-    <ul className="custom-column-selector">
+    <ul className="react-redux-data-grid-row-magic-header-custom-column-selector">
       <li
-        key="custom-column-selector-heading"
-        className="custom-column-selector-info">
+        key="react-redux-data-grid-row-magic-header-custom-column-selector-heading"
+        className="react-redux-data-grid-row-magic-header-custom-column-selector-info">
         <small>Toggle column data to:</small>
       </li>
       {map(magicSorts, ({ sortKey, sortFn, label }, key) =>

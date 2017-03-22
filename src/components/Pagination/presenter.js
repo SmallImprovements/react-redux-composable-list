@@ -49,8 +49,8 @@ const Pagination = ({ paginatedLists, currentPage, get, onPaginate, dotted }) =>
   }
 
   const paginationClass = classNames({
-    'pagination-button-container': !dotted,
-    'pagination-dot-container': dotted
+    'react-redux-data-grid-row-pagination-button-container': !dotted,
+    'react-redux-data-grid-row-pagination-dot-container': dotted
   });
 
   return (

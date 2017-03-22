@@ -6,10 +6,10 @@ import { select } from '../../helper/services';
 import './style.less';
 
 const CLASS_MAPPING = {
-  [select.SELECT_STATES.selected]: 'selected',
-  [select.SELECT_STATES.notSelected]: 'selectable',
-  [select.SELECT_STATES.preSelected]: 'unselectable',
-  [select.SELECT_STATES.unselectable]: 'unselectable',
+  [select.SELECT_STATES.selected]: 'react-redux-data-grid-row-selected',
+  [select.SELECT_STATES.notSelected]: 'react-redux-data-grid-row-selectable',
+  [select.SELECT_STATES.preSelected]: 'react-redux-data-grid-row-unselectable',
+  [select.SELECT_STATES.unselectable]: 'react-redux-data-grid-row-unselectable',
 };
 
 const Row = ({
@@ -26,7 +26,7 @@ const RowSelectable = ({
   children
 }) => {
   const rowClass = classNames(
-    'row',
+    'react-redux-data-grid-row',
     CLASS_MAPPING[selectState]
   );
 
@@ -50,7 +50,7 @@ const RowNormal = ({
   children
 }) =>
   <div
-    className={className || 'row'}
+    className={className || 'react-redux-data-grid-row'}
     style={style}
   >
     {children}

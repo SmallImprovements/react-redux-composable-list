@@ -5,11 +5,11 @@ import SortCaret from '../../helper/components/SortCaret';
 
 import './style.less';
 
-function Sort({ isActive, isReverse, onSort, children }) {
+const Sort = ({ isActive, isReverse, onSort, children }) => {
   const linkClass = classNames(
-    'inline',
+    'react-redux-data-grid-sort',
     {
-      'active': isActive
+      'react-redux-data-grid-sort-active': isActive
     }
   );
 

@@ -27,7 +27,7 @@ class DataGrid extends Component {
 
     return (
       <div
-        className={className || 'data-grid'}
+        className={className || 'react-redux-data-grid'}
         style={style}
       >
         {children}

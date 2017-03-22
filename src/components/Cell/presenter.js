@@ -8,7 +8,7 @@ const Cell = ({
   children
 }) =>
   <div
-    className={className || cs('cell', 'cell-body')}
+    className={className || cs('react-redux-data-grid-cell', 'react-redux-data-grid-cell-body')}
     style={style}
   >
     {children}

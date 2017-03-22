@@ -1,4 +1,4 @@
-.header {
+.react-redux-data-grid-row-magic-header {
   position: relative;
   display: flex;
 
@@ -13,7 +13,7 @@
   }
 }
 
-.inline {
+.react-redux-data-grid-row-magic-header-inline {
   box-sizing: border-box;
 
   &:hover {
@@ -21,32 +21,32 @@
   }
 }
 
-.active {
+.react-redux-data-grid-row-magic-header-active {
   font-weight: 700;
 }
 
-.custom-column {
+.react-redux-data-grid-row-magic-header-custom-column {
   > div {
     position: relative;
   }
 
-  .column-selector-sign {
+  .react-redux-data-grid-row-magic-header-column-selector-sign {
     margin-left: 10px;
 
     &:hover {
-      + .custom-column-selector {
+      + .react-redux-data-grid-row-magic-header-custom-column-selector {
           opacity: 1;
           visibility: visible;
       }
     }
   }
 
-  li.custom-column-selector-info {
+  li.react-redux-data-grid-row-magic-header-custom-column-selector-info {
     color: #828282;
   }
 }
 
-.custom-column-selector {
+.react-redux-data-grid-row-magic-header-custom-column-selector {
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -70,7 +70,8 @@
   li {
     margin: 0;
     cursor: pointer;
-    a, &.custom-column-selector-info {
+
+    a, &.react-redux-data-grid-row-magic-header-custom-column-selector-info {
       display: block;
       width: 100%;
       padding: 10px 10px;
@@ -80,7 +81,8 @@
       background: #4495d8;
       color: #FFFFFF;
     }
-    &.custom-column-selector-info {
+
+    &.react-redux-data-grid-row-magic-header-custom-column-selector-info {
       padding-top: 0;
       cursor: default;
     }
