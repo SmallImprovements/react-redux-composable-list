@@ -10,10 +10,12 @@ import CellMagicHeader from './presenter';
 function mapStateToProps(state, { magicSorts, stateKey }) {
   const { sortKey: stateSortKey, isReverse: stateIsReverse } = selectors.getSort(state, stateKey);
   const isActive = (sortKey) => sortKey === stateSortKey;
-  const isReverse = stateIsReverse && isActive;
 
   const sortKey = selectors.getMagicSort(state, stateKey, magicSorts);
   const primarySort = find(magicSorts, (s) => s.sortKey === sortKey);
+
+  const isReverse = stateIsReverse && isActive(sortKey);
+
   return {
     magicSorts,
     primarySort,
