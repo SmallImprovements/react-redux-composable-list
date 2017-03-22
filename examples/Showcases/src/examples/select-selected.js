@@ -1,9 +1,9 @@
 import React from 'react';
 import { compose } from 'recompose';
 
-import { components, enhancers } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-data-grid';
 const { DataGrid, Row, Cell } = components;
-const { withSelectables } = enhancers;
+const { withSelectables } = enhancements;
 
 const WIDTHS = {
   SMALL: {

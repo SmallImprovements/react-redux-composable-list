@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { findIndex } from 'lodash';
 
-const withRemove = (DataGrid) => {
+const withRemove = (
+  configuration = {},
+) => (DataGrid) => {
   return class WithRemove extends Component {
     constructor(props) {
       super(props);

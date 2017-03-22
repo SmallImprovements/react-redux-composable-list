@@ -5,7 +5,7 @@ import { getContext } from 'recompose';
 import { includes } from 'lodash';
 
 import { actionCreators, selectors } from '../../ducks';
-import CellSort from '../CellSort/presenter';
+import Sort from '../Sort/presenter';
 
 const mapStateToProps = (state, { sortKey, stateKey }) => {
   const { sortKey: stateSortKey, isReverse: stateIsReverse } = selectors.getSort(state, stateKey);
@@ -40,4 +40,4 @@ const contextTypes = {
   stateKey: React.PropTypes.string.isRequired
 };
 
-export default getContext(contextTypes)(connect(mapStateToProps, mapDispatchToProps, mergeProps)(CellSort));
+export default getContext(contextTypes)(connect(mapStateToProps, mapDispatchToProps, mergeProps)(Sort));

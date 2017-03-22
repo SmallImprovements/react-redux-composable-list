@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { components, enhancers, actionCreators } from 'react-redux-data-grid';
+import { components, enhancements, actionCreators } from 'react-redux-data-grid';
 const { DataGrid, Row, Cell, HeaderCell } = components;
-const { withFilter } = enhancers;
+const { withFilter } = enhancements;
 
 const WIDTHS = {
   SMALL: {
@@ -78,5 +78,5 @@ export {
 };
 
 export default compose(
-  withFilter
+  withFilter()
 )(FilterDataGrid);

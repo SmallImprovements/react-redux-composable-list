@@ -5,7 +5,7 @@ import SortCaret from '../../helper/components/SortCaret';
 
 import './style.less';
 
-function CellSort({ isActive, isReverse, onSort, children }) {
+function Sort({ isActive, isReverse, onSort, children }) {
   const linkClass = classNames(
     'inline',
     {
@@ -26,10 +26,10 @@ function CellSort({ isActive, isReverse, onSort, children }) {
   );
 }
 
-CellSort.propTypes = {
+Sort.propTypes = {
   isActive: React.PropTypes.bool,
   isReverse: React.PropTypes.bool,
   onSort: React.PropTypes.func,
 };
 
-export default CellSort;
+export default Sort;

@@ -5,7 +5,9 @@ import { selectors } from '../../ducks';
 
 const sortList = (fn) => (list) => fn ? fn(list) : list;
 
-const withSort = (DataGrid) => {
+const withSort = (
+  configuration = {},
+) => (DataGrid) => {
   const WithSort = (props) => <DataGrid { ...props } />;
 
   const mapStateToProps = (state, { list, stateKey }) => {

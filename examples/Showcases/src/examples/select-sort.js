@@ -1,9 +1,9 @@
 import React from 'react';
 import { compose } from 'recompose';
 
-import { components, enhancers } from 'react-redux-data-grid';
-const { DataGrid, Row, Cell, HeaderCell, CellSort, CellSortSelected, CellSelected } = components;
-const { withSelectables, withUnselectables, withPreselectables, withSort } = enhancers;
+import { components, enhancements } from 'react-redux-data-grid';
+const { DataGrid, Row, Cell, HeaderCell, Sort, SortSelected, CellSelected } = components;
+const { withSelectables, withUnselectables, withPreselectables, withSort } = enhancements;
 
 const WIDTHS = {
   SMALL: {
@@ -24,24 +24,24 @@ const SelectSortDataGrid = ({ list, isSelectable, unselectables, preselected, st
   <DataGrid stateKey={stateKey} isSelectable={isSelectable} unselectables={unselectables} preselected={preselected}>
     <Row>
       <HeaderCell style={WIDTHS.MEDIUM}>
-        <CellSort
+        <Sort
           sortKey={'title'}
           sortFn={titleSort}>
           Title
-        </CellSort>
+        </Sort>
       </HeaderCell>
       <HeaderCell style={WIDTHS.SMALL}>
-        <CellSort
+        <Sort
           sortKey={'comment'}
           sortFn={commentSort}>
           Comment
-        </CellSort>
+        </Sort>
       </HeaderCell>
       <HeaderCell style={WIDTHS.SMALL}>
-        <CellSortSelected
+        <SortSelected
           sortKey={'selected'}>
           Selected
-        </CellSortSelected>
+        </SortSelected>
       </HeaderCell>
     </Row>
     {list.map(item =>
@@ -70,5 +70,5 @@ export default compose(
   withSelectables({ ids: [] }),
   withPreselectables({ ids: [5] }),
   withUnselectables({ ids: [1, 2] }),
-  withSort
+  withSort()
 )(SelectSortDataGrid);

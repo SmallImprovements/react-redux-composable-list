@@ -1,9 +1,9 @@
 import React from 'react';
 import { compose } from 'recompose';
 
-import { components, enhancers } from 'react-redux-data-grid';
-const { DataGrid, Row, Cell, HeaderCell, CellSort, CellMagicHeader, CellMagic } = components;
-const { withSort } = enhancers;
+import { components, enhancements } from 'react-redux-data-grid';
+const { DataGrid, Row, Cell, HeaderCell, Sort, CellMagicHeader, CellMagic } = components;
+const { withSort } = enhancements;
 
 const WIDTHS = {
   SMALL: {
@@ -47,11 +47,11 @@ const MagicColumnDataGrid = ({ list, stateKey }) =>
   <DataGrid stateKey={stateKey}>
     <Row>
       <HeaderCell style={WIDTHS.LARGE}>
-        <CellSort
+        <Sort
           sortKey={'title'}
           sortFn={titleSort}>
           Title
-        </CellSort>
+        </Sort>
       </HeaderCell>
       <HeaderCell style={WIDTHS.SMALL}>
         <CellMagicHeader
@@ -71,5 +71,5 @@ const MagicColumnDataGrid = ({ list, stateKey }) =>
   </DataGrid>
 
 export default compose(
-  withSort
+  withSort()
 )(MagicColumnDataGrid);

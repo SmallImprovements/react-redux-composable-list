@@ -5,9 +5,9 @@ import HeaderCell from './HeaderCell';
 
 import Pagination from './Pagination';
 
-import CellSort from './CellSort';
+import Sort from './Sort';
 
-import CellSortSelected from './CellSortSelected';
+import SortSelected from './SortSelected';
 import CellSelected from './CellSelected';
 
 import CellMagic from './CellMagic';
@@ -21,9 +21,9 @@ export {
 
   Pagination,
 
-  CellSort,
+  Sort,
 
-  CellSortSelected,
+  SortSelected,
   CellSelected,
 
   CellMagicHeader,

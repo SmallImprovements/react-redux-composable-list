@@ -9,7 +9,9 @@ const filterList = (fns) => {
   return (list) => fns.length ? filter(list, filterFn) : list;
 };
 
-const withFilterOr = (DataGrid) => {
+const withFilterOr = (
+  configuration = {},
+) => (DataGrid) => {
   const WithFilterOr = (props) => <DataGrid { ...props } />;
 
   const mapStateToProps = (state, { list, stateKey }) => {

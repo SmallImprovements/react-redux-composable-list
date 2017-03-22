@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { components, enhancers, actionCreators } from 'react-redux-data-grid';
+import { components, enhancements, actionCreators } from 'react-redux-data-grid';
 
 const {
   DataGrid,
   Row,
   Cell,
   HeaderCell,
-  CellSort,
-  CellSortSelected,
+  Sort,
+  SortSelected,
   CellSelected,
   CellMagicHeader,
   CellMagic,
@@ -24,7 +24,7 @@ const {
   withFilter,
   withPaginate,
   withEmpty,
-} = enhancers;
+} = enhancements;
 
 const WIDTHS = {
   SMALL: {
@@ -78,11 +78,11 @@ const SelectSortDataGrid = ({
     preselected={preselected}>
     <Row>
       <HeaderCell style={WIDTHS.MEDIUM}>
-        <CellSort
+        <Sort
           sortKey={'title'}
           sortFn={titleSort}>
           Title
-        </CellSort>
+        </Sort>
       </HeaderCell>
       <HeaderCell style={WIDTHS.SMALL}>
         <CellMagicHeader
@@ -91,10 +91,10 @@ const SelectSortDataGrid = ({
         </CellMagicHeader>
       </HeaderCell>
       <HeaderCell style={WIDTHS.SMALL}>
-        <CellSortSelected
+        <SortSelected
           sortKey={'selected'}>
           Selected
-        </CellSortSelected>
+        </SortSelected>
       </HeaderCell>
     </Row>
     {list.map(item =>
@@ -162,8 +162,8 @@ export default compose(
   withSelectables({ ids: [0] }),
   withPreselectables({ ids: [2, 3] }),
   withUnselectables({ ids: [4, 6] }),
-  withFilter,
+  withFilter(),
   withEmpty({ component: EmptyBecauseFilter }),
-  withSort,
+  withSort(),
   withPaginate({ size: 10 }),
 )(SelectSortDataGrid);

@@ -1,5 +1,5 @@
 import * as components from './components';
-import * as enhancers from './enhancers';
+import * as enhancements from './enhancements';
 
 import {
   reducers,
@@ -9,7 +9,7 @@ import {
 
 export {
   components,
-  enhancers,
+  enhancements,
 
   actionCreators,
   selectors,
