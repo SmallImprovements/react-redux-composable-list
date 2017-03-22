@@ -23,6 +23,11 @@ module.exports = {
         }
       },
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['babel-loader', 'eslint-loader']
+      },
+      {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
       }

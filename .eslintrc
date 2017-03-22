@@ -1,0 +1,28 @@
+{
+  parser: "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  rules: {
+    "import/prefer-default-export": 0,
+    "react/display-name": 0,
+    "react/prop-types": 0,
+  },
+  "globals": {
+    "describe": true,
+    "fdescribe": true,
+    "before": true,
+    "beforeEach": true,
+    "it": true,
+    "fit": true,
+    "xit": true,
+    "expect": true,
+    "after": true,
+    "afterEach": true
+  }
+}
