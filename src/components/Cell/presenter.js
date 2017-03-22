@@ -1,6 +1,7 @@
 import React from 'react';
-import '../style.less';
 import cs from 'classnames';
+
+import '../style.less';
 
 const Cell = ({
   style,
@@ -13,5 +14,11 @@ const Cell = ({
   >
     {children}
   </div>;
+
+Cell.propTypes = {
+  style: React.PropTypes.object,
+  className: React.PropTypes.string,
+  children: React.PropTypes.node.isRequired,
+};
 
 export default Cell;

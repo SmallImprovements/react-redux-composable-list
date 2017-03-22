@@ -20,6 +20,13 @@ const Row = ({
     ? <RowSelectable { ...props } />
     : <RowNormal { ...props } />;
 
+Row.propTypes = {
+  isSelectable: React.PropTypes.bool,
+  style: React.PropTypes.object,
+  className: React.PropTypes.string,
+  children: React.PropTypes.node.isRequired,
+};
+
 const RowSelectable = ({
   selectState,
   onSelect,
@@ -44,6 +51,15 @@ const RowSelectable = ({
   );
 };
 
+RowSelectable.propTypes = {
+  selectState: React.PropTypes.string,
+  onSelect: React.PropTypes.func.isRequired,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.arrayOf(React.PropTypes.node),
+    React.PropTypes.node
+  ]).isRequired
+};
+
 const RowNormal = ({
   style,
   className = '',
@@ -55,5 +71,11 @@ const RowNormal = ({
   >
     {children}
   </div>;
+
+RowNormal.propTypes = {
+  style: React.PropTypes.object,
+  className: React.PropTypes.string,
+  children: React.PropTypes.node.isRequired,
+};
 
 export default Row;

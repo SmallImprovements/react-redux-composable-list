@@ -16,7 +16,7 @@ const withSelectables = ({
     render() {
       return <DataGrid isSelectable={true} { ...this.props } />;
     }
-  };
+  }
 
   const mapDispatchToProps = (dispatch, { stateKey }) => ({
     onSelectItems: bindActionCreators((ids) => actionCreators.doSelectItems(stateKey, ids, true), dispatch),

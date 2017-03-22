@@ -59,9 +59,13 @@ const CellMagicHeader = ({
   </div>;
 
 CellMagicHeader.propTypes = {
-  isActive: React.PropTypes.func,
+  primarySort: React.PropTypes.object.isRequired,
+  magicSorts: React.PropTypes.array.isRequired,
+  isActive: React.PropTypes.func.isRequired,
   isReverse: React.PropTypes.bool,
-  onSort: React.PropTypes.func,
+  onSort: React.PropTypes.func.isRequired,
+  onSetMagic: React.PropTypes.func.isRequired,
+  children: React.PropTypes.node,
 };
 
 export default CellMagicHeader;

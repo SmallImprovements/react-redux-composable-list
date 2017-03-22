@@ -10,7 +10,9 @@ const filterList = (fns) => {
 };
 
 const withFilterOr = (
+/*eslint-disable no-unused-vars*/
   configuration = {},
+/*eslint-enable no-unused-vars*/
 ) => (DataGrid) => {
   const WithFilterOr = (props) => <DataGrid { ...props } />;
 

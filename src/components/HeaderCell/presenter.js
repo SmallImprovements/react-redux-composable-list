@@ -13,4 +13,10 @@ const HeaderCell = ({
     {children}
   </div>;
 
+HeaderCell.propTypes = {
+  style: React.PropTypes.object,
+  className: React.PropTypes.string,
+  children: React.PropTypes.node.isRequired,
+};
+
 export default HeaderCell;

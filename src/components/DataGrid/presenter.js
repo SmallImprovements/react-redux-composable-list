@@ -48,6 +48,9 @@ DataGrid.propTypes = {
   isSelectable: PropTypes.bool,
   preselected: PropTypes.array,
   unselectables: PropTypes.array,
+  style: React.PropTypes.object,
+  className: React.PropTypes.string,
+  children: React.PropTypes.node.isRequired,
 };
 
 DataGrid.childContextTypes = {

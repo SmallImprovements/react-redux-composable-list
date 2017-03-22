@@ -1,4 +1,4 @@
-import { findIndex, map, omit } from 'lodash';
+import { map, omit } from 'lodash';
 
 import { applyResetByStateKeys, RESET_BY_STATE_KEYS } from '../reset';
 

@@ -30,6 +30,7 @@ Sort.propTypes = {
   isActive: React.PropTypes.bool,
   isReverse: React.PropTypes.bool,
   onSort: React.PropTypes.func,
+  children: React.PropTypes.node,
 };
 
 export default Sort;

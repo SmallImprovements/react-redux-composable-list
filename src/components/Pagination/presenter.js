@@ -41,9 +41,24 @@ const Step = ({
       </span>
     </button>
   );
-}
+};
 
-const Pagination = ({ paginatedLists, currentPage, get, onPaginate, dotted }) => {
+Step.propTypes = {
+  step: React.PropTypes.array.isRequired,
+  currentPage: React.PropTypes.number.isRequired,
+  page: React.PropTypes.number.isRequired,
+  get: React.PropTypes.func,
+  onPaginate: React.PropTypes.func.isRequired,
+  dotted: React.PropTypes.bool.isRequired,
+};
+
+const Pagination = ({
+  paginatedLists,
+  currentPage,
+  get,
+  onPaginate,
+  dotted
+}) => {
   if (paginatedLists.length < 2) {
     return null;
   }
@@ -69,5 +84,13 @@ const Pagination = ({ paginatedLists, currentPage, get, onPaginate, dotted }) =>
     </div>
   );
 }
+
+Pagination.propTypes = {
+  paginatedLists: React.PropTypes.array.isRequired,
+  currentPage: React.PropTypes.number.isRequired,
+  get: React.PropTypes.func,
+  onPaginate: React.PropTypes.func.isRequired,
+  dotted: React.PropTypes.bool.isRequired,
+};
 
 export default Pagination;

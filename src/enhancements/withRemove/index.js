@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { findIndex } from 'lodash';
 
 const withRemove = (
+/*eslint-disable no-unused-vars*/
   configuration = {},
+/*eslint-enable no-unused-vars*/
 ) => (DataGrid) => {
   return class WithRemove extends Component {
     constructor(props) {

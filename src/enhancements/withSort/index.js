@@ -6,7 +6,9 @@ import { selectors } from '../../ducks';
 const sortList = (fn) => (list) => fn ? fn(list) : list;
 
 const withSort = (
+/*eslint-disable no-unused-vars*/
   configuration = {},
+/*eslint-enable no-unused-vars*/
 ) => (DataGrid) => {
   const WithSort = (props) => <DataGrid { ...props } />;
 
