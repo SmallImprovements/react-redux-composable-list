@@ -53,5 +53,17 @@
   "bugs": {
     "url": "https://github.com/rwieruch/react-redux-data-grid/issues"
   },
-  "homepage": "https://github.com/rwieruch/react-redux-data-grid#readme"
+  "homepage": "https://github.com/rwieruch/react-redux-data-grid#readme",
+  "tags": [
+    "react",
+    "redux",
+    "table"
+  ],
+  "keywords": [
+    "react",
+    "redux",
+    "react-component",
+    "table",
+    "redux-table"
+  ]
 }
