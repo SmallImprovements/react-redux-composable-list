@@ -1,7 +1,7 @@
 {
   "name": "react-redux-data-grid",
   "version": "0.1.1",
-  "description": "A data grid solution in React and Redux",
+  "description": "Composeable data table solution in React and Redux",
   "main": "dist/bundle.js",
   "dependencies": {
     "classnames": "^2.2.5",

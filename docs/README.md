@@ -1,11 +1,12 @@
 # Table of Contents
 
+* [Read Me](/README.md)
 * [Motivation](/docs/Motivation.md)
 * [Idea](/docs/Idea.md)
 * [Demo](/docs/Demo.md)
 * [Getting Started](/docs/GettingStarted.md)
 * [Concepts](/docs/Concepts.md)
-* [Features](/docs/features/README.md)
+* [Enhancements](/docs/features/README.md)
   * [Plain](/docs/features/Plain.md)
   * [Filter](/docs/features/Filter.md)
   * [Select](/docs/features/Select.md)
@@ -20,5 +21,4 @@
   * [API Consumer](/docs/recipes/Consumer.md)
   * [Synchronization](/docs/recipes/ComponentSync.md)
 * [Patrons](/docs/Patrons.md)
-* [Change Log](/docs/ChangeLog.md)
 * [Contribute](/docs/Contribute.md)
