@@ -1,5 +1,4 @@
 import React from 'react';
-import cs from 'classnames';
 
 import '../style.less';
 
@@ -9,7 +8,7 @@ const Cell = ({
   children
 }) =>
   <div
-    className={className || cs('react-redux-data-grid-cell', 'react-redux-data-grid-cell-body')}
+    className={className || ['react-redux-data-grid-cell', 'react-redux-data-grid-cell-body'].join(' ')}
     style={style}
   >
     {children}

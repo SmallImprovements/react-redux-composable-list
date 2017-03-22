@@ -1,6 +1,7 @@
 import React from 'react';
-import { map, noop } from 'lodash';
-import classNames from 'classnames';
+import { map } from 'lodash';
+
+import { noop } from '../../helper/util/noop';
 
 import './style.less';
 
@@ -22,16 +23,15 @@ const Step = ({
   dotted
 }) => {
   const tooltip = getTooltip(page, step, get);
-  const btnClass = classNames(
-    'button',
-    {
-      'is-selected': page === currentPage
-    }
-  );
+
+  const btnClass = ['button'];
+  if (page === currentPage) {
+    btnClass.push('is-selected');
+  }
 
   return (
     <button
-      className={btnClass}
+      className={btnClass.join(' ')}
       onClick={() => onPaginate(page)}
       title={tooltip}
       type="button"
@@ -63,13 +63,14 @@ const Pagination = ({
     return null;
   }
 
-  const paginationClass = classNames({
-    'react-redux-data-grid-row-pagination-button-container': !dotted,
-    'react-redux-data-grid-row-pagination-dot-container': dotted
-  });
+  const paginationClass = [];
+
+  dotted
+    ? paginationClass.push('react-redux-data-grid-row-pagination-dot-container')
+    : paginationClass.push('react-redux-data-grid-row-pagination-button-container');
 
   return (
-    <div className={paginationClass}>
+    <div className={paginationClass.join(' ')}>
       {map(paginatedLists, (step, key) => {
         const props = {
           step,

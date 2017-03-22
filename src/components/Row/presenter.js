@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import { select } from '../../helper/services';
 
@@ -32,10 +31,7 @@ const RowSelectable = ({
   onSelect,
   children
 }) => {
-  const rowClass = classNames(
-    'react-redux-data-grid-row',
-    CLASS_MAPPING[selectState]
-  );
+  const rowClass = ['react-redux-data-grid-row', CLASS_MAPPING[selectState]];
 
   const onClick = selectState === select.SELECT_STATES.selected ||
     selectState === select.SELECT_STATES.notSelected
@@ -45,7 +41,7 @@ const RowSelectable = ({
   return (
     <div
       onClick={onClick}
-      className={rowClass}>
+      className={rowClass.join(' ')}>
       {children}
     </div>
   );
