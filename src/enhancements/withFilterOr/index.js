@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { some, filter } from 'lodash';
+
+import { filter } from '../../helper/util/filter';
+import { some } from '../../helper/util/some';
 
 import { selectors } from '../../ducks';
 

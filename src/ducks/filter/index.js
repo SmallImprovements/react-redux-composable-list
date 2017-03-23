@@ -1,6 +1,6 @@
-import { map, omit } from 'lodash';
-
 import { applyResetByStateKeys, RESET_BY_STATE_KEYS } from '../reset';
+
+import { omit } from '../../helper/util/omit';
 
 const SLICE_NAME = 'tableFilter';
 
@@ -87,7 +87,8 @@ function getContainer(state, stateKey) {
 }
 
 function getFilters(state, stateKey) {
-  return map(state[SLICE_NAME][stateKey] || {}, filter => filter);
+  const filters = state[SLICE_NAME][stateKey] || {};
+  return Object.keys(filters).map(value => filters[value]);
 }
 
 const selectors = {

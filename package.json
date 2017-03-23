@@ -9,7 +9,7 @@
     "react-redux": "^4.0.0 || ^5.0.0"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash.sortby": "^4.7.0",
     "recompose": "^0.22.0"
   },
   "devDependencies": {
@@ -32,6 +32,9 @@
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
     "mocha": "^2.5.3",
+    "react": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
     "style-loader": "^0.14.1",
     "webpack": "1.12.2"
   },
@@ -47,7 +50,13 @@
     "type": "git",
     "url": "git+https://github.com/rwieruch/react-redux-data-grid.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "redux",
+    "react-component",
+    "table",
+    "redux-table"
+  ],
   "author": "Robin Wieruch <wrobin@gmx.net> (https://www.robinwieruch.de)",
   "license": "MIT",
   "bugs": {
@@ -58,12 +67,5 @@
     "react",
     "redux",
     "table"
-  ],
-  "keywords": [
-    "react",
-    "redux",
-    "react-component",
-    "table",
-    "redux-table"
   ]
 }

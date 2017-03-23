@@ -1,5 +1,4 @@
 import React from 'react';
-import { map } from 'lodash';
 
 import { noop } from '../../helper/util/noop';
 
@@ -71,7 +70,7 @@ const Pagination = ({
 
   return (
     <div className={paginationClass.join(' ')}>
-      {map(paginatedLists, (step, key) => {
+      {paginatedLists.map((step, key) => {
         const props = {
           step,
           currentPage,

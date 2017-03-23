@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { every, filter } from 'lodash';
+
+import { filter } from '../../helper/util/filter';
+import { every } from '../../helper/util/every';
 
 import { selectors } from '../../ducks';
 

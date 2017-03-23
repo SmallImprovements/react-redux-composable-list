@@ -1,4 +1,4 @@
-import { uniq, reduce, includes } from 'lodash';
+import { uniq } from '../../helper/util/uniq';
 
 import { applyResetByStateKeys, RESET_BY_STATE_KEYS } from '../reset';
 
@@ -111,7 +111,7 @@ function applyResetSelectedItems(state, action) {
 }
 
 function removeItems(list, ids) {
-  return reduce(ids, (result, value) => {
+  return ids.reduce((result, value) => {
     let index = result.indexOf(value);
     result = (index !== -1) ? removeItem(result, index) : result;
     return result;
@@ -134,7 +134,7 @@ function getSelection(state, stateKey) {
 }
 
 function getIsSelected(state, stateKey, id) {
-  return includes(getSelection(state, stateKey), id);
+  return getSelection(state, stateKey).indexOf(id) !== -1;
 }
 
 const selectors = {

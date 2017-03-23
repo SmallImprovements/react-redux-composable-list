@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { map } from 'lodash';
-
 import './style.less';
 
 import SortCaret from '../../helper/components/SortCaret';
@@ -48,7 +46,7 @@ const CellMagicHeader = ({
         className="react-redux-data-grid-row-magic-header-custom-column-selector-info">
         <small>Toggle column data to:</small>
       </li>
-      {map(magicSorts, ({ sortKey, sortFn, label }, key) =>
+      {magicSorts.map(({ sortKey, sortFn, label }, key) =>
         <li key={key}>
           <a
             onClick={() => onSetMagic(sortKey)}

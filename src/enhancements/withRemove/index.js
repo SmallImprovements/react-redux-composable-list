@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { findIndex } from 'lodash';
+
+import { findIndex } from '../../helper/util/findIndex';
 
 const withRemove = (
 /*eslint-disable no-unused-vars*/

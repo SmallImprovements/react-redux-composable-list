@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getContext } from 'recompose';
-import { includes } from 'lodash';
 
 import { actionCreators, selectors } from '../../ducks';
 import Sort from '../Sort/presenter';
@@ -28,7 +27,7 @@ const mapDispatchToProps = (dispatch, { sortKey, stateKey }) => ({
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { selection, ...others } = stateProps;
   const { onSort } = dispatchProps;
-  const sortFn = (item) => includes(selection, item.id);
+  const sortFn = (item) => selection.indexOf(item.id) !== -1;
   return {
     ...ownProps,
     ...others,

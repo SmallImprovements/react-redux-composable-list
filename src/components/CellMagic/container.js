@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getContext } from 'recompose';
-import { find } from 'lodash';
+
+import { find } from '../../helper/util/find';
 
 import { selectors } from '../../ducks';
 import CellMagic from './presenter';

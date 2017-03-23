@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { reduce } from 'lodash';
 
 import { selectors } from '../../ducks';
 import { Pagination } from '../../components';
@@ -8,7 +7,7 @@ import { Pagination } from '../../components';
 const DEFAULT_PAGINATION_SIZE = 15;
 
 const paginateList = (list, size) =>
-  reduce(list, (memo, item, i) => {
+  list.reduce((memo, item, i) => {
     if (i % size) {
       memo[memo.length - 1].push(item);
     } else {

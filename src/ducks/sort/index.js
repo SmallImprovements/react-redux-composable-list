@@ -1,4 +1,6 @@
-import { sortBy, partition } from 'lodash';
+import sortBy from 'lodash.sortby';
+
+import { partition } from '../../helper/util/partition';
 
 import { applyResetByStateKeys, RESET_BY_STATE_KEYS } from '../reset';
 
@@ -40,14 +42,14 @@ function applyTableSort(state, action) {
 
 function getEnhancedSortFn(isReverse, sortFn) {
   return function (items) {
-    const [ filledValues, emptyValues ] = partition(items, (item) => isEmpty(sortFn(item)));
+    const [ filledValues, emptyValues ] = partition(items, (item) => isNotEmpty(sortFn(item)));
     return isReverse
       ? sortBy(filledValues, sortFn).reverse().concat(emptyValues)
       : sortBy(filledValues, sortFn).concat(emptyValues);
   };
 }
 
-function isEmpty(value) {
+function isNotEmpty(value) {
   return value !== undefined && value !== null && value !== '';
 }
 

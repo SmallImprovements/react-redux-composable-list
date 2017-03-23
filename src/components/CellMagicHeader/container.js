@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getContext } from 'recompose';
-import { find } from 'lodash';
+
+import { find } from '../../helper/util/find';
 
 import { actionCreators, selectors } from '../../ducks';
 import CellMagicHeader from './presenter';
