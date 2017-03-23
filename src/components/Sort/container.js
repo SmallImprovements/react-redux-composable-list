@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getContext } from 'recompose';
+import { getContext } from '../../helper/util/getContext';
 import { actionCreators, selectors } from '../../ducks';
 import Sort from './presenter';
 

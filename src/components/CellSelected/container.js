@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getContext } from 'recompose';
+import { getContext } from '../../helper/util/getContext';
 
 import { selectors } from '../../ducks';
 import CellSelected from './presenter';
