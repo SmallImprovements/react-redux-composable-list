@@ -17,6 +17,11 @@ const WIDTHS = {
   },
 };
 
+const SORTS_ASC_DESC = {
+  ASC: <span>(asc)</span>,
+  DESC: <span>(desc)</span>,
+};
+
 const titleSort = item => item.title;
 const commentSort = item => item.comment;
 
@@ -26,14 +31,16 @@ const SortDataGrid = ({ list, stateKey }) =>
       <HeaderCell style={WIDTHS.MEDIUM}>
         <Sort
           sortKey={'title'}
-          sortFn={titleSort}>
+          sortFn={titleSort}
+          suffix={SORTS_ASC_DESC}>
           Title
         </Sort>
       </HeaderCell>
       <HeaderCell style={WIDTHS.MEDIUM}>
         <Sort
           sortKey={'comment'}
-          sortFn={commentSort}>
+          sortFn={commentSort}
+          suffix={SORTS_ASC_DESC}>
           Comment
         </Sort>
       </HeaderCell>

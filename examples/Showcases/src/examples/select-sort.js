@@ -17,6 +17,11 @@ const WIDTHS = {
   },
 };
 
+const SORTS_ASC_DESC = {
+  ASC: <span>(asc)</span>,
+  DESC: <span>(desc)</span>,
+};
+
 const titleSort = item => item.title;
 const commentSort = item => item.comment;
 
@@ -39,7 +44,8 @@ const SelectSortDataGrid = ({ list, isSelectable, unselectables, preselected, st
       </HeaderCell>
       <HeaderCell style={WIDTHS.SMALL}>
         <SortSelected
-          sortKey={'selected'}>
+          sortKey={'selected'}
+          suffix={SORTS_ASC_DESC}>
           Selected
         </SortSelected>
       </HeaderCell>

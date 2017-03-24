@@ -39,6 +39,11 @@ const WIDTHS = {
   },
 };
 
+const SORTS_ASC_DESC = {
+  ASC: <Icon name="caret-down" />,
+  DESC: <Icon name="caret-up" />,
+};
+
 const titleSort = item => item.title;
 const commentSort = item => item.comment;
 const votesSort = item => item.votes;
@@ -81,19 +86,22 @@ const SelectSortDataGrid = ({
       <HeaderCell style={WIDTHS.LARGE}>
         <Sort
           sortKey={'title'}
-          sortFn={titleSort}>
+          sortFn={titleSort}
+          suffix={SORTS_ASC_DESC}>
           Title
         </Sort>
       </HeaderCell>
       <HeaderCell style={WIDTHS.MEDIUM}>
         <CellMagicHeader
           magicSorts={magicSorts}>
+          suffix={SORTS_ASC_DESC}>
           <Icon name="magic" />
         </CellMagicHeader>
       </HeaderCell>
       <HeaderCell style={{ ...WIDTHS.SMALL, textAlign: 'right' }}>
         <SortSelected
-          sortKey={'selected'}>
+          sortKey={'selected'}
+          suffix={SORTS_ASC_DESC}>
           Selected
         </SortSelected>
       </HeaderCell>

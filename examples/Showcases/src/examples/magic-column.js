@@ -17,6 +17,11 @@ const WIDTHS = {
   },
 };
 
+const SORTS_ASC_DESC = {
+  ASC: <span>(asc)</span>,
+  DESC: <span>(desc)</span>,
+};
+
 const titleSort = item => item.title;
 const commentSort = item => item.comment;
 const votesSort = item => item.votes;
@@ -49,13 +54,15 @@ const MagicColumnDataGrid = ({ list, stateKey }) =>
       <HeaderCell style={WIDTHS.LARGE}>
         <Sort
           sortKey={'title'}
-          sortFn={titleSort}>
+          sortFn={titleSort}
+          suffix={SORTS_ASC_DESC}>
           Title
         </Sort>
       </HeaderCell>
       <HeaderCell style={WIDTHS.SMALL}>
         <CellMagicHeader
-          magicSorts={magicSorts}>
+          magicSorts={magicSorts}
+          suffix={SORTS_ASC_DESC}>
           (Magic!)
         </CellMagicHeader>
       </HeaderCell>
