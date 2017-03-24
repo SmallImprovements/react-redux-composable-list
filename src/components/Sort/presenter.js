@@ -1,10 +1,10 @@
 import React from 'react';
 
-import SortCaret from '../../helper/components/SortCaret';
-
 import './style.less';
 
-const Sort = ({ isActive, isReverse, onSort, children }) => {
+import SortCaret from '../../helper/components/SortCaret';
+
+const Sort = ({ isActive, isReverse, onSort, suffix, children }) => {
   const linkClass = ['react-redux-data-grid-sort'];
   if (isActive) {
     linkClass.push('react-redux-data-grid-sort-active');
@@ -17,7 +17,7 @@ const Sort = ({ isActive, isReverse, onSort, children }) => {
         className={linkClass.join(' ')}>
         { children }
         &nbsp;
-        <SortCaret isActive={isActive} isReverse={isReverse} />
+        <SortCaret suffix={suffix} isActive={isActive} isReverse={isReverse} />
       </a>
     </div>
   );

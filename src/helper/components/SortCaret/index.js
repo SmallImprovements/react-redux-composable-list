@@ -1,10 +1,14 @@
 import React from 'react';
 
-import './style.less';
+const takeSuffix = (suffix, isReverse) =>
+  isReverse ? suffix['DESC'] : suffix['ASC'];
 
-function SortCaret({ isActive, isReverse }) {
-  const icon = isReverse ? 'react-redux-data-grid-sort-caret-asc' : 'react-redux-data-grid-sort-caret-desc';
-  return !!isActive && <span className={icon} />;
-}
+const SortCaret = ({ suffix, isActive, isReverse }) =>
+  <span>
+    {(suffix && isActive)
+      ? takeSuffix(suffix, isReverse)
+      : null
+    }
+  </span>;
 
 export default SortCaret;

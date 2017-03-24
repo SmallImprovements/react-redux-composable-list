@@ -21,6 +21,7 @@ const CellMagicHeader = ({
   isReverse,
   onSort,
   onSetMagic,
+  suffix,
   children
 }) =>
   <div className={[
@@ -32,7 +33,7 @@ const CellMagicHeader = ({
       className={getLinkClass(primarySort.sortKey, isActive)}>
       {primarySort.label}
       &nbsp;
-      <SortCaret isActive={isActive(primarySort.sortKey)} isReverse={isReverse} />
+      <SortCaret suffix={suffix} isActive={isActive(primarySort.sortKey)} isReverse={isReverse} />
     </a>
     <a className={[
         'react-redux-data-grid-row-magic-header-column-selector-sign',
