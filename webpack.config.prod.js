@@ -35,6 +35,29 @@ module.exports = {
       }
     ]
   },
+  externals: {
+    react: {
+      root: 'React',
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+    },
+    'redux': {
+      root: 'Redux',
+      commonjs: 'redux',
+      commonjs2: 'redux',
+      amd: 'redux',
+    },
+    'react-redux': {
+      root: 'ReactRedux',
+      commonjs: 'react-redux',
+      commonjs2: 'react-redux',
+      amd: 'react-redux',
+    }
+  },
+  node: {
+    Buffer: false
+  },
   plugins:[
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
