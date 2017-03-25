@@ -1,6 +1,6 @@
 {
   "name": "react-redux-data-grid",
-  "version": "0.1.1",
+  "version": "0.1.14",
   "description": "Composeable data table solution in React and Redux",
   "main": "dist/bundle.js",
   "peerDependencies": {
