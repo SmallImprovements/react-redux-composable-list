@@ -1,4 +1,4 @@
-# Select
+# Select Enhancement
 
 The Select enhancement is an enabler to select items in your list.
 
@@ -142,4 +142,4 @@ You can use Redux selectors to retrieve state from the Redux store. The library 
 * **getIsSelected(state, stateKey, id):**
   * checks if an item is selected
 
-The Row component is a [Push Component](/docs/recipes/Consumer.md) that wraps the library API and alters the Select enhancement state.
+The Row component is a [Consumer Component](/docs/recipes/Consumer.md) that wraps the library API and alters the Select enhancement state.

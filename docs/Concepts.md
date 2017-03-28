@@ -11,7 +11,7 @@ It makes sense to know the concepts behind the library in order to use it. First
 * **enhanced component:**
   * the output of an enhancement that takes a basic or already enhanced component
 * **enhancer component:**
-  * a component that alters an implicit enhancement
+  * a component that alters an enhancement
 * **state key:**
   * an [identifier](https://www.robinwieruch.de/redux-state-keys/) for the enhanced component to track all its enhancements
 
@@ -33,7 +33,7 @@ Your enhanced component can show the list of data in any way. However, a list of
 
 ### Enhancer Components
 
-In addition, there are enhancer components. They can be used inside or outside of your enhanced component. In fact, they can be used anywhere in your application. They will be responsible to trigger enhancements implicitly. These enhancements will be stored and flow back to the enhanced component via its defined enhancements.
+In addition, there are enhancer components. They can be used inside or outside of your enhanced component. In fact, they can be used anywhere in your application. They will be responsible to trigger enhancements. These enhancements will be stored and flow back to the enhanced component via its defined enhancements.
 
 There are several active enhancer that come in-house with the library. However, since the library builds up on composeability, you can use your own enhancer components too. There is an API to manipulate the enhancements in the store.
 
