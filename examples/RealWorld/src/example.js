@@ -93,7 +93,7 @@ const SelectSortDataGrid = ({
       </HeaderCell>
       <HeaderCell style={WIDTHS.MEDIUM}>
         <CellMagicHeader
-          magicSorts={magicSorts}>
+          magicSorts={magicSorts}
           suffix={SORTS_ASC_DESC}>
           <Icon name="magic" />
         </CellMagicHeader>
