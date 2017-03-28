@@ -9,7 +9,7 @@ The Select enhancement is an enabler to select items in your list.
   * use withSelectables enhancement with configuration object
   * pass isSelectable to Enhanced component
 
-**Definition:**
+## Definition:
 
 ```javascript
 import { components, enhancements } from 'react-redux-data-grid';
@@ -29,7 +29,7 @@ const Selectable = ({ list, stateKey, isSelectable }) =>
 export default withSelectables({ ids: [] })(Selectable);
 ```
 
-**Usage:**
+## Usage:
 
 ```javascript
 import Selectable from path/to/component';
@@ -46,11 +46,11 @@ const App = () =>
   />
 ```
 
-**Configuration:**
+## Configuration:
 
-The configuration allows you to define already selected items on initialization. In order to select the items with the `id: '1'` and `id: '2'`, you would use the configuration object `{ ids: ['1', '2'] }`.
+The configuration allows you to define selected items on initialization. In order to select the items with the `id: '1'` and `id: '2'`, you would use the configuration object `{ ids: ['1', '2'] }`.
 
-**Advanced:**
+## More Enhancements and Combinations
 
 You can use two more advanced enhancements to spice up your selectable list.
 
@@ -115,3 +115,31 @@ export default compose(
 ```
 
 You can have a look into the [Sort enhancement](/docs/features/Sort.md) to get to know how to sort selected items.
+
+## API:
+
+You can import action creators and selectors from the library:
+
+```javascript
+import { actionCreators, selectors } from 'react-redux-data-grid';
+```
+
+You can use Redux actions to update the Redux store. The library API offers the following action creators that can be dispatched:
+
+* **actionCreators.doSelectItem(stateKey, id):**
+  * selects an item in the list
+* **actionCreators.doSelectItems(stateKey, ids, isSelect):**
+  * selects or deselects multiple items in the list
+* **actionCreators.doSelectItemsExclusively(stateKey, ids, isSelect):**
+  * selects or deselects multiple items exclusively in the list
+* **actionCreators.doSelectItemsReset(stateKey):**
+  * resets all selected items
+
+You can use Redux selectors to retrieve state from the Redux store. The library API offers the following selectors:
+
+* **getSelection(state, stateKey):**
+  * retrieves all selected items
+* **getIsSelected(state, stateKey, id):**
+  * checks if an item is selected
+
+The Row component is a [Push Component](/docs/recipes/Consumer.md) that wraps the library API and alters the Select enhancement state.
