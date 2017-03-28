@@ -4,15 +4,16 @@ It makes sense to know the concepts behind the library in order to use it. First
 
 ## Terms
 
-* **basic component:** a plain functional stateless or ES6 class component in React
-
-* **enhancement:** a higher order order component that takes a basic component as input and returns an enhanced component
-
-* **enhanced component:** the output of an enhancement that takes a basic or already enhanced component
-
-* **enhancer component:** a component that alters an implicit enhancement
-
-* **state key:** an identifier for the enhanced component to track all its enhancements
+* **basic component:**
+  * a plain functional stateless or ES6 class component in React
+* **enhancement:**
+  * a higher order order component that takes a basic component as input and returns an enhanced component
+* **enhanced component:**
+  * the output of an enhancement that takes a basic or already enhanced component
+* **enhancer component:**
+  * a component that alters an implicit enhancement
+* **state key:**
+  * an [identifier](https://www.robinwieruch.de/redux-state-keys/) for the enhanced component to track all its enhancements
 
 ### Enhancements
 
