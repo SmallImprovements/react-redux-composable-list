@@ -1,6 +1,6 @@
 # Concepts
 
-It makes sense to know the concepts behind the library in order to use it. First the three ingredients blocks Enhancements, Enhanced Component and Ehhancer Components are explained. Second the flow with all ingredients will get explained.
+It makes sense to know the concepts behind the library in order to use it. First, the general terms and the three ingredients Enhancements, Enhanced Component and Enhancer Components will be explained. Second, you will get to know the flow in context with all ingredients.
 
 ## Terms
 
