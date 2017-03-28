@@ -4,7 +4,9 @@ You can use npm to install the library.
 
 `npm install react-redux-data-grid`
 
-There are two requirements in order to use the library. First, you have to connect the its reducers to your Redux store.
+There are **two requirements** in order to use the library.
+
+First, you have to connect the its reducers to your Redux store.
 
 ```javascript
 import { createStore, combineReducers } from 'redux';
@@ -72,8 +74,8 @@ import { components, enhancements } from 'react-redux-data-grid';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables } = enhancements;
 
-const Selectable = ({ list, stateKey }) =>
-  <Enhanced stateKey={stateKey}>
+const Selectable = ({ list, stateKey, isSelectable }) =>
+  <Enhanced stateKey={stateKey} isSelectable={isSelectable}>
     {list.map(item =>
       <Row key={item.id}>
         <Cell style={{ width: '70%' }}>{item.title}</Cell>

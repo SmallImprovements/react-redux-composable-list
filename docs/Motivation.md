@@ -1,6 +1,6 @@
 # Motivation
 
-Small Improvements builds a product that makes feedback happen at companies. The software enables a company and its people to grow with feedback and company and inidividual objectives. It is a continous loop between giving feedback and contributing to an individual goal. It allows you to grow as an individual in a company yet helps the company to focus on long term objectives.
+Small Improvements builds a product that makes feedback happen at companies. The software enables a company and its people to grow with feedback and objectives. It is a continous loop between giving feedback and contributing to an individual goal. It allows you to grow as an individual in a company yet helps the company to focus on long term objectives.
 
 Customers of Small Improvements range from 20 to 2000 people. When so many people set up short and long term objectives or write feedback about each other, a lot of data (ist im umlauf). Managers and the human resource department are keen to explore this data. It is our duty as developers to show all of this data the most accesible way.
 
