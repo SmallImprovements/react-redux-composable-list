@@ -2,7 +2,7 @@
 
 The library builds up on the [Idea](/docs/Idea.md) of composition. The idea applies for components in the enhanced component but also for the enhancements themselves. If you didn't read the [Concepts](/docs/Concepts.md) of the library, you should do so before you continue to read.
 
-# Components
+## Components
 
 The library gives you a handful of basic components to layout your list of items.
 
