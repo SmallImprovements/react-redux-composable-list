@@ -19,6 +19,10 @@ const { Enhanced, Row, Cell } = components;
 
 const Plain = ({ list, stateKey }) =>
   <Enhanced stateKey={stateKey}>
+    <Row>
+      <HeaderCell style={{ width: '70%' }}>Title</HeaderCell>
+      <HeaderCell style={{ width: '30%' }}>Comment</HeaderCell>
+    </Row>
     {list.map(item =>
       <Row key={item.id}>
         <Cell style={{ width: '70%' }}>{item.title}</Cell>
@@ -32,11 +36,11 @@ export default Plain;
 
 In addition, there are [Enhancer Components](/docs/recipes/Consumer.md) that consume the library API to alter the enhancements. These enhancers can be inside the enhanced component, like the `Sort` Enhancer Component in the [Sort Enhancement](/docs/features/Sort.md) example, or anywhere outside of your enhanced component, like the custom build `Filter` Enhancer Component in the [Filter Enhancement](/docs/features/Filter.md) example.
 
-After all, you can use all these built-in layout and enhancer components in addition to custom layout and enhancer components to compose your enhanced component.
+After all, you can use all these built-in layout and enhancer components to compose your enhanced component. In addition, you can come up with custom layout and enhancer components.
 
 ## Higher Order Components
 
-The higher order components, called enhancements in the library, can be used to create enhanced components. Multiple enhancements can be composed to opt-in multiple enhancements. You can have a look into each [Enhancement](/docs/features/README.md) to get to know the different enhancements.
+The higher order components, called enhancements in the library, can be used to create enhanced components. Multiple enhancements can be composed to opt-in multiple features. You can have a look into each [Enhancement](/docs/features/README.md) to get to know the different enhancements.
 
 In order to compose multiple of these enhancements into one enhanced component, you can use a helper library like [recompose](https://github.com/acdlite/recompose) with its compose functionality.
 
@@ -54,7 +58,7 @@ export default compose(
 )(TodoList);
 ```
 
-### Troubleshoot: Multiple Enhancements
+### Multiple Enhancements
 
 In case you are using multiple enhancements, you can compose them in a appropriate order to **improve the performance** and to **avoid bugs**.
 
