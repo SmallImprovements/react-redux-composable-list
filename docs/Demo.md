@@ -2,4 +2,4 @@
 
 You can checkout the live [demo](TODO link) that demonstrates several features of the library.
 
-In addition, you can checkout the [examples/](https://github.com/rwieruch/react-redux-data-grid/tree/master/examples) folder in the GitHub repository. In each of them you will find a README.md to set up the example project.
+In addition, you can checkout the [examples/](https://github.com/rwieruch/react-redux-data-grid/tree/master/examples) folder in the GitHub repository. In each of them you will find instructions to set up the each project.
