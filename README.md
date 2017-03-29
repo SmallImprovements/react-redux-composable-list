@@ -2,9 +2,13 @@
 
 [TODO short description]
 
+[GIF]
+
 ## Demo
 
-After you have cloned the repository, you can [try the examples](https://github.com/rwieruch/react-redux-data-grid/tree/master/examples). Follow the introcutions in the example folders to set up the projects.
+You can checkout the live [demo](TODO link) that demonstrates several features of the library.
+
+In addition, you can checkout the [examples/](https://github.com/rwieruch/react-redux-data-grid/tree/master/examples) folder in the GitHub repository. In each of them you will find instructions to set up the each project. You can try them by cloning the whole library repository
 
 ## Why should you use it?
 
