@@ -52,7 +52,7 @@ The configuration allows you to define selected items on initialization. In orde
 
 ## More Enhancements and Combinations
 
-You can use two more advanced enhancements to spice up your selectable list.
+You can use two more enhancements to spice up your selectable list.
 
 First, `withUnselectables` defines items in your list that are not selectable.
 
@@ -107,6 +107,10 @@ export default compose(
 Both, `withUnselectables` and `withPreselectables`, can be used in a composition.
 
 ```javascript
+import { compose } from recompose;
+
+...
+
 export default compose(
   withSelectables({ ids: [] }),
   withPreselectables({ ids: [] }),
@@ -116,7 +120,7 @@ export default compose(
 
 You can have a look into the [Sort enhancement](/docs/features/Sort.md) to get to know how to sort selected items.
 
-## API:
+## Redux API:
 
 You can import action creators and selectors from the library:
 
@@ -131,7 +135,7 @@ You can use Redux actions to update the Redux store. The library API offers the 
 * **actionCreators.doSelectItems(stateKey, ids, isSelect):**
   * selects or deselects multiple items in the list
 * **actionCreators.doSelectItemsExclusively(stateKey, ids, isSelect):**
-  * selects or deselects multiple items exclusively in the list
+  * selects or deselects multiple items exclusively in the list, meaning that only these items get selected and all previous selected items get unselected
 * **actionCreators.doSelectItemsReset(stateKey):**
   * resets all selected items
 

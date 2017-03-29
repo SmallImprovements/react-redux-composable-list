@@ -1,15 +1,19 @@
 # Plain
 
-Without any enhancement, you can still use several components in your pseudo enhanced component from the library to render a list of data. The `Enhanced` component always takes a `stateKey as identifier`. The Row and Cell components layout the items of the list in a Table.
+Without any enhancement, you can still use layout components in your pseudo enhanced component from the library to render a list of data. The `Enhanced` component always takes a `stateKey` as identifier. The Row, Cell and HeaderCell components layout the items of the list in a Table.
 
 **Definition:**
 
 ```javascript
 import { components } from 'react-redux-data-grid';
-const { Enhanced, Row, Cell } = components;
+const { Enhanced, Row, Cell, HeaderCell } = components;
 
 const Plain = ({ list, stateKey }) =>
   <Enhanced stateKey={stateKey}>
+    <Row>
+      <HeaderCell style={{ width: '70%' }}>Title</HeaderCell>
+      <HeaderCell style={{ width: '30%' }}>Comment</HeaderCell>
+    </Row>
     {list.map(item =>
       <Row key={item.id}>
         <Cell style={{ width: '70%' }}>{item.title}</Cell>
