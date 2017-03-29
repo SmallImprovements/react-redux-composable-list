@@ -9,7 +9,7 @@ The Select enhancement is an enabler to select items in your list.
   * use withSelectables enhancement with configuration object
   * pass isSelectable to Enhanced component
 
-## Definition:
+## Definition
 
 ```javascript
 import { components, enhancements } from 'react-redux-data-grid';
@@ -29,7 +29,7 @@ const Selectable = ({ list, stateKey, isSelectable }) =>
 export default withSelectables({ ids: [] })(Selectable);
 ```
 
-## Usage:
+## Usage
 
 ```javascript
 import Selectable from path/to/component';
@@ -120,7 +120,7 @@ export default compose(
 
 You can have a look into the [Sort enhancement](/docs/features/Sort.md) to get to know how to sort selected items.
 
-## Redux API:
+## Redux API
 
 You can import action creators and selectors from the library:
 
@@ -146,4 +146,6 @@ You can use Redux selectors to retrieve state from the Redux store. The library 
 * **getIsSelected(state, stateKey, id):**
   * checks if an item is selected
 
-The Row component is a [Consumer Component](/docs/recipes/Consumer.md) that wraps the library API and alters the Select enhancement state.
+## Enhancer Components
+
+The Row component, when using the `withSelectables` enhancement, becomes an [Enhancer Component](/docs/recipes/Consumer.md) that wraps the library API and alters the Select enhancement state.
