@@ -1,12 +1,14 @@
 # react-redux-data-grid
 
-The react-redux-data-grid offers you a solution to show a list of items. That sounds simple. Why would you need a library to deal with it? The library comes with various opt-in features to manipulate the list of items or to change the representation of the list. These opt-in features are called enhancements or to stay in the React world: higher order components. Multiple enhancements can be composed to opt-in multiple features like sorting, filtering or pagination. After all, it gives you only an entry point to these enhancements. You can come up with enhancements on your own, since these enhancements are reusable and composeable and the library API is well documented.
+The react-redux-data-grid offers you a solution to show a list of items. That sounds simple. Why would you need a library to deal with it?
+
+The library comes with various opt-in features to manipulate the list of items or to change the representation of the list. These opt-in features are called enhancements or to stay in the React world: higher order components. Multiple enhancements can be composed to opt-in multiple features like sorting, filtering or pagination. After all, it gives you only an entry point to these enhancements. You can come up with enhancements on your own, since these enhancements are reusable and composeable and the library API is well documented.
 
 In addition, in order to manipulate the state of those enhancements, you can use built-in enhancer components. They can be used everywhere in your application and allow you to manipulate sorting, filtering etc. There again the library stays extendable. You can write your own enhancer components.
 
-With the mental model behind this [idea](https://github.com/SmallImprovements/react-redux-data-grid/blob/master/docs/Idea.md) and [concepts](https://github.com/SmallImprovements/react-redux-data-grid/blob/master/docs/Concepts.md), you can come up with great features on your own. All features can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
-
 [TODO GIF]
+
+With the mental model behind this [idea](https://github.com/SmallImprovements/react-redux-data-grid/blob/master/docs/Idea.md) and [concepts](https://github.com/SmallImprovements/react-redux-data-grid/blob/master/docs/Concepts.md), you can come up with great features on your own. All features can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
 
 ## Demo
 
