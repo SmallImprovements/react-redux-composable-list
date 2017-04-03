@@ -4,7 +4,7 @@ You can use npm to install the library: `npm install react-redux-data-grid`
 
 There are **two requirements** in order to use the library.
 
-First, you have to connect its reducers to your Redux store.
+First, since it depends to store the state in the Redux store, you have to connect the library reducers to your Redux store.
 
 ```javascript
 import { createStore, combineReducers } from 'redux';
@@ -21,9 +21,14 @@ const configureStore = (initialState) => createStore(rootReducer, initialState);
 export default configureStore;
 ```
 
-Second you need to use the [react-redux](https://github.com/reactjs/react-redux) Provider component, that takes the your Redux store as input, in a top level component. Maybe you already do so, because you have a React + Redux application. Afterwards you can use the functionalities of the library in your component tree.
+Second, you need to use the [react-redux](https://github.com/reactjs/react-redux) Provider component, that takes the your Redux store as input, in a top level component. Maybe you already do so, because you have a React + Redux application. Afterwards you can use the functionalities of the library in your component tree.
 
 ```javascript
+import configureStore from 'path/to/store';
+
+const initialState = {};
+const store = configureStore(initialState);
+
 <Provider store={store}>
   <App />
 </Provider>

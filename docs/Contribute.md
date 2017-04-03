@@ -4,7 +4,7 @@ Please let us know if you have any feedback. You can create Issues to give feedb
 
 ## Installation
 
-* `git clone git@github.com:rwieruch/react-redux-data-grid.git`
+* `git clone git@github.com:SmallImprovements/react-redux-data-grid.git`
 * `cd react-redux-data-grid`
 * `npm install`
 * `npm run test`
