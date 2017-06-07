@@ -45,7 +45,7 @@ function doSelectItemsExclusively(stateKey, ids, isSelect) {
 
 function doSelectItemsReset(stateKey) {
   return {
-    type: SELECT_ITEMS_EXCLUSIVELY,
+    type: SELECT_ITEMS_RESET,
     payload: {
       stateKey,
     }
