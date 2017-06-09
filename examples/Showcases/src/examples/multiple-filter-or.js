@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { components, enhancements, actionCreators } from 'react-redux-data-grid';
+import { components, enhancements, actionCreators } from 'react-redux-composeable-list';
 const { DataGrid, Row, Cell, HeaderCell } = components;
 const { withFilterOr } = enhancements;
 

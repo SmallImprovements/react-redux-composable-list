@@ -5,7 +5,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     filename: 'bundle.js',
-    library: 'react-redux-data-grid',
+    library: 'react-redux-composeable-list',
     libraryTarget: 'commonjs2'
   },
   resolve: {

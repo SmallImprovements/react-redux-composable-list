@@ -11,7 +11,7 @@ The Empty enhancement allows you to opt-in conditional rendered components when 
 ## Definition
 
 ```javascript
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell } = components;
 const { withEmpty } = enhancements;
 

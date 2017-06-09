@@ -12,7 +12,7 @@ The Select enhancement is an enabler to select items in your list.
 ## Definition
 
 ```javascript
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables } = enhancements;
 
@@ -59,7 +59,7 @@ First, `withUnselectables` defines items in your list that are not selectable.
 ```javascript
 import { compose } from recompose;
 
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables, withUnselectables } = enhancements;
 
@@ -84,7 +84,7 @@ Second, `withPreselectables` defines items in your list that are selected yet ca
 ```javascript
 import { compose } from recompose;
 
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables, withPreselectables } = enhancements;
 
@@ -125,7 +125,7 @@ You can have a look into the [Sort enhancement](/docs/features/Sort.md) to get t
 You can import action creators and selectors from the library:
 
 ```javascript
-import { actionCreators, selectors } from 'react-redux-data-grid';
+import { actionCreators, selectors } from 'react-redux-composeable-list';
 ```
 
 You can use Redux actions to update the Redux store. The library API offers the following action creators that can be dispatched:

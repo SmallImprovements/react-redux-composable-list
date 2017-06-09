@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'recompose';
 
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { DataGrid, Row, Cell } = components;
 const { withPreselectables, withSelectables } = enhancements;
 

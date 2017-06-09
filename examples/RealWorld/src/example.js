@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { Icon } from 'react-fa'
 
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 
 const {
   DataGrid,

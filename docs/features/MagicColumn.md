@@ -11,7 +11,7 @@ The Magic Column enhancement gives you a flexbile column in your table. The colu
 ## Definition
 
 ```javascript
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell, CellMagicHeader, CellMagic } = components;
 const { withSelectables } = enhancements;
 

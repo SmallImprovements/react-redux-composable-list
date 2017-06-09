@@ -4,8 +4,8 @@ Please let us know if you have any feedback. You can create Issues to give feedb
 
 ## Installation
 
-* `git clone git@github.com:SmallImprovements/react-redux-data-grid.git`
-* `cd react-redux-data-grid`
+* `git clone git@github.com:SmallImprovements/react-redux-composeable-list.git`
+* `cd react-redux-composeable-list`
 * `npm install`
 * `npm run test`
 * `npm start`

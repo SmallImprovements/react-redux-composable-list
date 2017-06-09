@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import createLogger from 'redux-logger';
 
-import reducers from 'react-redux-data-grid';
+import reducers from 'react-redux-composeable-list';
 
 const logger = createLogger();
 

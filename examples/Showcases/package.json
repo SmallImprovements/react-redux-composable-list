@@ -1,5 +1,5 @@
 {
-  "name": "react-redux-data-grid-showcases",
+  "name": "react-redux-composeable-list-showcases",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -37,7 +37,7 @@
     "react-dom": "^15.4.2",
     "react-infinite": "^0.10.0",
     "react-redux": "^5.0.3",
-    "react-redux-data-grid": "^0.1.15",
+    "react-redux-composeable-list": "^0.1.15",
     "recompose": "^0.22.0",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.2"

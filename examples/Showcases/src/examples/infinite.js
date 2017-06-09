@@ -1,7 +1,7 @@
 import React from 'react';
 import Infinite from 'react-infinite';
 
-import { components } from 'react-redux-data-grid';
+import { components } from 'react-redux-composeable-list';
 const { DataGrid, Row, Cell } = components;
 
 const WIDTHS = {

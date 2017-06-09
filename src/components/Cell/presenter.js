@@ -8,7 +8,7 @@ const Cell = ({
   children
 }) =>
   <div
-    className={className || ['react-redux-data-grid-cell', 'react-redux-data-grid-cell-body'].join(' ')}
+    className={className || ['react-redux-composeable-list-cell', 'react-redux-composeable-list-cell-body'].join(' ')}
     style={style}
   >
     {children}

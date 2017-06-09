@@ -65,8 +65,8 @@ const Pagination = ({
   const paginationClass = [];
 
   dotted
-    ? paginationClass.push('react-redux-data-grid-row-pagination-dot-container')
-    : paginationClass.push('react-redux-data-grid-row-pagination-button-container');
+    ? paginationClass.push('react-redux-composeable-list-row-pagination-dot-container')
+    : paginationClass.push('react-redux-composeable-list-row-pagination-button-container');
 
   return (
     <div className={paginationClass.join(' ')}>

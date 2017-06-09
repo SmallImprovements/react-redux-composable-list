@@ -11,7 +11,7 @@ The Sort enhancement is an enabler to sort items in your list.
 ## Definition
 
 ```javascript
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell, HeaderCell, Sort } = components;
 const { withSort } = enhancements;
 
@@ -69,7 +69,7 @@ const App = () =>
 You can use the `suffix` property to add components that reflect the ascending and descending sort.
 
 ```javascript
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell, HeaderCell, Sort } = components;
 const { withSort } = enhancements;
 
@@ -121,7 +121,7 @@ export default withSort()(Sortable);
 In case you use the [Select enhancement](/docs/features/Select.md), you can sort the select status of the items too. There exist two built-in components to accomplish it: `SortSelected` and `CellSelected`.
 
 ```javascript
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell, HeaderCell, Sort, SortSelected, CellSelected } = components;
 const { withSort } = enhancements;
 
@@ -186,7 +186,7 @@ export default withSort()(Sortable);
 You can import action creators and selectors from the library:
 
 ```javascript
-import { actionCreators, selectors } from 'react-redux-data-grid';
+import { actionCreators, selectors } from 'react-redux-composeable-list';
 ```
 
 You can use Redux actions to update the Redux store. The library API offers the following action creators that can be dispatched:

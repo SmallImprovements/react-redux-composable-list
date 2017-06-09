@@ -27,7 +27,7 @@ class DataGrid extends Component {
 
     return (
       <div
-        className={className || 'react-redux-data-grid'}
+        className={className || 'react-redux-composeable-list'}
         style={style}
       >
         {children}

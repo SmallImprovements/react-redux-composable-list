@@ -11,7 +11,7 @@ The Infinite feature is no real enhancement. Since the library works with compos
 ```javascript
 import Infinite from 'react-infinite';
 
-import { components } from 'react-redux-data-grid';
+import { components } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell } = components;
 
 const Infinity = ({ list, stateKey }) =>

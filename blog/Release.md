@@ -6,15 +6,15 @@ Back in the days Small Improvements migrated from Angular to React. The migratio
 
 In Angular, Small Improvements had a component to show the data and to access it with filtering and sorting. However, it was a rigid implementation that nobody wanted to touch anymore. Basically, like you would have been used in Angular, it came with one monstrousness configuration object to show a table component.
 
-In React, as everyone would want to, we wanted to make it better. According to the React way we wanted to keep it composeable, reusable and simple in its usage. We came up with a solution for ourselves, the [react-redux-data-grid](https://github.com/SmallImprovements/react-redux-data-grid), to make the data available with all desired functionalities. Since we were convinced that the solution would be beneficial for everyone, we wanted to open source it.
+In React, as everyone would want to, we wanted to make it better. According to the React way we wanted to keep it composeable, reusable and simple in its usage. We came up with a solution for ourselves, the [react-redux-composeable-list](https://github.com/SmallImprovements/react-redux-composeable-list), to make the data available with all desired functionalities. Since we were convinced that the solution would be beneficial for everyone, we wanted to open source it.
 
 # Entering Enhancements and Enhancers
 
-The react-redux-data-grid offers you a solution to show a list of items. That sounds simple. Why would you need a library to deal with it? The library comes with various opt-in features to manipulate the list of items or to change the representation of the list. These opt-in features are called enhancements or to stay in the React world: higher order components. Multiple enhancements can be composed to opt-in multiple features like sorting, filtering or pagination. After all, it gives you only an entry point to these enhancements. You can come up with enhancements on your own, since these enhancements are reusable and composeable and the library API is well documented.
+The react-redux-composeable-list offers you a solution to show a list of items. That sounds simple. Why would you need a library to deal with it? The library comes with various opt-in features to manipulate the list of items or to change the representation of the list. These opt-in features are called enhancements or to stay in the React world: higher order components. Multiple enhancements can be composed to opt-in multiple features like sorting, filtering or pagination. After all, it gives you only an entry point to these enhancements. You can come up with enhancements on your own, since these enhancements are reusable and composeable and the library API is well documented.
 
 In addition, in order to manipulate the state of those enhancements, you can use built-in enhancer components. They can be used everywhere in your application and allow you to manipulate sorting, filtering etc. There again the library stays extendable. You can write your own enhancer components.
 
-With the mental model behind this [idea](https://github.com/SmallImprovements/react-redux-data-grid/blob/master/docs/Idea.md) and [concepts](https://github.com/SmallImprovements/react-redux-data-grid/blob/master/docs/Concepts.md), you can come up with great features on your own. All features can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
+With the mental model behind this [idea](https://github.com/SmallImprovements/react-redux-composeable-list/blob/master/docs/Idea.md) and [concepts](https://github.com/SmallImprovements/react-redux-composeable-list/blob/master/docs/Concepts.md), you can come up with great features on your own. All features can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
 
 You can checkout the quick live [Demo](TODO link) that demonstrates several features of the library.
 
@@ -22,7 +22,7 @@ You can checkout the quick live [Demo](TODO link) that demonstrates several feat
 
 To give you a quick example, the article shows you how you would implement a sortable list.
 
-You can use npm to install the library: `npm install react-redux-data-grid`
+You can use npm to install the library: `npm install react-redux-composeable-list`
 
 In the beginning, there are **two requirements** in order to use the library.
 
@@ -31,7 +31,7 @@ First, since it depends to store the state in the Redux store, you have to conne
 ```javascript
 import { createStore, combineReducers } from 'redux';
 
-import reducers from 'react-redux-data-grid';
+import reducers from 'react-redux-composeable-list';
 
 const rootReducer = combineReducers({
   ...reducers,
@@ -56,10 +56,10 @@ const store = configureStore(initialState);
 </Provider>
 ```
 
-Now you can start to write your first [plain](https://github.com/SmallImprovements/react-redux-data-grid/blob/master/docs/features/Plain.md) component.
+Now you can start to write your first [plain](https://github.com/SmallImprovements/react-redux-composeable-list/blob/master/docs/features/Plain.md) component.
 
 ```javascript
-import { components } from 'react-redux-data-grid';
+import { components } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell } = components;
 
 const Plain = ({ list, stateKey }) =>
@@ -95,7 +95,7 @@ const App = () =>
 That's it. You show the list of items. But that's boring, because you want to use an Enhancement to manipulate your data. Otherwise the library doesn't bring you any benefit. Let's define an Enhanced Component that enables you to select items from the list.
 
 ```javascript
-import { components, enhancements } from 'react-redux-data-grid';
+import { components, enhancements } from 'react-redux-composeable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables } = enhancements;
 
@@ -129,10 +129,10 @@ const App = () =>
   />
 ```
 
-That's it. Your items in the list should be selectable now. Refer to the [Select enhancement](https://github.com/SmallImprovements/react-redux-data-grid/blob/master/docs/features/Select.md) to get to know more about it. After all, you would need to retrieve the selected items at some point to do further things.
+That's it. Your items in the list should be selectable now. Refer to the [Select enhancement](https://github.com/SmallImprovements/react-redux-composeable-list/blob/master/docs/features/Select.md) to get to know more about it. After all, you would need to retrieve the selected items at some point to do further things.
 
 # Extend It
 
-As mentioned earlier, you can write your own enhancements and enhancers, because you have access to the library API. To be more specific, the library API is nothing but action creators and selectors for the Redux store. You will find everything you need to know about the API in each [documented enhancement](https://github.com/SmallImprovements/react-redux-data-grid/tree/master/docs/features). In general, the documentation is a good place to get started and to read up all the features.
+As mentioned earlier, you can write your own enhancements and enhancers, because you have access to the library API. To be more specific, the library API is nothing but action creators and selectors for the Redux store. You will find everything you need to know about the API in each [documented enhancement](https://github.com/SmallImprovements/react-redux-composeable-list/tree/master/docs/features). In general, the documentation is a good place to get started and to read up all the features.
 
 We would love, if you would give it a show and give us feedback about it.

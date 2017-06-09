@@ -7,7 +7,7 @@ const HeaderCell = ({
   children
 }) =>
   <div
-    className={className || 'react-redux-data-grid-cell'}
+    className={className || 'react-redux-composeable-list-cell'}
     style={style}
   >
     {children}
