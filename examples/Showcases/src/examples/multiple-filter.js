@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
 import { components, enhancements, actionCreators } from 'react-redux-composeable-list';
-const { DataGrid, Row, Cell, HeaderCell } = components;
+const { Enhanced, Row, Cell, HeaderCell } = components;
 const { withFilter } = enhancements;
 
 const WIDTHS = {
@@ -18,8 +18,8 @@ const WIDTHS = {
   },
 };
 
-const FilterDataGrid = ({ list, stateKey }) =>
-  <DataGrid stateKey={stateKey}>
+const FilterEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     <Row>
       <HeaderCell style={WIDTHS.MEDIUM}>
         Title
@@ -34,7 +34,7 @@ const FilterDataGrid = ({ list, stateKey }) =>
         <Cell style={WIDTHS.MEDIUM}>{item.comment}</Cell>
       </Row>
     )}
-  </DataGrid>
+  </Enhanced>
 
 // External Filter Component that consumes the action API of the library
 
@@ -79,4 +79,4 @@ export {
 
 export default compose(
   withFilter()
-)(FilterDataGrid);
+)(FilterEnhanced);

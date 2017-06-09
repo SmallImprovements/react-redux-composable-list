@@ -2,9 +2,9 @@ import React from 'react';
 
 const withEmpty = (
   configuration
-) => (DataGrid) => (props) =>
+) => (Enhanced) => (props) =>
   (props.list !== null && props.list.length)
-    ? <DataGrid { ...props } />
+    ? <Enhanced { ...props } />
     : <configuration.component />;
 
 export default withEmpty;

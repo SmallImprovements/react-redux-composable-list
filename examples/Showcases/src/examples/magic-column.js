@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'recompose';
 
 import { components, enhancements } from 'react-redux-composeable-list';
-const { DataGrid, Row, Cell, HeaderCell, Sort, CellMagicHeader, CellMagic } = components;
+const { Enhanced, Row, Cell, HeaderCell, Sort, CellMagicHeader, CellMagic } = components;
 const { withSort } = enhancements;
 
 const WIDTHS = {
@@ -48,8 +48,8 @@ const magicSorts = [
   },
 ];
 
-const MagicColumnDataGrid = ({ list, stateKey }) =>
-  <DataGrid stateKey={stateKey}>
+const MagicColumnEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     <Row>
       <HeaderCell style={WIDTHS.LARGE}>
         <Sort
@@ -75,8 +75,8 @@ const MagicColumnDataGrid = ({ list, stateKey }) =>
         </Cell>
       </Row>
     )}
-  </DataGrid>
+  </Enhanced>
 
 export default compose(
   withSort()
-)(MagicColumnDataGrid);
+)(MagicColumnEnhanced);

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { components } from 'react-redux-composeable-list';
-const { DataGrid, Row, Cell } = components;
+const { Enhanced, Row, Cell } = components;
 
 const WIDTHS = {
   SMALL: {
@@ -15,14 +15,14 @@ const WIDTHS = {
   },
 };
 
-const PlainDataGrid = ({ list, stateKey }) =>
-  <DataGrid stateKey={stateKey}>
+const PlainEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     {list.map(item =>
       <Row key={item.id}>
         <Cell style={WIDTHS.MEDIUM}>{item.title}</Cell>
         <Cell style={WIDTHS.MEDIUM}>{item.comment}</Cell>
       </Row>
     )}
-  </DataGrid>
+  </Enhanced>
 
-export default PlainDataGrid;
+export default PlainEnhanced;

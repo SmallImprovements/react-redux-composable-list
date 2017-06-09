@@ -9,8 +9,8 @@ const withSort = (
 /*eslint-disable no-unused-vars*/
   configuration = {},
 /*eslint-enable no-unused-vars*/
-) => (DataGrid) => {
-  const WithSort = (props) => <DataGrid { ...props } />;
+) => (Enhanced) => {
+  const WithSort = (props) => <Enhanced { ...props } />;
 
   const mapStateToProps = (state, { list, stateKey }) => {
     const { sortFn } = selectors.getSort(state, stateKey);

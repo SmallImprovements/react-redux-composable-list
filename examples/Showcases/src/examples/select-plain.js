@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'recompose';
 
 import { components, enhancements } from 'react-redux-composeable-list';
-const { DataGrid, Row, Cell } = components;
+const { Enhanced, Row, Cell } = components;
 const { withSelectables } = enhancements;
 
 const WIDTHS = {
@@ -17,16 +17,16 @@ const WIDTHS = {
   },
 };
 
-const SelectPlainDataGrid = ({ list, stateKey, isSelectable }) =>
-  <DataGrid stateKey={stateKey} isSelectable={isSelectable}>
+const SelectPlainEnhanced = ({ list, stateKey, isSelectable }) =>
+  <Enhanced stateKey={stateKey} isSelectable={isSelectable}>
     {list.map(item =>
       <Row key={item.id} id={item.id}>
         <Cell style={WIDTHS.MEDIUM}>{item.title}</Cell>
         <Cell style={WIDTHS.MEDIUM}>{item.comment}</Cell>
       </Row>
     )}
-  </DataGrid>
+  </Enhanced>
 
 export default compose(
   withSelectables({ ids: [] })
-)(SelectPlainDataGrid);
+)(SelectPlainEnhanced);

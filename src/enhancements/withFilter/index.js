@@ -15,8 +15,8 @@ const withFilter = (
 /*eslint-disable no-unused-vars*/
   configuration = {},
 /*eslint-enable no-unused-vars*/
-) => (DataGrid) => {
-  const WithFilter = (props) => <DataGrid { ...props } />;
+) => (Enhanced) => {
+  const WithFilter = (props) => <Enhanced { ...props } />;
 
   const mapStateToProps = (state, { list, stateKey }) => {
     const filterFns = selectors.getFilters(state, stateKey);

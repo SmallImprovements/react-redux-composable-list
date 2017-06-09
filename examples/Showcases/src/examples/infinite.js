@@ -2,7 +2,7 @@ import React from 'react';
 import Infinite from 'react-infinite';
 
 import { components } from 'react-redux-composeable-list';
-const { DataGrid, Row, Cell } = components;
+const { Enhanced, Row, Cell } = components;
 
 const WIDTHS = {
   SMALL: {
@@ -16,8 +16,8 @@ const WIDTHS = {
   },
 };
 
-const InfiniteDataGrid = ({ list, stateKey }) =>
-  <DataGrid stateKey={stateKey}>
+const InfiniteEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     <Infinite containerHeight={300} elementHeight={36}>
     {list.map(item =>
         <Row key={item.id}>
@@ -26,6 +26,6 @@ const InfiniteDataGrid = ({ list, stateKey }) =>
         </Row>
     )}
     </Infinite>
-  </DataGrid>
+  </Enhanced>
 
-export default InfiniteDataGrid;
+export default InfiniteEnhanced;

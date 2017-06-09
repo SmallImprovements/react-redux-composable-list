@@ -18,7 +18,7 @@ const paginateList = (list, size) =>
 
 const withPaginate = ({
   size = DEFAULT_PAGINATION_SIZE
-}) => (DataGrid) => {
+}) => (Enhanced) => {
   const WithPaginate = (props) =>
     <div>
       <Pagination
@@ -27,7 +27,7 @@ const withPaginate = ({
         currentPage={props.currentPage}
         dotted={true}
       />
-        <DataGrid { ...props } />
+        <Enhanced { ...props } />
       <Pagination
         stateKey={props.stateKey}
         paginatedLists={props.paginatedLists}

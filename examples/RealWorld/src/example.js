@@ -6,7 +6,7 @@ import { Icon } from 'react-fa'
 import { components, enhancements } from 'react-redux-composeable-list';
 
 const {
-  DataGrid,
+  Enhanced,
   Row,
   Cell,
   HeaderCell,
@@ -70,14 +70,14 @@ const magicSorts = [
   },
 ];
 
-const SelectSortDataGrid = ({
+const SelectSortEnhanced = ({
   list,
   isSelectable,
   unselectables,
   preselected,
   stateKey
 }) =>
-  <DataGrid
+  <Enhanced
     stateKey={stateKey}
     isSelectable={isSelectable}
     unselectables={unselectables}
@@ -124,7 +124,7 @@ const SelectSortDataGrid = ({
         </Cell>
       </Row>
     )}
-  </DataGrid>
+  </Enhanced>
 
 // Empty Components, if filter result or in general list is empty or null
 
@@ -149,4 +149,4 @@ export default compose(
   withEmpty({ component: EmptyBecauseFilter }),
   withSort(),
   withPaginate({ size: 10 }),
-)(SelectSortDataGrid);
+)(SelectSortEnhanced);

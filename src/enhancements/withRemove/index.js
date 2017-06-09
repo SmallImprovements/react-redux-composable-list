@@ -6,7 +6,7 @@ const withRemove = (
 /*eslint-disable no-unused-vars*/
   configuration = {},
 /*eslint-enable no-unused-vars*/
-) => (DataGrid) => {
+) => (Enhanced) => {
   return class WithRemove extends Component {
     constructor(props) {
       super(props);
@@ -32,7 +32,7 @@ const withRemove = (
 
     render() {
       return (
-        <DataGrid
+        <Enhanced
           { ...this.props }
           list={this.state.list}
           onRemoveItem={this.onRemoveItem}

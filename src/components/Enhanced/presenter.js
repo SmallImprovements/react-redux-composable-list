@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import '../style.less';
 
-class DataGrid extends Component {
+class Enhanced extends Component {
   getChildContext() {
     const {
       stateKey,
@@ -36,14 +36,14 @@ class DataGrid extends Component {
   }
 }
 
-DataGrid.defaultProps = {
+Enhanced.defaultProps = {
   isSelectable: false,
   preselected: [],
   unselectables: [],
   className: '',
 };
 
-DataGrid.propTypes = {
+Enhanced.propTypes = {
   stateKey: PropTypes.string.isRequired,
   isSelectable: PropTypes.bool,
   preselected: PropTypes.array,
@@ -53,11 +53,11 @@ DataGrid.propTypes = {
   children: React.PropTypes.node.isRequired,
 };
 
-DataGrid.childContextTypes = {
+Enhanced.childContextTypes = {
   stateKey: PropTypes.string,
   isSelectable: PropTypes.bool,
   preselected: PropTypes.array,
   unselectables: PropTypes.array,
 };
 
-export default DataGrid;
+export default Enhanced;

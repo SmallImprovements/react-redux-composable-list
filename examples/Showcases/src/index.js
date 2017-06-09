@@ -6,19 +6,19 @@ import generateList from './data';
 
 import configureStore from './store';
 
-import PlainDataGrid from './examples/plain';
-import SortDataGrid from './examples/sort';
-import SelectPlainDataGrid from './examples/select-plain';
-import SelectSelectedDataGrid from './examples/select-selected';
-import SelectUnselectablesDataGrid from './examples/select-unselectables';
-import SelectPreselectablesDataGrid from './examples/select-preselectables';
-import SelectSortDataGrid from './examples/select-sort';
-import MagicColumnDataGrid from './examples/magic-column';
-import FilterDataGrid, { Filter as TitleFilter } from './examples/filter';
-import FilterMultipleDataGrid, { Filters as TitleCommentAndFilter } from './examples/multiple-filter';
-import FilterMultipleOrDataGrid, { Filters as TitleCommentOrFilter } from './examples/multiple-filter-or';
-import InfiniteDataGrid from './examples/infinite';
-import PaginationDataGrid from './examples/pagination';
+import PlainEnhanced from './examples/plain';
+import SortEnhanced from './examples/sort';
+import SelectPlainEnhanced from './examples/select-plain';
+import SelectSelectedEnhanced from './examples/select-selected';
+import SelectUnselectablesEnhanced from './examples/select-unselectables';
+import SelectPreselectablesEnhanced from './examples/select-preselectables';
+import SelectSortEnhanced from './examples/select-sort';
+import MagicColumnEnhanced from './examples/magic-column';
+import FilterEnhanced, { Filter as TitleFilter } from './examples/filter';
+import FilterMultipleEnhanced, { Filters as TitleCommentAndFilter } from './examples/multiple-filter';
+import FilterMultipleOrEnhanced, { Filters as TitleCommentOrFilter } from './examples/multiple-filter-or';
+import InfiniteEnhanced from './examples/infinite';
+import PaginationEnhanced from './examples/pagination';
 
 const store = configureStore();
 
@@ -31,70 +31,70 @@ const SHOWCASE_EXAMPLES = {
   PLAIN: {
     id: 'PLAIN',
     label: 'Plain',
-    Component: PlainDataGrid,
+    Component: PlainEnhanced,
   },
   SORT: {
     id: 'SORT',
     label: 'With Sort',
-    Component: SortDataGrid,
+    Component: SortEnhanced,
   },
   SELECT_PLAIN: {
     id: 'SELECT_PLAIN',
     label: 'With Select',
-    Component: SelectPlainDataGrid,
+    Component: SelectPlainEnhanced,
   },
   SELECT_SELECTED: {
     id: 'SELECT_SELECTED',
     label: 'With Select With Selected',
-    Component: SelectSelectedDataGrid,
+    Component: SelectSelectedEnhanced,
   },
   SELECT_UNSELECTABLES: {
     id: 'SELECT_UNSELECTABLES',
     label: 'With Select With Unselectables',
-    Component: SelectUnselectablesDataGrid,
+    Component: SelectUnselectablesEnhanced,
   },
   SELECT_PRESELECTED: {
     id: 'SELECT_PRESELECTED',
     label: 'With Select With Preselectables',
-    Component: SelectPreselectablesDataGrid,
+    Component: SelectPreselectablesEnhanced,
   },
   SELECT_SORT: {
     id: 'SELECT_SORT',
     label: 'With Select With Sort',
-    Component: SelectSortDataGrid,
+    Component: SelectSortEnhanced,
   },
   MAGIC: {
     id: 'MAGIC',
     label: 'With Magic Column',
-    Component: MagicColumnDataGrid,
+    Component: MagicColumnEnhanced,
   },
   FILTER: {
     id: 'FILTER',
     label: 'With Filter',
-    Component: FilterDataGrid,
+    Component: FilterEnhanced,
     ExternalApiConsumerComponent: TitleFilter,
   },
   FILTER_MULTIPLE: {
     id: 'FILTER_MULTIPLE',
     label: 'With Multiple Filters AND',
-    Component: FilterMultipleDataGrid,
+    Component: FilterMultipleEnhanced,
     ExternalApiConsumerComponent: TitleCommentAndFilter,
   },
   FILTER_MULTIPLE_OR: {
     id: 'FILTER_MULTIPLE_OR',
     label: 'With Multiple Filters OR',
-    Component: FilterMultipleOrDataGrid,
+    Component: FilterMultipleOrEnhanced,
     ExternalApiConsumerComponent: TitleCommentOrFilter,
   },
   INFINITE: {
     id: 'INFINITE',
     label: 'With Infinite Scroll',
-    Component: InfiniteDataGrid,
+    Component: InfiniteEnhanced,
   },
   PAGINATION: {
     id: 'PAGINATION',
     label: 'With Pagination',
-    Component: PaginationDataGrid,
+    Component: PaginationEnhanced,
   },
 };
 
@@ -130,7 +130,7 @@ class App extends Component {
 
 const list = generateList(100);
 
-// example.Component equals one of the Example components e.g. PlainDataGrid
+// example.Component equals one of the Example components e.g. PlainEnhanced
 // input: list of items as list
 // input: unique identifier as stateKey
 // external API consumer component needs the stateKey to speak to the library API

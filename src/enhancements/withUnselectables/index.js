@@ -2,7 +2,7 @@ import React from 'react';
 
 const withUnselectables = ({
   ids = [],
-}) => (DataGrid) => (props) =>
-  <DataGrid unselectables={ids} { ...props } />;
+}) => (Enhanced) => (props) =>
+  <Enhanced unselectables={ids} { ...props } />;
 
 export default withUnselectables;

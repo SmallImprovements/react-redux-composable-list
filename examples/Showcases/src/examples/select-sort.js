@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'recompose';
 
 import { components, enhancements } from 'react-redux-composeable-list';
-const { DataGrid, Row, Cell, HeaderCell, Sort, SortSelected, CellSelected } = components;
+const { Enhanced, Row, Cell, HeaderCell, Sort, SortSelected, CellSelected } = components;
 const { withSelectables, withUnselectables, withPreselectables, withSort } = enhancements;
 
 const WIDTHS = {
@@ -25,8 +25,8 @@ const SORTS_ASC_DESC = {
 const titleSort = item => item.title;
 const commentSort = item => item.comment;
 
-const SelectSortDataGrid = ({ list, isSelectable, unselectables, preselected, stateKey }) =>
-  <DataGrid stateKey={stateKey} isSelectable={isSelectable} unselectables={unselectables} preselected={preselected}>
+const SelectSortEnhanced = ({ list, isSelectable, unselectables, preselected, stateKey }) =>
+  <Enhanced stateKey={stateKey} isSelectable={isSelectable} unselectables={unselectables} preselected={preselected}>
     <Row>
       <HeaderCell style={WIDTHS.MEDIUM}>
         <Sort
@@ -66,7 +66,7 @@ const SelectSortDataGrid = ({ list, isSelectable, unselectables, preselected, st
         </Cell>
       </Row>
     )}
-  </DataGrid>
+  </Enhanced>
 
 const Foo = ({ state }) => {
   <span>{SELECT_STATES[state]}</span>
@@ -77,4 +77,4 @@ export default compose(
   withPreselectables({ ids: [5] }),
   withUnselectables({ ids: [1, 2] }),
   withSort()
-)(SelectSortDataGrid);
+)(SelectSortEnhanced);

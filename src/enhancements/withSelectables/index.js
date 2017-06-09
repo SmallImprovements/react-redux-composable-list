@@ -6,7 +6,7 @@ import { actionCreators } from '../../ducks';
 
 const withSelectables = ({
   ids = [],
-}) => (DataGrid) => {
+}) => (Enhanced) => {
   class WithSelectables extends Component {
     componentDidMount() {
       const { onSelectItems } = this.props;
@@ -14,7 +14,7 @@ const withSelectables = ({
     }
 
     render() {
-      return <DataGrid isSelectable={true} { ...this.props } />;
+      return <Enhanced isSelectable={true} { ...this.props } />;
     }
   }
 

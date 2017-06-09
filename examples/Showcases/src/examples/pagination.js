@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'recompose';
 
 import { components, enhancements } from 'react-redux-composeable-list';
-const { DataGrid, Row, Cell } = components;
+const { Enhanced, Row, Cell } = components;
 const { withPaginate } = enhancements;
 
 const WIDTHS = {
@@ -17,16 +17,16 @@ const WIDTHS = {
   },
 };
 
-const PaginationDataGrid = ({ list, stateKey }) =>
-  <DataGrid stateKey={stateKey}>
+const PaginationEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     {list.map(item =>
       <Row key={item.id} id={item.id}>
         <Cell style={WIDTHS.MEDIUM}>{item.title}</Cell>
         <Cell style={WIDTHS.MEDIUM}>{item.comment}</Cell>
       </Row>
     )}
-  </DataGrid>
+  </Enhanced>
 
 export default compose(
   withPaginate({ size: 10 })
-)(PaginationDataGrid);
+)(PaginationEnhanced);

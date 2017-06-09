@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'recompose';
 
 import { components, enhancements } from 'react-redux-composeable-list';
-const { DataGrid, Row, Cell, HeaderCell, Sort } = components;
+const { Enhanced, Row, Cell, HeaderCell, Sort } = components;
 const { withSort } = enhancements;
 
 const WIDTHS = {
@@ -25,8 +25,8 @@ const SORTS_ASC_DESC = {
 const titleSort = item => item.title;
 const commentSort = item => item.comment;
 
-const SortDataGrid = ({ list, stateKey }) =>
-  <DataGrid stateKey={stateKey}>
+const SortEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     <Row>
       <HeaderCell style={WIDTHS.MEDIUM}>
         <Sort
@@ -51,8 +51,8 @@ const SortDataGrid = ({ list, stateKey }) =>
         <Cell style={WIDTHS.MEDIUM}>{item.comment}</Cell>
       </Row>
     )}
-  </DataGrid>
+  </Enhanced>
 
 export default compose(
   withSort()
-)(SortDataGrid);
+)(SortEnhanced);
