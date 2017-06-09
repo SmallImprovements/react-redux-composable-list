@@ -43,6 +43,7 @@ function applyTableSort(state, action) {
 function getEnhancedSortFn(isReverse, sortFn) {
   return function (items) {
     const [ filledValues, emptyValues ] = partition(items, (item) => isNotEmpty(sortFn(item)));
+
     return isReverse
       ? sortBy(filledValues, sortFn).reverse().concat(emptyValues)
       : sortBy(filledValues, sortFn).concat(emptyValues);
@@ -75,5 +76,8 @@ export {
   reducers,
   selectors,
   actionCreators,
-  actionTypes
+  actionTypes,
+
+  // test only
+  getEnhancedSortFn
 };

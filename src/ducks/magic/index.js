@@ -6,17 +6,15 @@ const TABLE_SET_MAGIC = `${SLICE_NAME}/TABLE_SET_MAGIC`;
 
 const INITIAL_STATE = {};
 
-function doSetMagicSort(stateKey, sortKey, sortFn) {
+function doSetMagicSort(stateKey, sortKey) {
   return {
     type: TABLE_SET_MAGIC,
     payload: {
       stateKey,
-      sortKey,
-      sortFn
+      sortKey
     }
   }
 }
-
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
