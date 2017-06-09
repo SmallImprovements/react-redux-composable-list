@@ -21,6 +21,7 @@
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "css-loader": "^0.27.3",
+    "deep-freeze": "0.0.1",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.6.3",
@@ -44,6 +45,7 @@
     "docs:prepare": "gitbook install",
     "docs:watch": "npm run docs:prepare && gitbook serve",
     "test": "mocha --compilers js:babel-core/register --require ./mocha.config.js 'src/**/*spec.js'",
+    "test:watch": "npm run test -- -w",
     "lint": "eslint src"
   },
   "repository": {
