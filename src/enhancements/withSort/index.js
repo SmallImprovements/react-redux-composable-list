@@ -1,25 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { selectors } from '../../ducks';
+import { isEmpty } from '../../helper/util/empty';
+import { selectors, actionCreators } from '../../ducks';
 
 const sortList = (fn) => (list) => fn ? fn(list) : list;
 
-const withSort = (
-/*eslint-disable no-unused-vars*/
-  configuration = {},
-/*eslint-enable no-unused-vars*/
-) => (Enhanced) => {
-  const WithSort = (props) => <Enhanced { ...props } />;
+const withSort = ({
+  sortKey = '',
+  sortFn = null,
+}) => (Enhanced) => {
+  class WithSort extends Component {
+    componentDidMount() {
+      const { sort, onTableSort } = this.props;
+      if (sortKey && sortFn && isEmpty(sort)) {
+        onTableSort(sortKey, sortFn);
+      }
+    }
+
+    render() {
+      const { sort, onTableSort, ...props } = this.props;
+      return <Enhanced { ...props } />;
+    }
+  }
 
   const mapStateToProps = (state, { list, stateKey }) => {
-    const { sortFn } = selectors.getSort(state, stateKey);
+    const sort = selectors.getSort(state, stateKey);
     return {
-      list: sortList(sortFn)(list),
+      list: sortList(sort.sortFn)(list),
+      sort,
     };
   };
 
-  return connect(mapStateToProps)(WithSort);
+  const mapDispatchToProps = (dispatch, { stateKey }) => ({
+    onTableSort: bindActionCreators((sortKey, sortFn) =>
+      actionCreators.doTableSort(stateKey, sortKey, sortFn), dispatch),
+  });
+
+  return connect(mapStateToProps, mapDispatchToProps)(WithSort);
 };
 
 export default withSort;
