@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'recompose';
 
-import { components, enhancements } from 'react-redux-composeable-list';
+import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell, HeaderCell, Sort, CellMagicHeader, CellMagic } = components;
 const { withSort } = enhancements;
 

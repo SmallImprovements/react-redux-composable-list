@@ -5,9 +5,9 @@ import './style.less';
 import SortCaret from '../../helper/components/SortCaret';
 
 const Sort = ({ isActive, isReverse, onSort, suffix, children }) => {
-  const linkClass = ['react-redux-composeable-list-sort'];
+  const linkClass = ['react-redux-composable-list-sort'];
   if (isActive) {
-    linkClass.push('react-redux-composeable-list-sort-active');
+    linkClass.push('react-redux-composable-list-sort-active');
   }
 
   return (

@@ -11,7 +11,7 @@ The Filter enhancement is an enabler to filter items in your list.
 ## Definition
 
 ```javascript
-import { components, enhancements } from 'react-redux-composeable-list';
+import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 const { withFilter } = enhancements;
 
@@ -32,7 +32,7 @@ export default withFilter()(Filterable);
 
 ```javascript
 import { connect } from 'react-redux';
-import { actionCreators } from 'react-redux-composeable-list';
+import { actionCreators } from 'react-redux-composable-list';
 
 const Filters = ({ onTitleFilterChange, onCommentFilterChange }) =>
   <div>
@@ -98,7 +98,7 @@ const App = () =>
 When using the `withFilter` enhancement, all set filters are AND concatenated. There are cases, where you want to concatenate them OR. In order to do so, you only have to exchange the enhancement yet you can keep the Filter Enhancer Components.
 
 ```javascript
-import { components, enhancements } from 'react-redux-composeable-list';
+import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 const { withFilterOr } = enhancements;
 
@@ -120,7 +120,7 @@ export default withFilterOr()(Filterable);
 You can import action creators and selectors from the library:
 
 ```javascript
-import { actionCreators, selectors } from 'react-redux-composeable-list';
+import { actionCreators, selectors } from 'react-redux-composable-list';
 ```
 
 You can use Redux actions to update the Redux store. The library API offers the following action creators that can be dispatched:

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { actionCreators } from 'react-redux-composeable-list';
+import { actionCreators } from 'react-redux-composable-list';
 
 const InputField = ({ onChange }) =>
   <div style={{ textAlign: 'center', padding: '40px' }}>

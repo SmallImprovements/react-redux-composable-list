@@ -11,7 +11,7 @@ The Pagination enhancement allows you to show a large list of data split up to p
 ## Definition
 
 ```javascript
-import { components, enhancements } from 'react-redux-composeable-list';
+import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 const { withPaginate } = enhancements;
 
@@ -58,7 +58,7 @@ You can combine the Pagination enhancement with other enhancements. For instance
 You can import action creators and selectors from the library:
 
 ```javascript
-import { actionCreators } from 'react-redux-composeable-list';
+import { actionCreators } from 'react-redux-composable-list';
 ```
 
 You can use Redux actions to update the Redux store. The library API offers the following action creators that can be dispatched:

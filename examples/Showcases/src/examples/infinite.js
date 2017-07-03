@@ -1,7 +1,7 @@
 import React from 'react';
 import Infinite from 'react-infinite';
 
-import { components } from 'react-redux-composeable-list';
+import { components } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 
 const WIDTHS = {

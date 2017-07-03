@@ -1,6 +1,6 @@
 # Getting Started
 
-You can use npm to install the library: `npm install react-redux-composeable-list`
+You can use npm to install the library: `npm install react-redux-composable-list`
 
 There are **two requirements** in order to use the library.
 
@@ -9,7 +9,7 @@ First, since it depends to store the state in the Redux store, you have to conne
 ```javascript
 import { createStore, combineReducers } from 'redux';
 
-import reducers from 'react-redux-composeable-list';
+import reducers from 'react-redux-composable-list';
 
 const rootReducer = combineReducers({
   ...reducers,
@@ -37,7 +37,7 @@ const store = configureStore(initialState);
 Now you can start to write your first [plain](/docs/features/Plain.md) component.
 
 ```javascript
-import { components } from 'react-redux-composeable-list';
+import { components } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 
 const Plain = ({ list, stateKey }) =>
@@ -73,7 +73,7 @@ const App = () =>
 That's it. You show the list of data. But that's boring, because you want to use an Enhancement to manipulate your data. Otherwise the library doesn't bring you any benefit. Let's define an Enhanced Component that enables you to select items from the list.
 
 ```javascript
-import { components, enhancements } from 'react-redux-composeable-list';
+import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables } = enhancements;
 

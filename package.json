@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-composeable-list",
-  "version": "0.1.23",
-  "description": "Composeable List in React and Redux",
+  "name": "react-redux-composable-list",
+  "version": "0.1.0",
+  "description": "Composable List in React and Redux",
   "main": "dist/bundle.js",
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
@@ -50,7 +50,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SmallImprovements/react-redux-composeable-list.git"
+    "url": "git+https://github.com/SmallImprovements/react-redux-composable-list.git"
   },
   "keywords": [
     "react",
@@ -63,9 +63,9 @@
   "author": "Robin Wieruch <wrobin@gmx.net> (https://www.robinwieruch.de)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SmallImprovements/react-redux-composeable-list/issues"
+    "url": "https://github.com/SmallImprovements/react-redux-composable-list/issues"
   },
-  "homepage": "https://github.com/SmallImprovements/react-redux-composeable-list#readme",
+  "homepage": "https://github.com/SmallImprovements/react-redux-composable-list#readme",
   "tags": [
     "react",
     "redux",

@@ -4,8 +4,8 @@ Please let us know if you have any feedback. You can create Issues to give feedb
 
 ## Installation
 
-* `git clone git@github.com:SmallImprovements/react-redux-composeable-list.git`
-* `cd react-redux-composeable-list`
+* `git clone git@github.com:SmallImprovements/react-redux-composable-list.git`
+* `cd react-redux-composable-list`
 * `npm install`
 * `npm run test`
 * `npm start`

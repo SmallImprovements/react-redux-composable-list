@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { components, enhancements, actionCreators } from 'react-redux-composeable-list';
+import { components, enhancements, actionCreators } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell, HeaderCell } = components;
 const { withFilterOr } = enhancements;
 

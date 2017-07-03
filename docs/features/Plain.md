@@ -5,7 +5,7 @@ Without any enhancement, you can still use layout components in your pseudo enha
 **Definition:**
 
 ```javascript
-import { components } from 'react-redux-composeable-list';
+import { components } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell, HeaderCell } = components;
 
 const Plain = ({ list, stateKey }) =>

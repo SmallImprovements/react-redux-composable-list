@@ -27,7 +27,7 @@ class Enhanced extends Component {
 
     return (
       <div
-        className={className || 'react-redux-composeable-list'}
+        className={className || 'react-redux-composable-list'}
         style={style}
       >
         {children}

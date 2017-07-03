@@ -5,10 +5,10 @@ import { select } from '../../helper/services';
 import './style.less';
 
 const CLASS_MAPPING = {
-  [select.SELECT_STATES.selected]: 'react-redux-composeable-list-row-selected',
-  [select.SELECT_STATES.notSelected]: 'react-redux-composeable-list-row-selectable',
-  [select.SELECT_STATES.preSelected]: 'react-redux-composeable-list-row-unselectable',
-  [select.SELECT_STATES.unselectable]: 'react-redux-composeable-list-row-unselectable',
+  [select.SELECT_STATES.selected]: 'react-redux-composable-list-row-selected',
+  [select.SELECT_STATES.notSelected]: 'react-redux-composable-list-row-selectable',
+  [select.SELECT_STATES.preSelected]: 'react-redux-composable-list-row-unselectable',
+  [select.SELECT_STATES.unselectable]: 'react-redux-composable-list-row-unselectable',
 };
 
 const Row = ({
@@ -31,7 +31,7 @@ const RowSelectable = ({
   onSelect,
   children
 }) => {
-  const rowClass = ['react-redux-composeable-list-row', CLASS_MAPPING[selectState]];
+  const rowClass = ['react-redux-composable-list-row', CLASS_MAPPING[selectState]];
 
   const onClick = selectState === select.SELECT_STATES.selected ||
     selectState === select.SELECT_STATES.notSelected
@@ -62,7 +62,7 @@ const RowNormal = ({
   children
 }) =>
   <div
-    className={className || 'react-redux-composeable-list-row'}
+    className={className || 'react-redux-composable-list-row'}
     style={style}
   >
     {children}

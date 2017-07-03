@@ -7,14 +7,14 @@ The library builds up on the [Idea](/docs/Idea.md) of composition. The idea appl
 The library gives you a handful of basic components to layout your list of items.
 
 ```javascript
-import { components } from 'react-redux-composeable-list';
+import { components } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell, HeaderCell } = components;
 ```
 
 You can use them to layout your list of data.
 
 ```javascript
-import { components } from 'react-redux-composeable-list';
+import { components } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 
 const Plain = ({ list, stateKey }) =>
@@ -47,7 +47,7 @@ In order to compose multiple of these enhancements into one enhanced component, 
 ```javascript
 import { compose } from recompose;
 
-import { enhancements } from 'react-redux-composeable-list';
+import { enhancements } from 'react-redux-composable-list';
 const { withSelectables, withUnselectables } = enhancements;
 
 ...
