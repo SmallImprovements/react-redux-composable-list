@@ -78,5 +78,5 @@ const MagicColumnEnhanced = ({ list, stateKey }) =>
   </Enhanced>
 
 export default compose(
-  withSort()
+  withSort({})
 )(MagicColumnEnhanced);

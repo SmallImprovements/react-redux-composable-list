@@ -54,5 +54,5 @@ const SortEnhanced = ({ list, stateKey }) =>
   </Enhanced>
 
 export default compose(
-  withSort()
+  withSort({})
 )(SortEnhanced);

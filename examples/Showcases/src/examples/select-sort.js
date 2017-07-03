@@ -76,5 +76,5 @@ export default compose(
   withSelectables({ ids: [] }),
   withPreselectables({ ids: [5] }),
   withUnselectables({ ids: [1, 2] }),
-  withSort()
+  withSort({})
 )(SelectSortEnhanced);

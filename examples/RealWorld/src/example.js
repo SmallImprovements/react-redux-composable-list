@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { Icon } from 'react-fa'
+import { Icon } from 'react-fa';
 
 import { components, enhancements } from 'react-redux-composable-list';
 
@@ -147,6 +147,6 @@ export default compose(
   withUnselectables({ ids: [4, 6] }),
   withFilter(),
   withEmpty({ component: EmptyBecauseFilter }),
-  withSort(),
+  withSort({}),
   withPaginate({ size: 10 }),
 )(SelectSortEnhanced);
