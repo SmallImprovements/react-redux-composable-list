@@ -16,9 +16,7 @@ const paginateList = (list, size) =>
     return memo;
   }, []);
 
-const withPaginate = ({
-  size = DEFAULT_PAGINATION_SIZE
-}) => (Enhanced) => {
+const withPaginate = (configuration = {}) => (Enhanced) => {
   const WithPaginate = (props) =>
     <div>
       <Pagination
@@ -37,7 +35,7 @@ const withPaginate = ({
     </div>;
 
   const mapStateToProps = (state, { list, stateKey }) => {
-    const paginatedLists = paginateList(list, size);
+    const paginatedLists = paginateList(list, configuration.size || DEFAULT_PAGINATION_SIZE);
     const currentPage = selectors.getCurrentPage(state, stateKey, paginatedLists);
     const paginatedList = paginatedLists[currentPage];
     return {

@@ -1,17 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 
-const withUnselectables = ({
-  ids = [],
-}) => (Enhanced) => {
+const withUnselectables = (configuration = {}) => (Enhanced) => {
   class WithUnselectables extends Component {
     getChildContext() {
       return {
-        unselectables: ids,
+        unselectables: configuration.ids || [],
       };
     }
 
     render() {
-      return <Enhanced unselectables={ids} { ...this.props } />;
+      return <Enhanced unselectables={configuration.ids || []} { ...this.props } />;
     }
   }
 

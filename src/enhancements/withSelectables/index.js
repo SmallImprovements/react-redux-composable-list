@@ -4,9 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import { actionCreators } from '../../ducks';
 
-const withSelectables = ({
-  ids = [],
-}) => (Enhanced) => {
+const withSelectables = (configuration = {}) => (Enhanced) => {
   class WithSelectables extends Component {
     getChildContext() {
       return {
@@ -16,7 +14,7 @@ const withSelectables = ({
 
     componentDidMount() {
       const { onSelectItems } = this.props;
-      onSelectItems(ids);
+      onSelectItems(configuration.ids || []);
     }
 
     render() {

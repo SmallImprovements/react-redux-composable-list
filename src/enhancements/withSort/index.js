@@ -7,15 +7,12 @@ import { selectors, actionCreators } from '../../ducks';
 
 const sortList = (fn) => (list) => fn ? fn(list) : list;
 
-const withSort = ({
-  sortKey = '',
-  sortFn = null,
-}) => (Enhanced) => {
+const withSort = (configuration = {}) => (Enhanced) => {
   class WithSort extends Component {
     componentDidMount() {
       const { sort, onTableSort } = this.props;
-      if (sortKey && sortFn && isEmpty(sort)) {
-        onTableSort(sortKey, sortFn);
+      if (configuration.sortKey && configuration.sortFn && isEmpty(sort)) {
+        onTableSort(configuration.sortKey, configuration.sortFn);
       }
     }
 

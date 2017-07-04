@@ -1,17 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 
-const withPreselectables = ({
-  ids = [],
-}) => (Enhanced) => {
+const withPreselectables = (configuration = {}) => (Enhanced) => {
   class WithPreselectables extends Component {
     getChildContext() {
       return {
-        preselected: ids,
+        preselected: configuration.ids || [],
       };
     }
 
     render() {
-      return <Enhanced preselected={ids} { ...this.props } />;
+      return <Enhanced preselected={configuration.ids || []} { ...this.props } />;
     }
   }
 
