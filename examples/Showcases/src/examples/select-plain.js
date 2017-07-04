@@ -17,8 +17,8 @@ const WIDTHS = {
   },
 };
 
-const SelectPlainEnhanced = ({ list, stateKey, isSelectable }) =>
-  <Enhanced stateKey={stateKey} isSelectable={isSelectable}>
+const SelectPlainEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     {list.map(item =>
       <Row key={item.id} id={item.id}>
         <Cell style={WIDTHS.MEDIUM}>{item.title}</Cell>

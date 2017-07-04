@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
@@ -22,5 +24,12 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot: true
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': '"development"'
+      }
+    })
+  ]
 };

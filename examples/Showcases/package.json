@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "NODE_ENV=production webpack -p --progress --colors --config ./webpack.prod.config.js",
     "start": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,9 +31,12 @@
     "webpack-dev-server": "2.4.1"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "classnames": "2.2.5",
+    "express": "^4.15.3",
     "lodash": "4.17.4",
     "lorem-ipsum": "1.0.3",
+    "path": "^0.12.7",
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-infinite": "0.10.0",

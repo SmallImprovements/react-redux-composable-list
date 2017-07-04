@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -8,6 +8,12 @@ const withSelectables = ({
   ids = [],
 }) => (Enhanced) => {
   class WithSelectables extends Component {
+    getChildContext() {
+      return {
+        isSelectable: true,
+      };
+    }
+
     componentDidMount() {
       const { onSelectItems } = this.props;
       onSelectItems(ids);
@@ -21,6 +27,10 @@ const withSelectables = ({
   const mapDispatchToProps = (dispatch, { stateKey }) => ({
     onSelectItems: bindActionCreators((ids) => actionCreators.doSelectItems(stateKey, ids, true), dispatch),
   });
+
+  WithSelectables.childContextTypes = {
+    isSelectable: PropTypes.bool,
+  };
 
   return connect(null, mapDispatchToProps)(WithSelectables);
 };

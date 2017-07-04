@@ -5,14 +5,12 @@ class Enhanced extends Component {
   getChildContext() {
     const {
       stateKey,
-      isSelectable,
       preselected,
       unselectables
     } = this.props;
 
     return {
       stateKey,
-      isSelectable,
       preselected,
       unselectables,
     };
