@@ -14,19 +14,10 @@ const CLASS_MAPPING = {
 const Row = ({
   isSelectable,
   ...props
-}) => {
- console.log(isSelectable);
- return (
-    <div>{
-    isSelectable
-      ? <RowSelectable { ...props } />
-      : <RowNormal { ...props } />
-    }</div>
-
-  );
-}
-
-
+}) =>
+  isSelectable
+    ? <RowSelectable { ...props } />
+    : <RowNormal { ...props } />;
 
 Row.propTypes = {
   isSelectable: React.PropTypes.bool,

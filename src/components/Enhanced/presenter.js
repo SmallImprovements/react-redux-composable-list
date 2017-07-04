@@ -3,16 +3,10 @@ import '../style.less';
 
 class Enhanced extends Component {
   getChildContext() {
-    const {
-      stateKey,
-      preselected,
-      unselectables
-    } = this.props;
+    const { stateKey } = this.props;
 
     return {
       stateKey,
-      preselected,
-      unselectables,
     };
   }
 
@@ -35,17 +29,11 @@ class Enhanced extends Component {
 }
 
 Enhanced.defaultProps = {
-  isSelectable: false,
-  preselected: [],
-  unselectables: [],
   className: '',
 };
 
 Enhanced.propTypes = {
   stateKey: PropTypes.string.isRequired,
-  isSelectable: PropTypes.bool,
-  preselected: PropTypes.array,
-  unselectables: PropTypes.array,
   style: React.PropTypes.object,
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,
@@ -53,9 +41,6 @@ Enhanced.propTypes = {
 
 Enhanced.childContextTypes = {
   stateKey: PropTypes.string,
-  isSelectable: PropTypes.bool,
-  preselected: PropTypes.array,
-  unselectables: PropTypes.array,
 };
 
 export default Enhanced;
