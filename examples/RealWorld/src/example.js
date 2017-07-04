@@ -137,6 +137,6 @@ export default compose(
   withUnselectables({ ids: [4, 6] }),
   withFilter(),
   withEmpty({ component: EmptyBecauseFilter }),
-  withSort({}),
+  withSort(),
   withPaginate({ size: 10 }),
 )(RealWorlTable);

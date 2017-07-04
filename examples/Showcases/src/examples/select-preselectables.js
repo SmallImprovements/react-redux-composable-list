@@ -28,6 +28,6 @@ const SelectPreselectablesEnhanced = ({ list, stateKey }) =>
   </Enhanced>
 
 export default compose(
-  withSelectables({ ids: [] }),
+  withSelectables(),
   withPreselectables({ ids: [1, 2] })
 )(SelectPreselectablesEnhanced);

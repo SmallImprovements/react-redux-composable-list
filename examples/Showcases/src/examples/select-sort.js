@@ -73,8 +73,8 @@ const Foo = ({ state }) => {
 };
 
 export default compose(
-  withSelectables({ ids: [] }),
+  withSelectables(),
   withPreselectables({ ids: [5] }),
   withUnselectables({ ids: [1, 2] }),
-  withSort({})
+  withSort()
 )(SelectSortEnhanced);

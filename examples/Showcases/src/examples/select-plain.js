@@ -28,5 +28,5 @@ const SelectPlainEnhanced = ({ list, stateKey }) =>
   </Enhanced>
 
 export default compose(
-  withSelectables({ ids: [] })
+  withSelectables()
 )(SelectPlainEnhanced);

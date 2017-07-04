@@ -28,6 +28,6 @@ const SelectUnselectablesEnhanced = ({ list, stateKey }) =>
   </Enhanced>
 
 export default compose(
-  withSelectables({ ids: [] }),
+  withSelectables(),
   withUnselectables({ ids: [1, 2] })
 )(SelectUnselectablesEnhanced);
