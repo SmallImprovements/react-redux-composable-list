@@ -25,8 +25,8 @@ const SORTS_ASC_DESC = {
 const titleSort = item => item.title;
 const commentSort = item => item.comment;
 
-const SelectSortEnhanced = ({ list, isSelectable, unselectables, preselected, stateKey }) =>
-  <Enhanced stateKey={stateKey} isSelectable={isSelectable} unselectables={unselectables} preselected={preselected}>
+const SelectSortEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     <Row>
       <HeaderCell style={WIDTHS.MEDIUM}>
         <Sort

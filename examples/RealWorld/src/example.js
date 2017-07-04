@@ -70,18 +70,8 @@ const magicSorts = [
   },
 ];
 
-const SelectSortEnhanced = ({
-  list,
-  isSelectable,
-  unselectables,
-  preselected,
-  stateKey
-}) =>
-  <Enhanced
-    stateKey={stateKey}
-    isSelectable={isSelectable}
-    unselectables={unselectables}
-    preselected={preselected}>
+const RealWorlTable = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     <Row>
       <HeaderCell style={WIDTHS.LARGE}>
         <Sort
@@ -149,4 +139,4 @@ export default compose(
   withEmpty({ component: EmptyBecauseFilter }),
   withSort({}),
   withPaginate({ size: 10 }),
-)(SelectSortEnhanced);
+)(RealWorlTable);

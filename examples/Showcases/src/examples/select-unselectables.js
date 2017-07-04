@@ -17,8 +17,8 @@ const WIDTHS = {
   },
 };
 
-const SelectUnselectablesEnhanced = ({ list, isSelectable, unselectables, stateKey }) =>
-  <Enhanced stateKey={stateKey} isSelectable={isSelectable} unselectables={unselectables}>
+const SelectUnselectablesEnhanced = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     {list.map(item =>
       <Row key={item.id} id={item.id}>
         <Cell style={WIDTHS.MEDIUM}>{item.title}</Cell>
