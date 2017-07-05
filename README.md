@@ -6,7 +6,7 @@ The library comes with various opt-in features to manipulate the list of items o
 
 In addition, in order to manipulate the state of those enhancements, you can use built-in enhancer components. They can be used everywhere in your application and allow you to manipulate sorting, filtering etc. There again the library stays extendable. You can write your own enhancer components.
 
-![image](https://media.giphy.com/media/l0Iyh4YqScJ7RjAT6/giphy.gif)
+![Demo](https://media.giphy.com/media/xUOrvUtfjt2EhMUjvi/giphy.gif)
 
 With the mental model behind this [idea](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/Idea.md) and [concepts](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/Concepts.md), you can come up with great features on your own. All features can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
 
