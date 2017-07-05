@@ -12,7 +12,7 @@ With the mental model behind this [idea](https://github.com/SmallImprovements/re
 
 ## Demo
 
-You can checkout the live [demo](TODO link) that demonstrates several features of the library.
+You can checkout the live demonstrations ([Showcases](https://react-redux-composable-list-showcases.wieruch.com/), [Real World](https://react-redux-composable-list-realworld.wieruch.com/)) that show several features of the library.
 
 In addition, you can checkout the [examples/](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples) folder in the GitHub repository. In each of them you will find instructions to set up the each project. You can try them by cloning the whole library repository
 
