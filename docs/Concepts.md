@@ -27,17 +27,17 @@ A **conditional rendering** could be to show a placeholder when the list is empt
 
 An **extension** of the basic component could be pagination. Whenever you see a paginated list of data, you get controls to navigate through the pages. It can be useful for huge lists of data. The extension would wrap around the basic component to give you these controls.
 
-Composeability makes it possible to enhance a component. You can use the third-party library [recompose](https://github.com/acdlite/recompose) to compose multiple enhancements into an enhanced component.
+Composability makes it possible to enhance a component. You can use the third-party library [recompose](https://github.com/acdlite/recompose) to compose multiple enhancements into an enhanced component.
 
 ### Enhanced Component
 
-Your enhanced component can show the list of data in any way. After all, it only gets a (manipulated) list of data. However, a list of items is shown most of the time in a kind of table component. That's why the library comes with useful components to compose a table of data. A natural wrapper component, the Enhanced Component, is used to identify the component and can be used to opt-in more features. In addition, the library provides you with Row, Cell and HeaderCell components to layout your enhanced component. But as mentioned, you don't need to use them apart from the Enhanced Component.
+Your enhanced component can show the list of data in any way. After all, it only gets a (manipulated) list of data. However, a list of items is shown most of the time in a kind of table component. That's why the library comes with useful components to compose a table of data. A mandatory wrapper component, the Enhanced Component, is used to identify the applied enhancements with a state key. In addition, the library provides you with Row, Cell and HeaderCell components to layout your enhanced component. But as mentioned, you don't need to use them apart from the Enhanced Component.
 
 ### Enhancer Components
 
 In addition, there are enhancer components. They can be used inside or outside of your enhanced component. In fact, they can be used anywhere in your application. They will be responsible to alter enhancements. These enhancements will be stored and flow back to the enhanced component via its composed enhancements.
 
-There are several active enhancer that already come with the library. However, since the library builds up on composeability, you can use your own enhancer components too. There is an library API to manipulate the enhancements in the store by using Redux actions. You can write your own enhancer components.
+There are several active enhancer that already come with the library. However, since the library builds up on extendability, you can use your own enhancer components too. There is a library API to manipulate the enhancements in the Redux store by using Redux actions. So you can write your own enhancer components that lead to changes in (built-in) enhancements.
 
 ## The Flow
 
