@@ -4,14 +4,14 @@ The library builds up on the [Idea](/docs/Idea.md) of composition. The idea appl
 
 ## Components
 
-The library gives you a handful of basic components to layout your list of items.
+The library gives you a handful of basic components for your list of items:
 
 ```javascript
 import { components } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell, HeaderCell } = components;
 ```
 
-You can use them to layout your list of data.
+You can use them to layout your list:
 
 ```javascript
 import { components } from 'react-redux-composable-list';
@@ -53,16 +53,16 @@ const { withSelectables, withUnselectables } = enhancements;
 ...
 
 export default compose(
-  withSelectables({ ids: [] }),
-  withUnselectables({ ids: [] })
-)(TodoList);
+  withSelectables(),
+  withUnselectables({ ids: ['1'] })
+)(MyListComponent);
 ```
 
 ### Multiple Enhancements
 
 In case you are using multiple enhancements, you can compose them in a appropriate order to **improve the performance** and to **avoid bugs**.
 
-For instance, the former makes sense when the enhancements `withFilter` and `withSort` are used. You should apply the `withFilter` before the `withSort` enhancement. It makes more sense to filter the list first in order to sort them with less items afterwards.
+For instance, you can improve the performance when the enhancements `withFilter` and `withSort` are used. You should apply the `withFilter` before the `withSort` enhancement. It makes more sense to filter the list first in order to sort them with less items afterward.
 
 Regarding the bugs, a few enhancements need to have the correct order. For instance, the `withPaginate` enhancement needs to be after the `withFilter` and `withSort` enhancements, because the pagination needs to be applied on the shown list.
 
@@ -71,5 +71,5 @@ export default compose(
   withFilter(),
   withSort(),
   withPaginate({ size: 10 }),
-)(TodoList);
+)(MyListComponent);
 ```

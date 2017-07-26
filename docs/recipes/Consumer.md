@@ -1,6 +1,6 @@
 # Consumer
 
-The library already brings implicit API consumer in terms of [Enhancer Components](/docs/Concepts.md). They already use the library API to alter enhancements. Have a look into the [Enhancements](/docs/features/README.md) section to find them depending on the enhancement. For instance, the `Sort` component is such an enhancer component that comes with the library.
+The library already brings implicit API consumer in terms of [Enhancer Components](/docs/Concepts.md). They already use the library API to alter enhancements. You can have a look into the [Enhancements](/docs/features/README.md) section to find them depending on the enhancement. For instance, the `Sort` component is such an enhancer component that comes with the library.
 
 In addition, you can manually consume the library API. Each enhancement offers an API to alter it in the Redux store. To get to know all of these APIs, you can check again the [Enhancements](/docs/features/README.md) section. Each enhancement has its own action and selector API to the Redux store.
 

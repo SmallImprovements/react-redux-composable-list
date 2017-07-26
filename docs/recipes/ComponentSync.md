@@ -1,1 +1,0 @@
-- synchronisation between components: two tables with selected users
