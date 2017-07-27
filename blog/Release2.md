@@ -23,7 +23,38 @@ There are two demo applications up and running to show the feature set of react-
 * [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
 * [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
 
-While the former one demonstrates all features in one real world example, the latter one separates the examples by feature. The Real World example shows that all features can be used altogether by composing them.
+While the former one demonstrates all features in one real world example, the latter one separates the examples by feature.
+
+The Real World example shows that all features can be used altogether by composing them. Basically you will use React's higher order components to compose multiple features on your plain presentational List Component.
+
+```javascript
+const ListComponent = () => {
+  ...
+}
+
+const EmptyBecauseFilter = () =>
+  <div>
+    <h3>No Filter Result</h3>
+    <p>Sorry, there was no item matching your filter.</p>
+  </div>
+
+const EmptyBecauseNoList = () =>
+  <div>
+    <h3>Nothing to see!</h3>
+    <p>Sorry, there is no content.</p>
+  </div>
+
+export default compose(
+  withEmpty({ component: EmptyBecauseNoList }),
+  withSelectables({ ids: [0] }),
+  withPreselectables({ ids: [2, 3] }),
+  withUnselectables({ ids: [4, 6] }),
+  withFilter(),
+  withEmpty({ component: EmptyBecauseFilter }),
+  withSort(),
+  withPaginate({ size: 10 }),
+)(ListComponent);
+```
 
 You can find the implementations of both demo applications in the official [GitHub repository](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples). In addition, the documentation about the specific features can be found in the [official docs](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features).
 
