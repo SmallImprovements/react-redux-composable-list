@@ -1,8 +1,10 @@
-# Displaying a List of Items, but Smart
+# Displaying a List of Items in React, but Composed
 
 Displaying a list of items is mandatory in most web applications. When using a view layer library such as React, you would only have to iterate over the list of items and return valid JSX. However, often these displayed items need a couple of features such as filtering, sorting or pagination. Not every list component needs it though, but it would be great to have these functioanlities as opt-in features whenever displaying a list of items.
 
 We are excited to open source our in-house solution at Small Improvements that handled the previous use case for us: [react-redux-composable-list](https://github.com/SmallImprovements/react-redux-composable-list). In our web application, it often happens that we have to display tables of data for our customers to manage their feedback or objectives in the company. Our customers at Small Improvements range from a active user count from 20 to 2000 users. Thus it can happen that we need to display a lot of data but keeping it accessible for people managing it.
+
+![Demo](https://media.giphy.com/media/xUOrvUtfjt2EhMUjvi/giphy.gif)
 
 The requirements of each data table are different. One table is just fine with a filter functionality. Yet another data table would add selectable rows to the filterable table. Each data table has different requirements. The library that we are open sourcing today comes with all the requirements we had in-house at Small Improvements. However, since the library is highly extendable and builds up on composition, you can come up with your own opt-in features.
 
