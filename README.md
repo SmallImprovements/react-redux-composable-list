@@ -8,7 +8,7 @@ In addition, in order to manipulate the state of those enhancements, you can use
 
 ![Demo](https://media.giphy.com/media/xUOrvUtfjt2EhMUjvi/giphy.gif)
 
-With the mental model behind this [idea](/docs/Idea.html) and [concepts](/docs/Concepts.html), you can come up with great opt-in features on your own. All features, coming from the library or from yourself, can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
+With the mental model behind this [idea](/docs/Idea.md) and [concepts](/docs/Concepts.md), you can come up with great opt-in features on your own. All features, coming from the library or from yourself, can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
 
 ## Demo
 
