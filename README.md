@@ -8,7 +8,7 @@ In addition, in order to manipulate the state of those enhancements, you can use
 
 ![Demo](https://media.giphy.com/media/xUOrvUtfjt2EhMUjvi/giphy.gif)
 
-With the mental model behind this [idea](https://rwieruch.gitbooks.io/react-redux-composable-list/docs/Idea.html) and [concepts](https://rwieruch.gitbooks.io/react-redux-composable-list/docs/Concepts.html), you can come up with great opt-in features on your own. All features, coming from the library or from yourself, can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
+With the mental model behind this [idea](/docs/Idea.html) and [concepts](/docs/Concepts.html), you can come up with great opt-in features on your own. All features, coming from the library or from yourself, can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
 
 ## Demo
 
@@ -36,9 +36,9 @@ The library comes already with several features like sorting, filtering, paginat
 
 ## Getting Started
 
-If you want to jump right away into using the library, you should checkout the [Getting Started](https://rwieruch.gitbooks.io/react-redux-composable-list/docs/GettingStarted.html) section in the documentation.
+If you want to jump right away into using the library, you should checkout the [Getting Started](/docs/GettingStarted.md) section in the documentation.
 
-If you want to dive deeper into the library, you can checkout the whole [documentation](https://rwieruch.gitbooks.io/react-redux-composable-list) to get to know what the library is about and how to use it.
+If you want to dive deeper into the library, you can checkout the whole [documentation](/docs/) to get to know what the library is about and how to use it.
 
 ## Contribute
 
