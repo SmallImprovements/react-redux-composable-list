@@ -1,107 +1,71 @@
-Small Improvements builds a product that makes feedback happen at companies. The software enables a company and its people to grow with feedback and objectives. It is a continuous loop between giving feedback and striving towards a goal. It allows you to grow as an individual in a company yet helps the company to focus on long term objectives.
+# Displaying a List of Items in React, but Composed
 
-Companies that are using Small Improvements range from 20 to 2000 users. When so many people set up short and long term objectives or write feedback about each other, a lot of data is available and needs to be displayed. In Small Improvements we are using lists and tables to make the data accessible. Our customers are keen to explore this data, that's why there needs to be an approach to make this data accessible by adding a rich set of features on top of just displaying data.
+Displaying a list of items is mandatory in most web applications. When using a view layer library such as React, you would only have to iterate over the list of items and return valid JSX. However, often these displayed items need a couple of features such as filtering, sorting or pagination. Not every list component needs it though, but it would be great to have these functionalities as opt-in features whenever displaying a list of items.
 
-Back in the days, Small Improvements migrated from Angular to React. The migration came with the drawback that many of the components had to be re-written. Thus the way to show a lot of data in a table or list would be a requirement in React too.
+We are excited to open source our in-house solution at Small Improvements that handled the previous use case for us: [react-redux-composable-list](https://github.com/SmallImprovements/react-redux-composable-list). In our web application, it often happens that we have to display tables of data for our customers to manage their feedback or objectives in the company. Our customers at Small Improvements range from a active user count from 20 to 2000 users. Thus it can happen that we need to display a lot of data but keeping it accessible for people managing it.
 
-In Angular, Small Improvements had a table component to show the data and to access it with filtering, sorting etc. However, it was a rigid implementation that nobody wanted to touch anymore. Basically, like you would have been used in Angular, it came with one monstrousness configuration object to show a table component.
+![Demo](https://media.giphy.com/media/xUOrvUtfjt2EhMUjvi/giphy.gif)
 
-In React, we wanted to make it better. According to the React way of doing things, we wanted to keep it composable, reusable and simple in its usage. We came up with a solution for ourselves, the [react-redux-composable-list](https://github.com/SmallImprovements/react-redux-composable-list), to make the data available with all desired functionalities. Since we were convinced that the solution would be beneficial for everyone, we wanted to open source it.
+The requirements of each data table are different. One table is just fine with a filter functionality. Yet another data table would add selectable rows to the filterable table. Each data table has different requirements. The library that we are open sourcing today comes with all the requirements we had in-house at Small Improvements. However, since the library is highly extendable and builds up on composition, you can come up with your own opt-in features.
 
-# Enhancements and Enhancers
+## Demo and Features
 
-The react-redux-composable-list offers you a solution to display a list of complex items. That sounds simple. Why would you need a library to deal with it?
+Basically the react-redux-composable-list comes with the following main features:
 
-The library comes with various opt-in features to manipulate the list of items or to change the representation of the list. These opt-in features are called **enhancements** or to stay in the React world: higher order components. Multiple enhancements can be composed to opt-in multiple features like **sorting, filtering or pagination**. After all, it gives you only an entry point to these enhancements. You can come up with enhancements on your own and just compose them into the set of enhancements that come with the library.
+* Filtering (AND filter, OR filter, multiple filters)
+* Selecting
+* Sorting
+* Magic Column (collapsing multiple columns in one column)
+* Pagination
 
-In addition, in order to manipulate the state of those enhancements, you can use (built-in) **enhancer** components. They can be used everywhere in your application and allow you to manipulate the sorting, filtering etc. state. There again the library stays extendable. You can write your own enhancer components.the library stays extendable. You can write your own enhancer components.
+There are two demo applications up and running to show the feature set of react-redux-composable-list.
 
-With the mental model behind this [idea](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/Idea.md) and [concepts](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/Concepts.md), you can come up with great opt-in features on your own. All features, coming from the library or from yourself, can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
+* [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
+* [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
 
-You can checkout the live demonstrations ([Showcases](https://react-redux-composable-list-showcases.wieruch.com/), [Real World](https://react-redux-composable-list-realworld.wieruch.com/)) that show several features of the library.
+While the former one demonstrates all features in one real world example, the latter one separates the examples by feature.
 
-# Getting Started
-
-You can use npm to install the library: `npm install react-redux-composable-list`
-
-There are **two requirements** in order to use the library:
-
-First, since it depends to save the state in the Redux store, you have to connect the reducers provided by the library to your Redux store.
-
-```javascript
-import { createStore, combineReducers } from 'redux';
-
-import reducers from 'react-redux-composable-list';
-
-const rootReducer = combineReducers({
-  ...reducers,
-  // add your own reducers
-});
-
-const configureStore = (initialState) => createStore(rootReducer, initialState);
-
-export default configureStore;
-```
-
-Second, you need to use the [react-redux](https://github.com/reactjs/react-redux) Provider component, that takes your Redux store as input, in a top level component. Maybe you already do so, because you have a React + Redux application. Afterward, you can use the functionalities of the library in your component tree.
+The Real World example shows that all features can be used altogether by composing them. Basically you will use React's higher order components to compose multiple features on your plain presentational List Component.
 
 ```javascript
-import configureStore from 'path/to/store';
+const ListComponent = ({ list, stateKey }) => {
+  ...
+}
 
-const initialState = {};
-const store = configureStore(initialState);
+...
 
-<Provider store={store}>
-  <App />
-</Provider>
+const EmptyBecauseFilter = () =>
+  <div>
+    <h3>No Filter Result</h3>
+    <p>Sorry, there was no item matching your filter.</p>
+  </div>
+
+export default compose(
+  withEmpty({ component: EmptyBecauseNoList }),
+  withSelectables({ ids: [0] }),
+  withPreselectables({ ids: [2, 3] }),
+  withUnselectables({ ids: [4, 6] }),
+  withFilter(),
+  withEmpty({ component: EmptyBecauseFilter }),
+  withSort(),
+  withPaginate({ size: 10 }),
+)(ListComponent);
 ```
 
-Now you can start to write your first [plain](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features/Plain.md) component:
+You can find the implementations of both demo applications in the official [GitHub repository](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples). In addition, the documentation about the specific features can be found in the [official docs](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features).
 
-```javascript
-import { components } from 'react-redux-composable-list';
-const { Enhanced, Row, Cell } = components;
+## Getting Started
 
-const Plain = ({ list, stateKey }) =>
-  <Enhanced stateKey={stateKey}>
-    {list.map(item =>
-      <Row key={item.id}>
-        <Cell style={{ width: '70%' }}>{item.title}</Cell>
-        <Cell style={{ width: '30%' }}>{item.comment}</Cell>
-      </Row>
-    )}
-  </Enhanced>
+If you want to jump right away into using the library, you should checkout the [Getting Started](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/GettingStarted.md) section in the official documentation.
 
-export default Plain;
-```
-
-And use it in your application:
-
-```javascript
-import Plain from path/to/component';
-
-const list = [
-  { id: '1', title: 'foo', comment: 'foo foo' },
-  { id: '2', title: 'bar', comment: 'bar bar' },
-];
-
-const App = () =>
-  <Plain
-    list={list}
-    stateKey={'MY_PLAIN_LIST'}
-  />
-```
-
-That's it. You show the list of data. But that's dull, isn't it? You might want to use the functionalities of the library. There should be an enhancement ([higher order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)) in between, otherwise the library doesn't bring you any benefits.
-
-Let's define an Enhanced Component that enables you to select items from the list:
+For instance, having a list of items but with the option to select items, can be accomplished with the following component:
 
 ```javascript
 import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables } = enhancements;
 
-const Selectable = ({ list, stateKey }) =>
+const ListComponent = ({ list, stateKey }) =>
   <Enhanced stateKey={stateKey}>
     {list.map(item =>
       <Row key={item.id}>
@@ -111,13 +75,13 @@ const Selectable = ({ list, stateKey }) =>
     )}
   </Enhanced>
 
-export default withSelectables()(Selectable);
+export default withSelectables()(ListComponent);
 ```
 
-That should already do the magic to make your items in the list selectable. You can use it again in your application:
+Afterward, it can be simply used by passing a list of items and a state key to identify the table state.
 
 ```javascript
-import Selectable from path/to/component';
+import SelectableListComponent from path/to/ListComponent';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },
@@ -125,26 +89,23 @@ const list = [
 ];
 
 const App = () =>
-  <Selectable
+  <SelectableListComponent
     list={list}
     stateKey={'MY_SELECTABLE_LIST'}
   />
 ```
 
-The enhancement can be configured by passing an configuration object.  You could pass `['1']` to initially select the item with the `id: '1'`:
+If you want to dive deeper into the library, you can checkout the whole [documentation](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs) to get to know what the library is about and how to use it.
 
-```javascript
-...
+## Extend it & Contribute
 
-export default withSelectables({ ids: ['1'] })(Selectable);
-```
+You can write your own enhancements and enhancers, because you have access to the library API. To be more specific, the library API is nothing but action creators and selectors for the Redux store. All the state that is managed for the tables is organized in a Redux store. You will find everything you need to know about the API in each [documented feature](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features). In general, the documentation is a good place to get started and to read up all the features.
 
-That's it. Your items in the list should be selectable now. Optionally you can have already selected items. Refer to the [Select enhancement](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features/Select.md) to get to know more about it. After all, you would need to retrieve the selected items at some point to do further things.
+We would love, if you would give it a show and give us feedback about it. In addition, [we welcome you to make contributions for the library](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/Contribute.md).
 
-Before you dive into the set of features of the library, you should read the [Concepts](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/Concepts.md) behind it.
+## Resources
 
-# Extend It
-
-As mentioned earlier, you can write your own enhancements and enhancers, because you have access to the library API. To be more specific, the library API is nothing but action creators and selectors for the Redux store. You will find everything you need to know about the API in each [documented enhancement](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features). In general, the documentation is a good place to get started and to read up all the features.
-
-We would love, if you would give it a show and give us feedback about it.
+* [GitHub Repository](https://github.com/SmallImprovements/react-redux-composable-list)
+* Demo Applications: [Real World](https://react-redux-composable-list-realworld.wieruch.com/) ([Source Code](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples/RealWorld)), [Showcases](https://react-redux-composable-list-showcases.wieruch.com/) ([Source Code](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples/Showcases))
+* [Official Documentation](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs)
+* [Getting Started](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/GettingStarted.md)
