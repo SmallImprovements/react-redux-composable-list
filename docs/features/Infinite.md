@@ -1,6 +1,6 @@
 # Infinite
 
-The Infinite feature is no real enhancement. Since the library works with composition, you can use third-party components too. The following scenario shows you how you can use `react-infinite` ([docs](TODO link)) to achieve infinite scroll. It is used as alternative to the [Pagination enhancement](/docs/features/Pagination.md).
+The Infinite feature is no real enhancement. Since the library works with composition, you can use third-party components too. The following scenario shows you how you can use `react-infinite` ([docs](https://github.com/seatgeek/react-infinite)) to achieve infinite scroll. It is used as alternative to the [Pagination enhancement](/docs/features/Pagination.md).
 
 * **General Requirements:**
   * pass a stateKey to Enhanced component

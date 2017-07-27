@@ -7,7 +7,6 @@ The Select enhancement is an enabler to select items in your list.
   * items need a stable id as identifier
 * **Select Requirements:**
   * use withSelectables enhancement with configuration object
-  * pass isSelectable to Enhanced component
 
 ## Definition
 
@@ -16,8 +15,8 @@ import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables } = enhancements;
 
-const Selectable = ({ list, stateKey, isSelectable }) =>
-  <Enhanced stateKey={stateKey} isSelectable={isSelectable}>
+const Selectable = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     {list.map(item =>
       <Row key={item.id}>
         <Cell style={{ width: '70%' }}>{item.title}</Cell>
@@ -26,7 +25,7 @@ const Selectable = ({ list, stateKey, isSelectable }) =>
     )}
   </Enhanced>
 
-export default withSelectables({ ids: [] })(Selectable);
+export default withSelectables()(Selectable);
 ```
 
 ## Usage
@@ -48,7 +47,7 @@ const App = () =>
 
 ## Configuration:
 
-The configuration allows you to define selected items on initialization. In order to select the items with the `id: '1'` and `id: '2'`, you would use the configuration object `{ ids: ['1', '2'] }`.
+The configuration allows you to define selected items on initialization. In order to select the items with the `id: '1'` and `id: '2'`, you would use the configuration `withSelectables({ ids: ['1', '2'] })`.
 
 ## More Enhancements and Combinations
 
@@ -63,8 +62,8 @@ import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables, withUnselectables } = enhancements;
 
-const Selectable = ({ list, stateKey, isSelectable, unselectables }) =>
-  <Enhanced stateKey={stateKey} isSelectable={isSelectable} unselectables={unselectables}>
+const Selectable = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     {list.map(item =>
       <Row key={item.id}>
         <Cell style={{ width: '70%' }}>{item.title}</Cell>
@@ -74,8 +73,8 @@ const Selectable = ({ list, stateKey, isSelectable, unselectables }) =>
   </Enhanced>
 
 export default compose(
-  withSelectables({ ids: [] }),
-  withUnselectables({ ids: [] })
+  withSelectables(),
+  withUnselectables({ ids: ['1'] })
 )(Selectable);
 ```
 
@@ -88,8 +87,8 @@ import { components, enhancements } from 'react-redux-composable-list';
 const { Enhanced, Row, Cell } = components;
 const { withSelectables, withPreselectables } = enhancements;
 
-const Selectable = ({ list, stateKey, isSelectable, preselectables }) =>
-  <Enhanced stateKey={stateKey} isSelectable={isSelectable} preselectables={preselectables}>
+const Selectable = ({ list, stateKey }) =>
+  <Enhanced stateKey={stateKey}>
     {list.map(item =>
       <Row key={item.id}>
         <Cell style={{ width: '70%' }}>{item.title}</Cell>
@@ -99,8 +98,8 @@ const Selectable = ({ list, stateKey, isSelectable, preselectables }) =>
   </Enhanced>
 
 export default compose(
-  withSelectables({ ids: [] }),
-  withPreselectables({ ids: [] })
+  withSelectables(),
+  withPreselectables({ ids: ['1'] })
 )(Selectable);
 ```
 
@@ -112,9 +111,9 @@ import { compose } from recompose;
 ...
 
 export default compose(
-  withSelectables({ ids: [] }),
-  withPreselectables({ ids: [] }),
-  withUnselectables({ ids: [] })
+  withSelectables(),
+  withPreselectables({ ids: ['1'] }),
+  withUnselectables({ ids: ['2'] })
 )(Selectable);
 ```
 
@@ -148,4 +147,4 @@ You can use Redux selectors to retrieve state from the Redux store. The library 
 
 ## Enhancer Components
 
-The Row component, when using the `withSelectables` enhancement, becomes an [Enhancer Component](/docs/recipes/Consumer.md) that wraps the library API and alters the Select enhancement state.
+The Row component, when using the `withSelectables` enhancement, becomes an [Enhancer Component](/docs/recipes/Consumer.md) that wraps the library API and alters the Select enhancement state. When using `withSelectables` the Row component automatically becomes selectable.
