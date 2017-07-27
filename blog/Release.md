@@ -101,11 +101,13 @@ If you want to dive deeper into the library, you can checkout the whole [documen
 
 You can write your own enhancements and enhancers, because you have access to the library API. To be more specific, the library API is nothing but action creators and selectors for the Redux store. All the state that is managed for the tables is organized in a Redux store. You will find everything you need to know about the API in each [documented feature](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features). In general, the documentation is a good place to get started and to read up all the features.
 
-We would love, if you would give it a show and give us feedback about it. In addition, [we welcome you to make contributions for the library](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/Contribute.md).
+We would love, if you would give it a show and give us feedback about it. In addition, [we welcome you to make contributions to the library](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/Contribute.md).
 
 ## Resources
 
 * [GitHub Repository](https://github.com/SmallImprovements/react-redux-composable-list)
-* Demo Applications: [Real World](https://react-redux-composable-list-realworld.wieruch.com/) ([Source Code](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples/RealWorld)), [Showcases](https://react-redux-composable-list-showcases.wieruch.com/) ([Source Code](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples/Showcases))
+* Demo Applications:
+  * [Real World](https://react-redux-composable-list-realworld.wieruch.com/) ([Source Code](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples/RealWorld))
+  * [Showcases](https://react-redux-composable-list-showcases.wieruch.com/) ([Source Code](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples/Showcases))
 * [Official Documentation](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs)
 * [Getting Started](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/GettingStarted.md)
