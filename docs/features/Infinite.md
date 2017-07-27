@@ -6,6 +6,9 @@ The Infinite feature is no real enhancement. Since the library works with compos
   * pass a stateKey to Enhanced component
   * items need a stable id as identifier
 
+* [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
+ * With Infinite Scroll
+
 ## Definition
 
 ```javascript

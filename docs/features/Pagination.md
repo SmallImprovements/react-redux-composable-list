@@ -8,6 +8,12 @@ The Pagination enhancement allows you to show a large list of data split up to p
 * **Pagination Requirements:**
   * use withPaginate enhancement with configuration object
 
+## Demo
+
+* [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
+ * With Pagination
+* [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
+
 ## Definition
 
 ```javascript

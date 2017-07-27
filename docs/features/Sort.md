@@ -8,6 +8,14 @@ The Sort enhancement is an enabler to sort items in your list.
 * **Sort Requirements:**
   * use withSort enhancement
 
+## Demo
+
+* [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
+ * With Sort
+ * With Select with Sort
+ * With Magic Column
+* [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
+
 ## Definition
 
 ```javascript

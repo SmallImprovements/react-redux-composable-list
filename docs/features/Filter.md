@@ -8,6 +8,14 @@ The Filter enhancement is an enabler to filter items in your list.
 * **Filter Requirements:**
   * use withFilter enhancement
 
+## Demo
+
+* [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
+ * With Filter
+ * With Multiple Filters AND
+ * With Multiple Filters OR
+* [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
+
 ## Definition
 
 ```javascript
