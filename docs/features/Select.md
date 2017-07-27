@@ -11,11 +11,11 @@ The Select enhancement is an enabler to select items in your list.
 ## Demo
 
 * [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
- * With Select
- * With Select with Selected
- * With Select with Unselectables
- * With Select with Preselectables
- * With Select with Sort
+  * With Select
+  * With Select with Selected
+  * With Select with Unselectables
+  * With Select with Preselectables
+  * With Select with Sort
 * [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
 
 ## Definition

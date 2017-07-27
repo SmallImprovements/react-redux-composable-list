@@ -11,7 +11,7 @@ The Magic Column enhancement gives you a flexbile column in your table. The colu
 ## Demo
 
 * [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
- * With Magic Column
+  * With Magic Column
 * [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
 
 ## Definition

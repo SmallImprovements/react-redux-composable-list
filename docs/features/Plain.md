@@ -5,7 +5,7 @@ Without any enhancement, you can still use layout components in your pseudo enha
 ## Demo
 
 * [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
- * Plain
+  * Plain
 
 ## Definition
 

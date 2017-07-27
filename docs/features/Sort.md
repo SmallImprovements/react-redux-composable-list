@@ -11,9 +11,9 @@ The Sort enhancement is an enabler to sort items in your list.
 ## Demo
 
 * [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
- * With Sort
- * With Select with Sort
- * With Magic Column
+  * With Sort
+  * With Select with Sort
+  * With Magic Column
 * [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
 
 ## Definition

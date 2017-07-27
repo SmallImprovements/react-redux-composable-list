@@ -11,9 +11,9 @@ The Filter enhancement is an enabler to filter items in your list.
 ## Demo
 
 * [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
- * With Filter
- * With Multiple Filters AND
- * With Multiple Filters OR
+  * With Filter
+  * With Multiple Filters AND
+  * With Multiple Filters OR
 * [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
 
 ## Definition
