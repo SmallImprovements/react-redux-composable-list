@@ -1,16 +1,16 @@
 # Displaying a List of Items in React, but Composed
 
-Displaying a list of items is mandatory in most web applications. When using a view layer library such as React, you would only have to iterate over the list of items and return elements. However, often these displayed items need a couple of features such as filtering, sorting or pagination. Not every list component needs it though, but it would be great to have these functionalities as opt-in features whenever displaying a list of items.
+Displaying a list of items is a challenge you will encounter in most web applications. When using a view layer library such as React, yyou only have to iterate over the list of items and return elements. However, often you want a couple of more features such as filtering, sorting or pagination. Not every list component needs it though, but it would be great to have these functionalities as opt-in features whenever displaying a list of items.
 
 We are excited to open source our in-house solution at Small Improvements that handled the mentioned use case for us: [react-redux-composable-list](https://github.com/SmallImprovements/react-redux-composable-list). In our web application, it often happens that we have to display lists of data for our customers to manage their feedback or objectives. At Small Improvements our customers range from an active user count from 20 to 2000 users. Thus it can happen that we need to display a lot of data yet have to keep it accessible for people managing it.
 
 ![Demo](https://media.giphy.com/media/l1J3SfGrltemdEX5e/giphy.gif)
 
-The requirements of each list of data are different. One list is just fine with a filter functionality. Yet another list would mix together selectable and filterable items. Each displayed list has different requirements. The library that we are open sourcing comes with all the requirements we had in-house at Small Improvements. However, since the library is highly extendable and builds up on composition, you can come up with your own opt-in features.
+The requirements of each list of data are different. One list is just fine with a filter functionality. Yet another list would mix together selectable and filterable items. Each displayed list has different requirements. The library that we are open sourcing solve all the requirements we had in-house at Small Improvements. The library is highly extendable and builds up on composition. You can come up with your own opt-in features.
 
 ## Demo and Features
 
-Basically the react-redux-composable-list comes with the following main features:
+The react-redux-composable-list comes with the following features:
 
 * Filtering (AND filter, OR filter, multiple filters)
 * Selecting
@@ -25,7 +25,7 @@ There are two demo applications up and running to show the features of react-red
 
 While the former one demonstrates all features in one real world example, the latter one separates the examples by feature.
 
-The Real World example shows that all features can be used altogether by composing them. Basically you will use React's higher order components to opt-in multiple features in your plain presentational List component.
+The Real World example shows that all features can be used altogether by composing them. To specify the opt-in features of your list components you use React's higher order components.
 
 ```javascript
 const List = ({ list, stateKey }) => {
