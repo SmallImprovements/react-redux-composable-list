@@ -6,7 +6,7 @@ The library comes with various opt-in features to manipulate the list of items o
 
 In addition, in order to manipulate the state of those enhancements, you can use (built-in) **enhancer** components. They can be used everywhere in your application and allow you to manipulate the sorting, filtering etc. state. There again the library stays extendable. You can write your own enhancer components.
 
-![Demo](https://media.giphy.com/media/xUOrvUtfjt2EhMUjvi/giphy.gif)
+![Demo](https://media.giphy.com/media/l1J3SfGrltemdEX5e/giphy.gif)
 
 With the mental model behind this [idea](/docs/Idea.md) and [concepts](/docs/Concepts.md), you can come up with great opt-in features on your own. All features, coming from the library or from yourself, can be used to be composed into each other. The library comes with several features that you can already use, but it is not bound to a rigid endgame solution.
 
