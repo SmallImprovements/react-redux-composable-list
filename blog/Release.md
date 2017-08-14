@@ -4,7 +4,7 @@ Displaying a list of items is mandatory in most web applications. When using a v
 
 We are excited to open source our in-house solution at Small Improvements that handled the mentioned use case for us: [react-redux-composable-list](https://github.com/SmallImprovements/react-redux-composable-list). In our web application, it often happens that we have to display lists of data for our customers to manage their feedback or objectives. At Small Improvements our customers range from an active user count from 20 to 2000 users. Thus it can happen that we need to display a lot of data yet have to keep it accessible for people managing it.
 
-![Demo](https://media.giphy.com/media/xUOrvUtfjt2EhMUjvi/giphy.gif)
+![Demo](https://media.giphy.com/media/l1J3SfGrltemdEX5e/giphy.gif)
 
 The requirements of each list of data are different. One list is just fine with a filter functionality. Yet another list would mix together selectable and filterable items. Each displayed list has different requirements. The library that we are open sourcing comes with all the requirements we had in-house at Small Improvements. However, since the library is highly extendable and builds up on composition, you can come up with your own opt-in features.
 
