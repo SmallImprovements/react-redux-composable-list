@@ -1,12 +1,12 @@
 # Displaying a List of Items in React, but Composed
 
-Displaying a list of items is mandatory in most web applications. When using a view layer library such as React, you would only have to iterate over the list of items and return valid JSX. However, often these displayed items need a couple of features such as filtering, sorting or pagination. Not every list component needs it though, but it would be great to have these functionalities as opt-in features whenever displaying a list of items.
+Displaying a list of items is mandatory in most web applications. When using a view layer library such as React, you would only have to iterate over the list of items and return elements. However, often these displayed items need a couple of features such as filtering, sorting or pagination. Not every list component needs it though, but it would be great to have these functionalities as opt-in features whenever displaying a list of items.
 
-We are excited to open source our in-house solution at Small Improvements that handled the previous use case for us: [react-redux-composable-list](https://github.com/SmallImprovements/react-redux-composable-list). In our web application, it often happens that we have to display tables of data for our customers to manage their feedback or objectives in the company. Our customers at Small Improvements range from a active user count from 20 to 2000 users. Thus it can happen that we need to display a lot of data but keeping it accessible for people managing it.
+We are excited to open source our in-house solution at Small Improvements that handled the mentioned use case for us: [react-redux-composable-list](https://github.com/SmallImprovements/react-redux-composable-list). In our web application, it often happens that we have to display lists of data for our customers to manage their feedback or objectives. At Small Improvements our customers range from an active user count from 20 to 2000 users. Thus it can happen that we need to display a lot of data yet have to keep it accessible for people managing it.
 
 ![Demo](https://media.giphy.com/media/xUOrvUtfjt2EhMUjvi/giphy.gif)
 
-The requirements of each data table are different. One table is just fine with a filter functionality. Yet another data table would add selectable rows to the filterable table. Each data table has different requirements. The library that we are open sourcing today comes with all the requirements we had in-house at Small Improvements. However, since the library is highly extendable and builds up on composition, you can come up with your own opt-in features.
+The requirements of each list of data are different. One list is just fine with a filter functionality. Yet another list would mix together selectable and filterable items. Each displayed list has different requirements. The library that we are open sourcing comes with all the requirements we had in-house at Small Improvements. However, since the library is highly extendable and builds up on composition, you can come up with your own opt-in features.
 
 ## Demo and Features
 
@@ -18,17 +18,17 @@ Basically the react-redux-composable-list comes with the following main features
 * Magic Column (collapsing multiple columns in one column)
 * Pagination
 
-There are two demo applications up and running to show the feature set of react-redux-composable-list.
+There are two demo applications up and running to show the features of react-redux-composable-list.
 
 * [Real World](https://react-redux-composable-list-realworld.wieruch.com/)
 * [Showcases](https://react-redux-composable-list-showcases.wieruch.com/)
 
 While the former one demonstrates all features in one real world example, the latter one separates the examples by feature.
 
-The Real World example shows that all features can be used altogether by composing them. Basically you will use React's higher order components to compose multiple features on your plain presentational List Component.
+The Real World example shows that all features can be used altogether by composing them. Basically you will use React's higher order components to opt-in multiple features in your plain presentational List component.
 
 ```javascript
-const ListComponent = ({ list, stateKey }) => {
+const List = ({ list, stateKey }) => {
   ...
 }
 
@@ -49,10 +49,10 @@ export default compose(
   withEmpty({ component: EmptyBecauseFilter }),
   withSort(),
   withPaginate({ size: 10 }),
-)(ListComponent);
+)(List);
 ```
 
-You can find the implementations of both demo applications in the official [GitHub repository](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples). In addition, the documentation about the specific features can be found in the [official docs](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features).
+You can find the implementations of both demo applications in the official [GitHub repository](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/examples). In addition, the documentation about the specific features can be found in the [official documentation](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features).
 
 ## Getting Started
 
@@ -99,9 +99,9 @@ If you want to dive deeper into the library, you can checkout the whole [documen
 
 ## Extend it & Contribute
 
-You can write your own enhancements and enhancers, because you have access to the library API. To be more specific, the library API is nothing but action creators and selectors for the Redux store. All the state that is managed for the tables is organized in a Redux store. You will find everything you need to know about the API in each [documented feature](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features). In general, the documentation is a good place to get started and to read up all the features.
+You can write your own enhancements and enhancers, because you have access to the library API. To be more specific, the library API is nothing but action creators and selectors for the Redux store. All the state that is managed for the tables is organized in a Redux store. You will find everything you need to know about the API in each [documented feature](https://github.com/SmallImprovements/react-redux-composable-list/tree/master/docs/features). In general, the documentation is a good place to get started and to read up everything about all the features.
 
-We would love, if you would give it a show and give us feedback about it. In addition, [we welcome you to make contributions to the library](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/Contribute.md).
+We would love, if you would give it a shot and give us feedback about it. In addition, [we welcome you to make contributions to the library](https://github.com/SmallImprovements/react-redux-composable-list/blob/master/docs/Contribute.md).
 
 ## Resources
 
