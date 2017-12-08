@@ -53,6 +53,12 @@ module.exports = {
       commonjs: 'react-redux',
       commonjs2: 'react-redux',
       amd: 'react-redux',
+    },
+    'prop-types': {
+      root: 'PropTypes',
+      commonjs: 'prop-types',
+      commonjs2: 'prop-types',
+      amd: 'prop-types',
     }
   },
   node: {
