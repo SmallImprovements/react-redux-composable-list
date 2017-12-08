@@ -45,6 +45,7 @@
     "build-dist": "webpack -p --config ./webpack.config.prod.js",
     "docs:prepare": "gitbook install",
     "docs:watch": "npm run docs:prepare && gitbook serve",
+    "prepare": "npm run build-dist",
     "test": "mocha --compilers js:babel-core/register --require ./mocha.config.js 'src/**/*spec.js'",
     "test:watch": "npm run test -- -w",
     "lint": "eslint src"
