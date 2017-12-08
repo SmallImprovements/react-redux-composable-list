@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { getContext } from '../../helper/util/getContext';
@@ -15,9 +16,9 @@ const mapStateToProps = (state, { stateKey, id, preselected = [], unselectables 
 }
 
 const contextTypes = {
-  stateKey: React.PropTypes.string.isRequired,
-  preselected: React.PropTypes.array,
-  unselectables: React.PropTypes.array,
+  stateKey: PropTypes.string.isRequired,
+  preselected: PropTypes.array,
+  unselectables: PropTypes.array,
 };
 
 export default getContext(contextTypes)(connect(mapStateToProps)(CellSelected));

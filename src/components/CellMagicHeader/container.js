@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -35,7 +36,7 @@ function mapDispatchToProps(dispatch, { stateKey }) {
 }
 
 const contextTypes = {
-  stateKey: React.PropTypes.string.isRequired
+  stateKey: PropTypes.string.isRequired
 };
 
 export default getContext(contextTypes)(connect(mapStateToProps, mapDispatchToProps)(CellMagicHeader));

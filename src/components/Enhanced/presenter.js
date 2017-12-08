@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import '../style.less';
 
 class Enhanced extends Component {
@@ -34,9 +35,9 @@ Enhanced.defaultProps = {
 
 Enhanced.propTypes = {
   stateKey: PropTypes.string.isRequired,
-  style: React.PropTypes.object,
-  className: React.PropTypes.string,
-  children: React.PropTypes.node.isRequired,
+  style: PropTypes.object,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 Enhanced.childContextTypes = {

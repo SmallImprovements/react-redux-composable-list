@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { noop } from '../../helper/util/noop';
@@ -43,12 +44,12 @@ const Step = ({
 };
 
 Step.propTypes = {
-  step: React.PropTypes.array.isRequired,
-  currentPage: React.PropTypes.number.isRequired,
-  page: React.PropTypes.number.isRequired,
-  get: React.PropTypes.func,
-  onPaginate: React.PropTypes.func.isRequired,
-  dotted: React.PropTypes.bool.isRequired,
+  step: PropTypes.array.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired,
+  get: PropTypes.func,
+  onPaginate: PropTypes.func.isRequired,
+  dotted: PropTypes.bool.isRequired,
 };
 
 const Pagination = ({
@@ -86,11 +87,11 @@ const Pagination = ({
 }
 
 Pagination.propTypes = {
-  paginatedLists: React.PropTypes.array.isRequired,
-  currentPage: React.PropTypes.number.isRequired,
-  get: React.PropTypes.func,
-  onPaginate: React.PropTypes.func.isRequired,
-  dotted: React.PropTypes.bool.isRequired,
+  paginatedLists: PropTypes.array.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  get: PropTypes.func,
+  onPaginate: PropTypes.func.isRequired,
+  dotted: PropTypes.bool.isRequired,
 };
 
 export default Pagination;

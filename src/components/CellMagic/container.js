@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -17,7 +18,7 @@ function mapStateToProps(state, { magicSorts, stateKey, item }) {
 }
 
 const contextTypes = {
-  stateKey: React.PropTypes.string.isRequired
+  stateKey: PropTypes.string.isRequired
 };
 
 export default getContext(contextTypes)(connect(mapStateToProps)(CellMagic));

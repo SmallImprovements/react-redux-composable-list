@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -36,7 +37,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 }
 
 const contextTypes = {
-  stateKey: React.PropTypes.string.isRequired
+  stateKey: PropTypes.string.isRequired
 };
 
 export default getContext(contextTypes)(connect(mapStateToProps, mapDispatchToProps, mergeProps)(Sort));
