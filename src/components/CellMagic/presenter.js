@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const CellMagic = ({ item, activeMagicSort }) =>
@@ -11,8 +12,8 @@ const CellMagic = ({ item, activeMagicSort }) =>
   </div>;
 
 CellMagic.propTypes = {
-  item: React.PropTypes.object.isRequired,
-  activeMagicSort: React.PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
+  activeMagicSort: PropTypes.object.isRequired,
 };
 
 export default CellMagic;

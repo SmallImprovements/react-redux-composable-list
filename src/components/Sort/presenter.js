@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import './style.less';
@@ -24,10 +25,10 @@ const Sort = ({ isActive, isReverse, onSort, suffix, children }) => {
 }
 
 Sort.propTypes = {
-  isActive: React.PropTypes.bool,
-  isReverse: React.PropTypes.bool,
-  onSort: React.PropTypes.func,
-  children: React.PropTypes.node,
+  isActive: PropTypes.bool,
+  isReverse: PropTypes.bool,
+  onSort: PropTypes.func,
+  children: PropTypes.node,
 };
 
 export default Sort;

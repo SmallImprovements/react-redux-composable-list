@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const CellSelected = ({ state, children }) =>
   <div>
@@ -7,7 +8,7 @@ const CellSelected = ({ state, children }) =>
 
 CellSelected.propTypes = {
   state: PropTypes.string.isRequired,
-  children: React.PropTypes.object.isRequired
+  children: PropTypes.object.isRequired
 };
 
 export default CellSelected;

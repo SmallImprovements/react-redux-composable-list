@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import './style.less';
@@ -60,13 +61,13 @@ const CellMagicHeader = ({
   </div>;
 
 CellMagicHeader.propTypes = {
-  primarySort: React.PropTypes.object.isRequired,
-  magicSorts: React.PropTypes.array.isRequired,
-  isActive: React.PropTypes.func.isRequired,
-  isReverse: React.PropTypes.bool,
-  onSort: React.PropTypes.func.isRequired,
-  onSetMagic: React.PropTypes.func.isRequired,
-  children: React.PropTypes.node,
+  primarySort: PropTypes.object.isRequired,
+  magicSorts: PropTypes.array.isRequired,
+  isActive: PropTypes.func.isRequired,
+  isReverse: PropTypes.bool,
+  onSort: PropTypes.func.isRequired,
+  onSetMagic: PropTypes.func.isRequired,
+  children: PropTypes.node,
 };
 
 export default CellMagicHeader;

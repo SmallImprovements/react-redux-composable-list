@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -41,10 +42,10 @@ const mapDispatchToProps = (dispatch, { stateKey, isSelectable, id }) => ({
 });
 
 const contextTypes = {
-  stateKey: React.PropTypes.string.isRequired,
-  isSelectable: React.PropTypes.bool,
-  preselected: React.PropTypes.array,
-  unselectables: React.PropTypes.array,
+  stateKey: PropTypes.string.isRequired,
+  isSelectable: PropTypes.bool,
+  preselected: PropTypes.array,
+  unselectables: PropTypes.array,
 };
 
 export default getContext(contextTypes)(connect(mapStateToProps, mapDispatchToProps)(RowSelectable));

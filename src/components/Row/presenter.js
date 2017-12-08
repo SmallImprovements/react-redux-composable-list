@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { select } from '../../helper/services';
@@ -20,10 +21,10 @@ const Row = ({
     : <RowNormal { ...props } />;
 
 Row.propTypes = {
-  isSelectable: React.PropTypes.bool,
-  style: React.PropTypes.object,
-  className: React.PropTypes.string,
-  children: React.PropTypes.node.isRequired,
+  isSelectable: PropTypes.bool,
+  style: PropTypes.object,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 const RowSelectable = ({
@@ -48,11 +49,11 @@ const RowSelectable = ({
 };
 
 RowSelectable.propTypes = {
-  selectState: React.PropTypes.string,
-  onSelect: React.PropTypes.func.isRequired,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.node),
-    React.PropTypes.node
+  selectState: PropTypes.string,
+  onSelect: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
   ]).isRequired
 };
 
@@ -69,9 +70,9 @@ const RowNormal = ({
   </div>;
 
 RowNormal.propTypes = {
-  style: React.PropTypes.object,
-  className: React.PropTypes.string,
-  children: React.PropTypes.node.isRequired,
+  style: PropTypes.object,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default Row;
