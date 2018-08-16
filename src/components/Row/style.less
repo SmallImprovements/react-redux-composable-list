@@ -1,16 +1,18 @@
-.react-redux-composable-list-row-selectable {
+.react-redux-composable-list-row-selectable, .react-redux-composable-list-row-selected {
   cursor: pointer;
+}
+
+.react-redux-composable-list-row-selectable {
   &:hover {
-    background-color: #f4f7fa;
+    background: #eff7ff;
   }
 }
 
 .react-redux-composable-list-row-selected {
-  cursor: pointer;
-  background: #63b5ff;
+  background-color: #C9E5FF;
 
-  &, a {
-    color: #ffffff;
+  &:hover {
+    background: #add9ff;
   }
 }
 
