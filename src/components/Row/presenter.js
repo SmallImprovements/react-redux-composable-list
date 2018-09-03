@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { select } from '../../helper/services';
+import { noop } from '../../helper/util/noop';
 
 import './style.less';
 
@@ -33,15 +34,16 @@ const RowSelectable = ({
   children
 }) => {
   const rowClass = ['react-redux-composable-list-row', CLASS_MAPPING[selectState]];
+  const hasSelectState = selectState === select.SELECT_STATES.selected ||
+    selectState === select.SELECT_STATES.notSelected;
 
-  const onClick = selectState === select.SELECT_STATES.selected ||
-    selectState === select.SELECT_STATES.notSelected
-      ? onSelect
-      : () => {};
+  const handleClick = hasSelectState
+    ? event => onSelect({ event })
+    : noop;
 
   return (
     <div
-      onClick={onClick}
+      onClick={handleClick}
       className={rowClass.join(' ')}>
       {children}
     </div>
