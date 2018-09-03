@@ -77,7 +77,7 @@ function applyToggleItem(state, action) {
     [];
   const index = currentSelection.indexOf(id);
   const isAlreadySelected = index !== -1;
-  if (!isAlreadySelected && event && event.shiftKey) {
+  if (!isAlreadySelected && allIds && allIds.length && event && event.shiftKey) {
     const lastSelectedItem = state[stateKey].lastSelectedItem;
     const selectedRange = getSelectedRange(allIds, id, lastSelectedItem);
     const selectedItems = uniq([...currentSelection, ...selectedRange]);
