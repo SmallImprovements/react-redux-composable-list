@@ -6,6 +6,7 @@ import { getContext } from '../../helper/util/getContext';
 import { actionCreators, selectors } from '../../ducks';
 import RowSelectable from './presenter';
 import { select } from '../../helper/services';
+import { noop } from '../../helper/util/noop';
 
 const isSelectableRow = (isSelectable, id) =>
   isSelectable && !(id === undefined || id === null);
@@ -34,17 +35,21 @@ const mapStateToProps = (
   };
 }
 
-const mapDispatchToProps = (dispatch, { stateKey, isSelectable, id }) => ({
-  onSelect: isSelectableRow(isSelectable, id)
-    ? bindActionCreators(() => actionCreators.doSelectItem(stateKey, id), dispatch)
-    : () => {}
-});
+const mapDispatchToProps = (dispatch, { stateKey, isSelectable, id, allIds }) =>
+  isSelectableRow(isSelectable, id) ? ({
+    onSelect: bindActionCreators(({ event }) => actionCreators.doSelectItem(stateKey, id, allIds, event), dispatch),
+    onSelectItems: bindActionCreators((ids) => actionCreators.doSelectItems(stateKey, ids, true), dispatch),
+  }) : ({
+    onSelect: noop,
+    onSelectItems: noop,
+  });
 
 const contextTypes = {
   stateKey: PropTypes.string.isRequired,
   isSelectable: PropTypes.bool,
   preselected: PropTypes.array,
   unselectables: PropTypes.array,
+  allIds: PropTypes.array,
 };
 
 export default getContext(contextTypes)(connect(mapStateToProps, mapDispatchToProps)(RowSelectable));

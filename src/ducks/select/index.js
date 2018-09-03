@@ -11,12 +11,14 @@ const SELECT_ITEMS_RESET = `${SLICE_NAME}/SELECT_ITEMS_RESET`;
 
 const INITIAL_STATE = {};
 
-function doSelectItem(stateKey, id) {
+function doSelectItem(stateKey, id, allIds, event) {
   return {
     type: SELECT_ITEM,
     payload: {
       stateKey,
       id,
+      allIds,
+      event,
     }
   };
 }
@@ -69,18 +71,34 @@ const reducer = (state = INITIAL_STATE, action) => {
 };
 
 function applyToggleItem(state, action) {
-  let { stateKey, id } = action.payload;
-  let list = state[stateKey] || [];
-  let index = list.indexOf(id);
-  let selectedItems;
-
-  if (index !== -1) {
-    selectedItems = removeItem(list, index);
-  } else {
-    selectedItems = addItem(list, id);
+  const { stateKey, id, event, allIds } = action.payload;
+  const currentSelection = state[stateKey] && state[stateKey].selectedItems ?
+    state[stateKey].selectedItems :
+    [];
+  const index = currentSelection.indexOf(id);
+  const isAlreadySelected = index !== -1;
+  if (!isAlreadySelected && event && event.shiftKey) {
+    const lastSelectedItem = state[stateKey].lastSelectedItem;
+    const selectedRange = getSelectedRange(allIds, id, lastSelectedItem);
+    const selectedItems = uniq([...currentSelection, ...selectedRange]);
+    return { ...state, [stateKey]: { selectedItems, lastSelectedItem } };
   }
+  const selectedItems = isAlreadySelected
+    ? removeItem(currentSelection, index)
+    : addItem(currentSelection, id);
+  const lastSelectedItem = isAlreadySelected
+    ? state[stateKey].lastSelectedItem
+    : id;
+  return { ...state, [stateKey]: { selectedItems, lastSelectedItem } };
+}
 
-  return { ...state, [stateKey]: selectedItems };
+function getSelectedRange(allIds, id, lastSelectedItem) {
+  const lastSelectedItemIndex = allIds.indexOf(lastSelectedItem);
+  const currentSelectedItemIndex = allIds.indexOf(id);
+  const firstIndex = Math.min(lastSelectedItemIndex, currentSelectedItemIndex);
+  const lastIndex = Math.max(lastSelectedItemIndex, currentSelectedItemIndex);
+  const selectedRange = allIds.slice(firstIndex, lastIndex + 1);
+  return selectedRange;
 }
 
 function applyToggleItems(state, action) {
@@ -93,7 +111,9 @@ function applyToggleItemsExclusively(state, action) {
 
 function toggleItems(state, action, selectExclusively) {
   let { stateKey, isSelect, ids } = action.payload;
-  let list = state[stateKey] || [];
+  let list = state[stateKey] && state[stateKey].selectedItems ?
+    state[stateKey].selectedItems :
+    [];
   let selectedItems;
 
   if (isSelect) {
@@ -102,12 +122,12 @@ function toggleItems(state, action, selectExclusively) {
     selectedItems = removeItems(list, ids);
   }
 
-  return { ...state, [stateKey]: selectedItems };
+  return { ...state, [stateKey]: { selectedItems, lastSelectedItem: null } };
 }
 
 function applyResetSelectedItems(state, action) {
   const { stateKey } = action.payload;
-  return { ...state, [stateKey]: [] };
+  return { ...state, [stateKey]: { selectedItems: [], lastSelectedItem: null } };
 }
 
 function removeItems(list, ids) {
@@ -130,7 +150,13 @@ function addItem(list, id) {
 }
 
 function getSelection(state, stateKey) {
-  return state[SLICE_NAME][stateKey] || [];
+  return state[SLICE_NAME][stateKey] && state[SLICE_NAME][stateKey].selectedItems ?
+    state[SLICE_NAME][stateKey].selectedItems :
+    [];
+}
+
+function getLastSelectedItem(state, stateKey) {
+  return state[SLICE_NAME][stateKey].lastSelectedItem;
 }
 
 function getIsSelected(state, stateKey, id) {
@@ -139,6 +165,7 @@ function getIsSelected(state, stateKey, id) {
 
 const selectors = {
   getSelection,
+  getLastSelectedItem,
   getIsSelected
 };
 
