@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { reducers, actionTypes, actionCreators } from '../select';
+import { reducers, actionCreators } from '../select';
 
 const STATE_KEY = 'SOME_KEY';
 
