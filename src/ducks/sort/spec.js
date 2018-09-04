@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { reducers, actionTypes, actionCreators, getEnhancedSortFn } from '../sort';
+import { reducers, actionCreators, getEnhancedSortFn } from '../sort';
 
 const STATE_KEY = 'SOME_KEY';
 

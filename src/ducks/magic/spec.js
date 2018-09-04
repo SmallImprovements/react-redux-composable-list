@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { reducers, actionTypes, actionCreators } from '../magic';
+import { reducers, actionCreators } from '../magic';
 
 const STATE_KEY = 'SOME_KEY';
 
