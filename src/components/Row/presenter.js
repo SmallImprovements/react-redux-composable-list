@@ -31,9 +31,13 @@ const RowSelectable = ({
   selectState,
   onSelect,
   onShiftSelect,
-  children
+  children,
+  isHeader
 }) => {
   const rowClass = ['react-redux-composable-list-row', CLASS_MAPPING[selectState]];
+  if (isHeader) {
+    rowClass.push('react-redux-composable-list-row-header');
+  }
   const hasSelectState = selectState === select.SELECT_STATES.selected ||
     selectState === select.SELECT_STATES.notSelected;
   const handleClick = event => {
@@ -58,25 +62,41 @@ RowSelectable.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  isHeader: PropTypes.bool
 };
 
 const RowNormal = ({
   style,
   className = '',
-  children
-}) =>
-  <div
-    className={className || 'react-redux-composable-list-row'}
-    style={style}
-  >
-    {children}
-  </div>;
+  children,
+  isHeader
+}) => {
+  const classNameContainer = ['react-redux-composable-list-row'];
+
+  if (className) {
+    classNameContainer.push(className);
+  }
+
+  if (isHeader) {
+    classNameContainer.push('react-redux-composable-list-row-header');
+  }
+
+  return (
+    <div
+      className={classNameContainer.join(' ')}
+      style={style}
+    >
+      {children}
+    </div>
+  )
+};
 
 RowNormal.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
+  isHeader: PropTypes.bool
 };
 
 export default Row;
