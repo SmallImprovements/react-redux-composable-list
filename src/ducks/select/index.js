@@ -93,7 +93,7 @@ function applyToggleItem(state, action) {
     ? removeItem(currentSelection, index)
     : addItem(currentSelection, id);
   const lastSelectedItem = isAlreadySelected
-    ? state[stateKey].lastSelectedItem
+    ? null
     : id;
   return { ...state, [stateKey]: { selectedItems, lastSelectedItem } };
 }
