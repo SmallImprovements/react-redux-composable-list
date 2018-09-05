@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { reducers, actionTypes, actionCreators } from '../paginate';
+import { reducers, actionCreators } from '../paginate';
 
 const STATE_KEY = 'SOME_KEY';
 

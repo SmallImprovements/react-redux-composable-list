@@ -30,23 +30,25 @@ Row.propTypes = {
 const RowSelectable = ({
   selectState,
   onSelect,
+  onShiftSelect,
   children,
   isHeader
 }) => {
   const rowClass = ['react-redux-composable-list-row', CLASS_MAPPING[selectState]];
-
   if (isHeader) {
     rowClass.push('react-redux-composable-list-row-header');
   }
-
-  const onClick = selectState === select.SELECT_STATES.selected ||
-    selectState === select.SELECT_STATES.notSelected
-      ? onSelect
-      : () => {};
-
+  const hasSelectState = selectState === select.SELECT_STATES.selected ||
+    selectState === select.SELECT_STATES.notSelected;
+  const handleClick = event => {
+    if (!hasSelectState) {
+      return;
+    }
+    return event && event.shiftKey ? onShiftSelect() : onSelect();
+  };
   return (
     <div
-      onClick={onClick}
+      onClick={handleClick}
       className={rowClass.join(' ')}>
       {children}
     </div>
@@ -56,6 +58,7 @@ const RowSelectable = ({
 RowSelectable.propTypes = {
   selectState: PropTypes.string,
   onSelect: PropTypes.func.isRequired,
+  onShiftSelect: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
