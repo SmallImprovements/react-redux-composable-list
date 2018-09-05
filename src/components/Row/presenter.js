@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { select } from '../../helper/services';
-import { noop } from '../../helper/util/noop';
 
 import './style.less';
 
@@ -31,16 +30,18 @@ Row.propTypes = {
 const RowSelectable = ({
   selectState,
   onSelect,
+  onShiftSelect,
   children
 }) => {
   const rowClass = ['react-redux-composable-list-row', CLASS_MAPPING[selectState]];
   const hasSelectState = selectState === select.SELECT_STATES.selected ||
     selectState === select.SELECT_STATES.notSelected;
-
-  const handleClick = hasSelectState
-    ? event => onSelect({ event })
-    : noop;
-
+  const handleClick = event => {
+    if (!hasSelectState) {
+      return;
+    }
+    return event && event.shiftKey ? onShiftSelect() : onSelect();
+  };
   return (
     <div
       onClick={handleClick}
@@ -53,6 +54,7 @@ const RowSelectable = ({
 RowSelectable.propTypes = {
   selectState: PropTypes.string,
   onSelect: PropTypes.func.isRequired,
+  onShiftSelect: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

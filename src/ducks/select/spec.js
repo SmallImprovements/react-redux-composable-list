@@ -42,28 +42,6 @@ describe('select', () => {
       deepFreeze(previousState);
       expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
     });
-
-    it('selects a range of items when shift-clicking a second item', () => {
-      const allIds = ['v', 'w', 'x', 'y', 'z'];
-      const clickEvent = { shiftKey: true };
-      const previousState = { [STATE_KEY]: { selectedItems: ['w'], lastSelectedItem: 'w' } };
-      const expectedState = { [STATE_KEY]: { selectedItems: ['w', 'x', 'y'], lastSelectedItem: 'w' } };
-      const action = actionCreators.doSelectItem(STATE_KEY, 'y', allIds, clickEvent);
-      deepFreeze(action);
-      deepFreeze(previousState);
-      expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
-    });
-
-    it('selects a single item when shift-clicking a single item without a previously-selected item', () => {
-      const allIds = ['v', 'w', 'x', 'y', 'z'];
-      const clickEvent = { shiftKey: true };
-      const previousState = { [STATE_KEY]: { selectedItems: [], lastSelectedItem: null } };
-      const expectedState = { [STATE_KEY]: { selectedItems: ['w'], lastSelectedItem: 'w' } };
-      const action = actionCreators.doSelectItem(STATE_KEY, 'w', allIds, clickEvent);
-      deepFreeze(action);
-      deepFreeze(previousState);
-      expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
-    });
   });
 
   describe('SELECT_ITEMS', () => {
@@ -92,6 +70,38 @@ describe('select', () => {
       const previousState = { [STATE_KEY]: { selectedItems: ids, lastSelectedItem: 'y' } };
       const expectedState = { [STATE_KEY]: { selectedItems: [], lastSelectedItem: null } };
       const action = actionCreators.doSelectItems(STATE_KEY, ids, false);
+      deepFreeze(action);
+      deepFreeze(previousState);
+      expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
+    });
+  });
+
+  describe('SELECT_ITEMS_RANGE', () => {
+    it('selects a range of items when shift-clicking a second item', () => {
+      const allIds = ['v', 'w', 'x', 'y', 'z'];
+      const previousState = { [STATE_KEY]: { selectedItems: ['w'], lastSelectedItem: 'w' } };
+      const expectedState = { [STATE_KEY]: { selectedItems: ['w', 'x', 'y'], lastSelectedItem: 'w' } };
+      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'y', allIds);
+      deepFreeze(action);
+      deepFreeze(previousState);
+      expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
+    });
+
+    it('selects a single item when shift-clicking a single item without a previously-selected item', () => {
+      const allIds = ['v', 'w', 'x', 'y', 'z'];
+      const previousState = { [STATE_KEY]: { selectedItems: [], lastSelectedItem: null } };
+      const expectedState = { [STATE_KEY]: { selectedItems: ['w'], lastSelectedItem: 'w' } };
+      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'w', allIds);
+      deepFreeze(action);
+      deepFreeze(previousState);
+      expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
+    });
+
+    it('unselects a single item when shift-clicking an already-selected item', () => {
+      const allIds = ['v', 'w', 'x', 'y', 'z'];
+      const previousState = { [STATE_KEY]: { selectedItems: ['w'], lastSelectedItem: 'w' } };
+      const expectedState = { [STATE_KEY]: { selectedItems: [], lastSelectedItem: 'w' } };
+      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'w', allIds);
       deepFreeze(action);
       deepFreeze(previousState);
       expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
