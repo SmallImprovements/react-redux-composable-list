@@ -71,7 +71,7 @@ const reducer = (state = INITIAL_STATE, action) => {
     case SELECT_ITEMS:
       return applyToggleItems(state, action);
     case SELECT_ITEMS_RANGE:
-      return applyToggleItemsRange(state, action);
+      return applySelectItemsRange(state, action);
     case SELECT_ITEMS_EXCLUSIVELY:
       return applyToggleItemsExclusively(state, action);
     case SELECT_ITEMS_RESET:
@@ -102,7 +102,7 @@ function applyToggleItems(state, action) {
   return toggleItems(state, action, false);
 }
 
-function applyToggleItemsRange(state, action) {
+function applySelectItemsRange(state, action) {
   const { stateKey, id, allIds } = action.payload;
   const currentSelection = state[stateKey] && state[stateKey].selectedItems
     ? state[stateKey].selectedItems
