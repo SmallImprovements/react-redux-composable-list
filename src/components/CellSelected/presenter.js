@@ -8,7 +8,7 @@ const CellSelected = ({ state, children }) =>
 
 CellSelected.propTypes = {
   state: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired,
 };
 
 export default CellSelected;

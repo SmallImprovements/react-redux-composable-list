@@ -37,7 +37,7 @@ Enhanced.propTypes = {
   stateKey: PropTypes.string.isRequired,
   style: PropTypes.object,
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 Enhanced.childContextTypes = {

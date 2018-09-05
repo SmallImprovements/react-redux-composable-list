@@ -24,7 +24,10 @@ Row.propTypes = {
   isSelectable: PropTypes.bool,
   style: PropTypes.object,
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
 };
 
 const RowSelectable = ({
@@ -62,7 +65,7 @@ RowSelectable.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]).isRequired,
+  ]),
   isHeader: PropTypes.bool
 };
 
@@ -95,7 +98,10 @@ const RowNormal = ({
 RowNormal.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   isHeader: PropTypes.bool
 };
 
