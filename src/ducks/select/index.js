@@ -97,8 +97,7 @@ function getSelectedRange(allIds, id, lastSelectedItem) {
   const currentSelectedItemIndex = allIds.indexOf(id);
   const firstIndex = Math.min(lastSelectedItemIndex, currentSelectedItemIndex);
   const lastIndex = Math.max(lastSelectedItemIndex, currentSelectedItemIndex);
-  const selectedRange = allIds.slice(firstIndex, lastIndex + 1);
-  return selectedRange;
+  return allIds.slice(firstIndex, lastIndex + 1);
 }
 
 function applyToggleItems(state, action) {
