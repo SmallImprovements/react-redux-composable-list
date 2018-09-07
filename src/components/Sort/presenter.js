@@ -16,8 +16,10 @@ const Sort = ({ isActive, isReverse, onSort, suffix, children }) => {
     <div role="presentation">
       <a
         onClick={onSort}
+        onKeyPress={sort.callIfActionKey(onSort)}
         className={linkClass.join(' ')}
         role="button"
+        tabIndex={0}
         aria-sort={sort.getAriaSort(isActive, isReverse)}>
         { children }
         &nbsp;

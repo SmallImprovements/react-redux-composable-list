@@ -4,3 +4,8 @@ export function getAriaSort(isActive, isReverse) {
   }
   return isReverse ? 'descending' : 'ascending';
 }
+
+export const callIfActionKey = callbackFn => event => {
+  const isActionKey = event && ['Enter', ' '].indexOf(event.key) !== -1;
+  return isActionKey ? callbackFn(event) : null;
+};

@@ -55,15 +55,19 @@ class CellMagicHeader extends Component {
       children
     } = this.props;
     const { isColumnSelectorShown } = this.state;
+    const handleSortClick = () => onSort(primarySort.sortKey, primarySort.sortFn);
+    const toggleColumnSelector = () => this.setColumnSelectorShown(!isColumnSelectorShown);
     return (
       <div className={[
         'react-redux-composable-list-row-magic-header-custom-column',
         'react-redux-composable-list-row-magic-header'
       ].join(' ')}>
         <a
-          onClick={() => onSort(primarySort.sortKey, primarySort.sortFn)}
+          onClick={handleSortClick}
+          onKeyPress={sort.callIfActionKey(handleSortClick)}
           className={getLinkClass(primarySort.sortKey, isActive)}
           role="button"
+          tabIndex={0}
           aria-sort={sort.getAriaSort(isActive(primarySort.sortKey), isReverse)}>
           {primarySort.label}
           &nbsp;
@@ -73,10 +77,13 @@ class CellMagicHeader extends Component {
             'react-redux-composable-list-row-magic-header-column-selector-sign',
             getLinkClass(primarySort.sortKey, isActive)
           ].join(' ')}
+          onClick={toggleColumnSelector}
+          onKeyPress={sort.callIfActionKey(toggleColumnSelector)}
           aria-label="Toggle column data"
           aria-haspopup="true"
           aria-expanded={isColumnSelectorShown}
-          onClick={() => this.setColumnSelectorShown(!isColumnSelectorShown)}>
+          role="button"
+          tabIndex={0}>
           {children}
         </a>
         <ul className={[
