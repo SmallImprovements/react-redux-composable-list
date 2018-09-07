@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 
 import './style.less';
 
@@ -16,58 +16,98 @@ const getLinkClass = (sortKey, isActive) => {
   return linkClass.join(' ');
 }
 
-const CellMagicHeader = ({
-  primarySort,
-  magicSorts,
-  isActive,
-  isReverse,
-  onSort,
-  onSetMagic,
-  suffix,
-  children
-}) =>
-  <div className={[
-      'react-redux-composable-list-row-magic-header-custom-column',
-      'react-redux-composable-list-row-magic-header'
-    ].join(' ')}>
-    <a
-      onClick={() => onSort(primarySort.sortKey, primarySort.sortFn)}
-      className={getLinkClass(primarySort.sortKey, isActive)}
-      role="button"
-      aria-sort={sort.getAriaSort(isActive(primarySort.sortKey), isReverse)}>
-      {primarySort.label}
-      &nbsp;
-      <SortCaret suffix={suffix} isActive={isActive(primarySort.sortKey)} isReverse={isReverse} />
-    </a>
-    <a className={[
-        'react-redux-composable-list-row-magic-header-column-selector-sign',
-        getLinkClass(primarySort.sortKey, isActive)
-      ].join(' ')}
-      role="button"
-      aria-label="Toggle column data">
-      {children}
-    </a>
-    <ul className="react-redux-composable-list-row-magic-header-custom-column-selector"
-      role="menu">
-      <li
-        key="react-redux-composable-list-row-magic-header-custom-column-selector-heading"
-        className="react-redux-composable-list-row-magic-header-custom-column-selector-info"
-        aria-hidden={true}>
-        <small>Toggle column data to:</small>
-      </li>
-      {magicSorts.map(({ sortKey, label }, key) =>
-        <li key={key}>
-          <a
-            onClick={() => onSetMagic(sortKey)}
-            role="menuitemradio"
-            aria-checked={primarySort.sortKey === sortKey}
-            className={getLinkClass(sortKey, isActive)}>
-            {label}
-          </a>
-        </li>
-      )}
-    </ul>
-  </div>;
+class CellMagicHeader extends Component {
+  state = {
+    isColumnSelectorShown: false,
+  };
+
+  setColumnSelectorShown = (isShown) => {
+    if (isShown) {
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+    this.setState({
+      isColumnSelectorShown: isShown,
+    });
+  };
+
+  handleOutsideClick = (e) => {
+    const isClickInsideColumnSelector = this.columnSelectorNode && this.columnSelectorNode.contains(e.target);
+    if (!isClickInsideColumnSelector) {
+      this.setColumnSelectorShown(false);
+    }
+  };
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick, false);
+  }
+
+  render() {
+    const {
+      primarySort,
+      magicSorts,
+      isActive,
+      isReverse,
+      onSort,
+      onSetMagic,
+      suffix,
+      children
+    } = this.props;
+    const { isColumnSelectorShown } = this.state;
+    return (
+      <div className={[
+        'react-redux-composable-list-row-magic-header-custom-column',
+        'react-redux-composable-list-row-magic-header'
+      ].join(' ')}>
+        <a
+          onClick={() => onSort(primarySort.sortKey, primarySort.sortFn)}
+          className={getLinkClass(primarySort.sortKey, isActive)}
+          role="button"
+          aria-sort={sort.getAriaSort(isActive(primarySort.sortKey), isReverse)}>
+          {primarySort.label}
+          &nbsp;
+          <SortCaret suffix={suffix} isActive={isActive(primarySort.sortKey)} isReverse={isReverse} />
+        </a>
+        <a className={[
+            'react-redux-composable-list-row-magic-header-column-selector-sign',
+            getLinkClass(primarySort.sortKey, isActive)
+          ].join(' ')}
+          aria-label="Toggle column data"
+          aria-haspopup="true"
+          aria-expanded={isColumnSelectorShown}
+          onClick={() => this.setColumnSelectorShown(!isColumnSelectorShown)}>
+          {children}
+        </a>
+        <ul className={[
+          'react-redux-composable-list-row-magic-header-custom-column-selector',
+            isColumnSelectorShown ? 'react-redux-composable-list-row-magic-header-custom-column-selector-shown' : '',
+          ].join(' ')}
+          ref={node => { this.columnSelectorNode = node; }}
+          role="menu">
+          <li
+            key="react-redux-composable-list-row-magic-header-custom-column-selector-info"
+            className="react-redux-composable-list-row-magic-header-custom-column-selector-info"
+            aria-hidden={true}>
+            <small>Toggle column data to:</small>
+          </li>
+          {magicSorts.map(({ sortKey, label }, key) =>
+            <li key={key} role="presentation">
+              <a
+                onClick={() => onSetMagic(sortKey)}
+                role="menuitemradio"
+                aria-checked={primarySort.sortKey === sortKey}
+                className={getLinkClass(sortKey, isActive)}>
+                {label}
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
+    );
+  }
+}
+
 
 CellMagicHeader.propTypes = {
   primarySort: PropTypes.object.isRequired,
