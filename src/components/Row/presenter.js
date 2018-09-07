@@ -52,7 +52,9 @@ const RowSelectable = ({
   return (
     <div
       onClick={handleClick}
-      className={rowClass.join(' ')}>
+      className={rowClass.join(' ')}
+      role="row"
+    >
       {children}
     </div>
   );
@@ -89,6 +91,7 @@ const RowNormal = ({
     <div
       className={classNameContainer.join(' ')}
       style={style}
+      role="row"
     >
       {children}
     </div>

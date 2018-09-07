@@ -11,6 +11,7 @@ const Cell = ({
   <div
     className={className || ['react-redux-composable-list-cell', 'react-redux-composable-list-cell-body'].join(' ')}
     style={style}
+    role="gridcell"
   >
     {children}
   </div>;

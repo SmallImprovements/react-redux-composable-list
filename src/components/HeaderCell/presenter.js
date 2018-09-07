@@ -10,6 +10,7 @@ const HeaderCell = ({
   <div
     className={className || 'react-redux-composable-list-cell'}
     style={style}
+    role="columnheader"
   >
     {children}
   </div>;

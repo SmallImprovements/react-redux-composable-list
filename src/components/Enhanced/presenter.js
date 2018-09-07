@@ -22,6 +22,7 @@ class Enhanced extends Component {
       <div
         className={className || 'react-redux-composable-list'}
         style={style}
+        role="grid"
       >
         {children}
       </div>
