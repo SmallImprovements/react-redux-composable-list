@@ -11,16 +11,16 @@ const Sort = ({ isActive, isReverse, onSort, suffix, children }) => {
   if (isActive) {
     linkClass.push('react-redux-composable-list-sort-active');
   }
-
   return (
-    <div role="presentation">
+    <div
+      role="columnheader"
+      aria-sort={sort.getAriaSort(isActive, isReverse)}>
       <a
         onClick={onSort}
         onKeyPress={sort.callIfActionKey(onSort)}
         className={linkClass.join(' ')}
         role="button"
-        tabIndex={0}
-        aria-sort={sort.getAriaSort(isActive, isReverse)}>
+        tabIndex={0}>
         { children }
         &nbsp;
         <SortCaret suffix={suffix} isActive={isActive} isReverse={isReverse} />
