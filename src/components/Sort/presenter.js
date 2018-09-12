@@ -4,18 +4,23 @@ import React from 'react';
 import './style.less';
 
 import SortCaret from '../../helper/components/SortCaret';
+import { sort } from '../../helper/services';
 
 const Sort = ({ isActive, isReverse, onSort, suffix, children }) => {
   const linkClass = ['react-redux-composable-list-sort'];
   if (isActive) {
     linkClass.push('react-redux-composable-list-sort-active');
   }
-
   return (
-    <div>
+    <div
+      role="columnheader"
+      aria-sort={sort.getAriaSort(isActive, isReverse)}>
       <a
         onClick={onSort}
-        className={linkClass.join(' ')}>
+        onKeyPress={sort.callIfActionKey(onSort)}
+        className={linkClass.join(' ')}
+        role="button"
+        tabIndex={0}>
         { children }
         &nbsp;
         <SortCaret suffix={suffix} isActive={isActive} isReverse={isReverse} />

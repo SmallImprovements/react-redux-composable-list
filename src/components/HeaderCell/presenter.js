@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import '../style.less';
 
+const isChildString = children => typeof children === 'string';
+
 const HeaderCell = ({
   style,
   className = '',
@@ -10,6 +12,7 @@ const HeaderCell = ({
   <div
     className={className || 'react-redux-composable-list-cell'}
     style={style}
+    role={isChildString(children) ? 'columnheader' : 'presentation'}
   >
     {children}
   </div>;

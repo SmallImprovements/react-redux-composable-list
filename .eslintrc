@@ -1,5 +1,8 @@
 {
-  parser: "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
   "plugins": [
     "react"
   ],
@@ -8,10 +11,10 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
-  rules: {
+  "rules": {
     "import/prefer-default-export": 0,
     "react/display-name": 0,
-    "react/prop-types": 0,
+    "react/prop-types": 0
   },
   "globals": {
     "describe": true,
