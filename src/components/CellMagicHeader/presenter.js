@@ -58,10 +58,12 @@ class CellMagicHeader extends Component {
     const handleSortClick = () => onSort(primarySort.sortKey, primarySort.sortFn);
     const toggleColumnSelector = () => this.setColumnSelectorShown(!isColumnSelectorShown);
     return (
-      <div className={[
-        'react-redux-composable-list-row-magic-header-custom-column',
-        'react-redux-composable-list-row-magic-header'
-      ].join(' ')}>
+      <div 
+        className={[
+          'react-redux-composable-list-row-magic-header-custom-column',
+          'react-redux-composable-list-row-magic-header'
+        ].join(' ')}
+        role="columnheader">
         <a
           onClick={handleSortClick}
           onKeyPress={sort.callIfActionKey(handleSortClick)}
