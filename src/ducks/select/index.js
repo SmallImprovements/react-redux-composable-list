@@ -92,10 +92,9 @@ function applyToggleItem(state, action) {
   const selectedItems = isAlreadySelected
     ? removeItem(currentSelection, index)
     : addItem(currentSelection, id);
-  const lastSelectedItem = isAlreadySelected
-    ? null
-    : id;
-  return { ...state, [stateKey]: { selectedItems, lastSelectedItem } };
+  const lastSelectedItem = isAlreadySelected ? null : id;
+  const lastUnselectedItem = isAlreadySelected ? id : null;
+  return { ...state, [stateKey]: { selectedItems, lastSelectedItem, lastUnselectedItem } };
 }
 
 function applyToggleItems(state, action) {
@@ -107,14 +106,23 @@ function applySelectItemsRange(state, action) {
   const currentSelection = state[stateKey] && state[stateKey].selectedItems
     ? state[stateKey].selectedItems
     : [];
-  const isAlreadySelected = currentSelection.indexOf(id) !== -1;
-  if (!isAlreadySelected && allIds && allIds.length) {
-    const lastSelectedItem = state[stateKey].lastSelectedItem || id;
-    const selectedRange = getSelectedRange(allIds, id, lastSelectedItem);
-    const selectedItems = uniq([...currentSelection, ...selectedRange]);
-    return { ...state, [stateKey]: { selectedItems, lastSelectedItem } };
+  const isSelect = currentSelection.indexOf(id) === -1;
+  if (allIds && allIds.length) {
+    let newState = {};
+    if (isSelect) {
+      const lastSelectedItem = state[stateKey].lastSelectedItem || id;
+      const selectedRange = getSelectedRange(allIds, id, lastSelectedItem);
+      const selectedItems = uniq([...currentSelection, ...selectedRange]);
+      newState = { selectedItems, lastSelectedItem };
+    } else {
+      const lastUnselectedItem = state[stateKey].lastUnselectedItem || id;
+      const unselectedRange = getSelectedRange(allIds, id, lastUnselectedItem);
+      const selectedItems = removeItems(currentSelection, unselectedRange);
+      newState = { selectedItems, lastUnselectedItem };
+    }
+    return { ...state, [stateKey]: newState };
   }
-  // Fallback to selecting a single item only if it was unselected or no allIds are provided.
+  // Fallback to selecting a single item if allIds is not provided.
   return applyToggleItem(state, action);
 }
 

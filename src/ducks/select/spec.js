@@ -8,7 +8,7 @@ describe('select', () => {
     it('toggles a single item as selected', () => {
       const id = 'x';
       const previousState = {};
-      const expectedState = { [STATE_KEY]: { selectedItems: [id], lastSelectedItem: id } };
+      const expectedState = { [STATE_KEY]: { selectedItems: [id], lastSelectedItem: id, lastUnselectedItem: null } };
       const action = actionCreators.doSelectItem(STATE_KEY, id);
       deepFreeze(action);
       deepFreeze(previousState);
@@ -16,8 +16,8 @@ describe('select', () => {
     });
 
     it('updates the last selected item when selecting another item', () => {
-      const previousState = { [STATE_KEY]: { selectedItems: ['x'], lastSelectedItem: 'x' } };
-      const expectedState = { [STATE_KEY]: { selectedItems: ['x', 'y'], lastSelectedItem: 'y' } };
+      const previousState = { [STATE_KEY]: { selectedItems: ['x'], lastSelectedItem: 'x', lastUnselectedItem: null } };
+      const expectedState = { [STATE_KEY]: { selectedItems: ['x', 'y'], lastSelectedItem: 'y', lastUnselectedItem: null } };
       const action = actionCreators.doSelectItem(STATE_KEY, 'y');
       deepFreeze(action);
       deepFreeze(previousState);
@@ -25,8 +25,8 @@ describe('select', () => {
     });
 
     it('clears the last selected item when unselecting an item', () => {
-      const previousState = { [STATE_KEY]: { selectedItems: ['x', 'y'], lastSelectedItem: 'x' } };
-      const expectedState = { [STATE_KEY]: { selectedItems: ['x'], lastSelectedItem: null } };
+      const previousState = { [STATE_KEY]: { selectedItems: ['x', 'y'], lastSelectedItem: 'x', lastUnselectedItem: null } };
+      const expectedState = { [STATE_KEY]: { selectedItems: ['x'], lastSelectedItem: null, lastUnselectedItem: 'y' } };
       const action = actionCreators.doSelectItem(STATE_KEY, 'y');
       deepFreeze(action);
       deepFreeze(previousState);
@@ -35,8 +35,8 @@ describe('select', () => {
 
     it('toggles a single item as unselected, when it was already selected', () => {
       const id = 'x';
-      const previousState = { [STATE_KEY]: { selectedItems: [id], lastSelectedItem: id } };
-      const expectedState = { [STATE_KEY]: { selectedItems: [], lastSelectedItem: null } };
+      const previousState = { [STATE_KEY]: { selectedItems: [id], lastSelectedItem: id, lastUnselectedItem: null } };
+      const expectedState = { [STATE_KEY]: { selectedItems: [], lastSelectedItem: null, lastUnselectedItem: id } };
       const action = actionCreators.doSelectItem(STATE_KEY, id);
       deepFreeze(action);
       deepFreeze(previousState);
@@ -97,11 +97,11 @@ describe('select', () => {
       expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
     });
 
-    it('unselects a single item when shift-clicking an already-selected item', () => {
+    it('unselects a range when shift-clicking an already-selected item', () => {
       const allIds = ['v', 'w', 'x', 'y', 'z'];
-      const previousState = { [STATE_KEY]: { selectedItems: ['w'], lastSelectedItem: 'w' } };
-      const expectedState = { [STATE_KEY]: { selectedItems: [], lastSelectedItem: null } };
-      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'w', allIds);
+      const previousState = { [STATE_KEY]: { selectedItems: ['x', 'y', 'z'], lastUnselectedItem: 'w' } };
+      const expectedState = { [STATE_KEY]: { selectedItems: ['z'], lastUnselectedItem: 'w' } };
+      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'y', allIds);
       deepFreeze(action);
       deepFreeze(previousState);
       expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
