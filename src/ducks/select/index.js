@@ -67,13 +67,13 @@ function doSelectItemsReset(stateKey) {
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SELECT_ITEM:
-      return applyToggleItem(state, action);
+      return applySelectItem(state, action);
     case SELECT_ITEMS:
-      return applyToggleItems(state, action);
+      return applySelectItems(state, action);
     case SELECT_ITEMS_RANGE:
       return applySelectItemsRange(state, action);
     case SELECT_ITEMS_EXCLUSIVELY:
-      return applyToggleItemsExclusively(state, action);
+      return applySelectItemsExclusively(state, action);
     case SELECT_ITEMS_RESET:
       return applyResetSelectedItems(state, action);
     case RESET_BY_STATE_KEYS:
@@ -82,7 +82,7 @@ const reducer = (state = INITIAL_STATE, action) => {
   return state;
 };
 
-function applyToggleItem(state, action) {
+function applySelectItem(state, action) {
   const { stateKey, id } = action.payload;
   const currentSelection = state[stateKey] && state[stateKey].selectedItems ?
     state[stateKey].selectedItems :
@@ -95,7 +95,7 @@ function applyToggleItem(state, action) {
   return { ...state, [stateKey]: { selectedItems, lastSelectedItem, lastUnselectedItem } };
 }
 
-function applyToggleItems(state, action) {
+function applySelectItems(state, action) {
   return toggleItems(state, action, false);
 }
 
@@ -121,7 +121,7 @@ function applySelectItemsRange(state, action) {
     return { ...state, [stateKey]: newState };
   }
   // Fallback to selecting a single item if allIds is not provided.
-  return applyToggleItem(state, action);
+  return applySelectItem(state, action);
 }
 
 function getSelectedRange(allIds, id, lastSelectedItem) {
@@ -132,7 +132,7 @@ function getSelectedRange(allIds, id, lastSelectedItem) {
   return allIds.slice(firstIndex, lastIndex + 1);
 }
 
-function applyToggleItemsExclusively(state, action) {
+function applySelectItemsExclusively(state, action) {
   return toggleItems(state, action, true);
 }
 
