@@ -56,7 +56,7 @@ export default Plain;
 And use it in your application:
 
 ```javascript
-import Plain from path/to/component';
+import Plain from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },
@@ -95,7 +95,7 @@ export default withSelectables()(Selectable);
 That should already do the magic to make your items in the list selectable. You can use it again in your application:
 
 ```javascript
-import Selectable from path/to/component';
+import Selectable from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },
@@ -109,7 +109,7 @@ const App = () =>
   />
 ```
 
-The enhancement can be configured by passing an configuration object.  You could pass `['1']` to initially select the item with the `id: '1'`:
+The enhancement can be configured by passing a configuration object. You could pass `['1']` to initially select the item with the `id: '1'`:
 
 ```javascript
 ...
