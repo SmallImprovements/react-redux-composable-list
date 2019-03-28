@@ -41,7 +41,7 @@ export default withSelectables()(Selectable);
 ## Usage
 
 ```javascript
-import Selectable from path/to/component';
+import Selectable from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },
