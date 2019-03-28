@@ -37,7 +37,7 @@ export default withPaginate({ size: 10 })(Paginated);
 ## Usage
 
 ```javascript
-import Paginated from path/to/component';
+import Paginated from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },

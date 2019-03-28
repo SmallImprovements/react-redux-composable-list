@@ -81,8 +81,8 @@ export default connect(null, mapDispatchToProps)(Filters);
 ## Usage
 
 ```javascript
-import Filters from path/to/component';
-import Filterable from path/to/component';
+import Filters from 'path/to/component';
+import Filterable from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },

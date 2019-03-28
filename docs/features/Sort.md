@@ -58,7 +58,7 @@ export default withSort()(Sortable);
 ## Usage
 
 ```javascript
-import Sortable from path/to/component';
+import Sortable from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },

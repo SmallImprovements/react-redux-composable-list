@@ -87,7 +87,7 @@ export default withSort()(MagicColumnsList);
 ## Usage
 
 ```javascript
-import MagicColumnsList from path/to/component';
+import MagicColumnsList from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo', likes: 1, votes: 2 },

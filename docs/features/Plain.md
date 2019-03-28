@@ -33,7 +33,7 @@ export default Plain;
 ## Usage
 
 ```javascript
-import Plain from path/to/component';
+import Plain from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },

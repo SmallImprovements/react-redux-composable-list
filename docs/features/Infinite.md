@@ -35,7 +35,7 @@ export default Infinity;
 ## Usage
 
 ```javascript
-import Infinity from path/to/component';
+import Infinity from 'path/to/component';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },

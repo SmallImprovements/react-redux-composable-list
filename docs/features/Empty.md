@@ -41,7 +41,7 @@ export default withEmpty({ component: EmptyBecauseNoList })(CanBeEmpty);
 ## Usage
 
 ```javascript
-import CanBeEmpty from path/to/component';
+import CanBeEmpty from 'path/to/component';
 
 const list = [];
 

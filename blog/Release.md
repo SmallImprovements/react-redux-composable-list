@@ -81,7 +81,7 @@ export default withSelectables()(ListComponent);
 Afterwards it can be simply used by passing a list of items and a state key to identify the table state.
 
 ```javascript
-import SelectableListComponent from path/to/ListComponent';
+import SelectableListComponent from 'path/to/ListComponent';
 
 const list = [
   { id: '1', title: 'foo', comment: 'foo foo' },
