@@ -1,6 +1,6 @@
 {
   "name": "react-redux-composable-list",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Composable List in React and Redux",
   "main": "dist/bundle.js",
   "peerDependencies": {
