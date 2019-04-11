@@ -33,12 +33,14 @@ function doSelectItems(stateKey, ids, isSelect) {
   };
 }
 
-function doSelectItemsRange(stateKey, id, allIds) {
+function doSelectItemsRange(stateKey, id, preselected, unselectables, allIds) {
   return {
     type: SELECT_ITEMS_RANGE,
     payload: {
       stateKey,
       id,
+      preselected,
+      unselectables,
       allIds,
     }
   };
@@ -100,7 +102,7 @@ function applySelectItems(state, action) {
 }
 
 function applySelectItemsRange(state, action) {
-  const { stateKey, id, allIds } = action.payload;
+  const { stateKey, id, preselected, unselectables, allIds } = action.payload;
   const currentSelection = state[stateKey] && state[stateKey].selectedItems
     ? state[stateKey].selectedItems
     : [];
@@ -109,12 +111,12 @@ function applySelectItemsRange(state, action) {
     let newState = {};
     if (isSelect) {
       const lastSelectedItem = state[stateKey].lastSelectedItem || id;
-      const selectedRange = getSelectedRange(allIds, id, lastSelectedItem);
+      const selectedRange = getSelectedRange(id, lastSelectedItem, preselected, unselectables, allIds);
       const selectedItems = uniq([...currentSelection, ...selectedRange]);
       newState = { selectedItems, lastSelectedItem };
     } else {
       const lastUnselectedItem = state[stateKey].lastUnselectedItem || id;
-      const unselectedRange = getSelectedRange(allIds, id, lastUnselectedItem);
+      const unselectedRange = getSelectedRange(id, lastUnselectedItem, preselected, unselectables, allIds);
       const selectedItems = removeItems(currentSelection, unselectedRange);
       newState = { selectedItems, lastUnselectedItem };
     }
@@ -124,12 +126,17 @@ function applySelectItemsRange(state, action) {
   return applySelectItem(state, action);
 }
 
-function getSelectedRange(allIds, id, lastSelectedItem) {
+function getSelectedRange(id, lastSelectedItem, preselected = [], unselectables = [], allIds) {
   const lastSelectedItemIndex = allIds.indexOf(lastSelectedItem);
   const currentSelectedItemIndex = allIds.indexOf(id);
   const firstIndex = Math.min(lastSelectedItemIndex, currentSelectedItemIndex);
   const lastIndex = Math.max(lastSelectedItemIndex, currentSelectedItemIndex);
-  return allIds.slice(firstIndex, lastIndex + 1);
+  return allIds
+    .slice(firstIndex, lastIndex + 1)
+    .filter(id => {
+      const isSelectable = preselected.indexOf(id) === -1 && unselectables.indexOf(id) === -1;
+      return isSelectable;
+    });
 }
 
 function applySelectItemsExclusively(state, action) {
