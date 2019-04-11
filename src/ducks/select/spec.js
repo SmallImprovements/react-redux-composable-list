@@ -81,7 +81,19 @@ describe('select', () => {
       const allIds = ['v', 'w', 'x', 'y', 'z'];
       const previousState = { [STATE_KEY]: { selectedItems: ['w'], lastSelectedItem: 'w' } };
       const expectedState = { [STATE_KEY]: { selectedItems: ['w', 'x', 'y'], lastSelectedItem: 'w' } };
-      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'y', allIds);
+      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'y', [], [], allIds);
+      deepFreeze(action);
+      deepFreeze(previousState);
+      expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
+    });
+
+    it('selects a range of items when shift-clicking a second item, skipping unselectable items', () => {
+      const allIds = ['v', 'w', 'x', 'y', 'z'];
+      const previousState = { [STATE_KEY]: { selectedItems: ['v'], lastSelectedItem: 'v' } };
+      const expectedState = { [STATE_KEY]: { selectedItems: ['v', 'w', 'z'], lastSelectedItem: 'v' } };
+      const preselected = ['x'];
+      const unselectables = ['y'];
+      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'z', preselected, unselectables, allIds);
       deepFreeze(action);
       deepFreeze(previousState);
       expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
@@ -91,7 +103,7 @@ describe('select', () => {
       const allIds = ['v', 'w', 'x', 'y', 'z'];
       const previousState = { [STATE_KEY]: { selectedItems: [], lastSelectedItem: null } };
       const expectedState = { [STATE_KEY]: { selectedItems: ['w'], lastSelectedItem: 'w' } };
-      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'w', allIds);
+      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'w', [], [], allIds);
       deepFreeze(action);
       deepFreeze(previousState);
       expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);
@@ -101,7 +113,7 @@ describe('select', () => {
       const allIds = ['v', 'w', 'x', 'y', 'z'];
       const previousState = { [STATE_KEY]: { selectedItems: ['x', 'y', 'z'], lastUnselectedItem: 'w' } };
       const expectedState = { [STATE_KEY]: { selectedItems: ['z'], lastUnselectedItem: 'w' } };
-      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'y', allIds);
+      const action = actionCreators.doSelectItemsRange(STATE_KEY, 'y', [], [], allIds);
       deepFreeze(action);
       deepFreeze(previousState);
       expect(reducers.tableSelect(previousState, action)).to.eql(expectedState);

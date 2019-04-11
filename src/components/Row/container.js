@@ -35,10 +35,10 @@ const mapStateToProps = (
   };
 }
 
-const mapDispatchToProps = (dispatch, { stateKey, isSelectable, id, allIds }) =>
+const mapDispatchToProps = (dispatch, { stateKey, isSelectable, id, preselected, unselectables, allIds }) =>
   isSelectableRow(isSelectable, id) ? ({
     onSelect: bindActionCreators(() => actionCreators.doSelectItem(stateKey, id), dispatch),
-    onShiftSelect: bindActionCreators(() => actionCreators.doSelectItemsRange(stateKey, id, allIds), dispatch),
+    onShiftSelect: bindActionCreators(() => actionCreators.doSelectItemsRange(stateKey, id, preselected, unselectables, allIds), dispatch),
     onSelectItems: bindActionCreators((ids) => actionCreators.doSelectItems(stateKey, ids, true), dispatch),
   }) : ({
     onSelect: noop,
