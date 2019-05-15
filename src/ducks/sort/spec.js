@@ -48,6 +48,24 @@ describe('sort', () => {
       expect(beyondNextState[STATE_KEY].isReverse).to.eql(!isReverse);
     });
 
+    it('keeps the same sort when already set and explicitly providing the same value', () => {
+      const isReverse = true;
+      const newIsReverse = true;
+      const sortKey = 'name';
+      const sortFn = item => item.name;
+      const previousState = {};
+      const action = actionCreators.doTableSort(STATE_KEY, sortKey, sortFn, newIsReverse);
+
+      deepFreeze(action);
+      deepFreeze(previousState);
+
+      const nextState = reducers.tableSort(previousState, action);
+      const beyondNextState = reducers.tableSort(nextState, action);
+
+      expect(beyondNextState[STATE_KEY].sortKey).to.eql(sortKey);
+      expect(beyondNextState[STATE_KEY].isReverse).to.eql(isReverse);
+    });
+
     it('generates an enhanced sort fn', () => {
       const isReverse = false;
       const sortKey = 'name';
