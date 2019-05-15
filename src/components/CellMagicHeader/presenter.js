@@ -1,18 +1,14 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-
-import './style.less';
-
 import SortCaret from '../../helper/components/SortCaret';
 import { sort } from '../../helper/services';
+import './style.less';
 
 const getLinkClass = (sortKey, isActive) => {
   const linkClass = ['react-redux-composable-list-row-magic-header-inline'];
-
   if (isActive(sortKey)) {
     linkClass.push('react-redux-composable-list-row-magic-header-active');
   }
-
   return linkClass.join(' ');
 }
 
@@ -86,60 +82,59 @@ class CellMagicHeader extends Component {
           ref={node => { this.columnSelectorNode = node; }}
           role="menu">
           <ul>
-          <li
-            key="react-redux-composable-list-row-magic-header-custom-column-sorting-info"
-            className="react-redux-composable-list-row-magic-header-custom-column-selector-info"
-            aria-hidden={true}>
-            <small>Sorting</small>
-          </li>
-          <li>
-          <a
-          onClick={handleSortClick}
-          onKeyPress={sort.callIfActionKey(handleSortClick)}
-          className={getLinkClass(primarySort.sortKey, isActive)}
-          role="button"
-          tabIndex={0}
-          aria-sort={sort.getAriaSort(isActive(primarySort.sortKey), isReverse)}>
-          Ascending          
-          </a>
-          </li>
-          <li>
-          <a
-          onClick={handleSortClick}
-          onKeyPress={sort.callIfActionKey(handleSortClick)}
-          className={getLinkClass(primarySort.sortKey, isActive)}
-          role="button"
-          tabIndex={0}
-          aria-sort={sort.getAriaSort(isActive(primarySort.sortKey), isReverse)}>
-          Descending          
-          </a>
-          </li>
-          </ul>
-          <ul>
-          <li
-            key="react-redux-composable-list-row-magic-header-custom-column-selector-info"
-            className="react-redux-composable-list-row-magic-header-custom-column-selector-info"
-            aria-hidden={true}>
-            <small>Toggle column to</small>
-          </li>
-          {magicSorts.map(({ sortKey, label }, key) =>
-            <li key={key} role="presentation">
+            <li
+              key="react-redux-composable-list-row-magic-header-custom-column-sorting-info"
+              className="react-redux-composable-list-row-magic-header-custom-column-selector-info"
+              aria-hidden={true}>
+              <small>Sorting</small>
+            </li>
+            <li>
               <a
-                onClick={() => onSetMagic(sortKey)}
-                role="menuitemradio"
-                aria-checked={primarySort.sortKey === sortKey}
-                className={getLinkClass(sortKey, isActive)}>
-                {label}
+                onClick={handleSortClick}
+                onKeyPress={sort.callIfActionKey(handleSortClick)}
+                className={getLinkClass(primarySort.sortKey, isActive)}
+                role="button"
+                tabIndex={0}
+                aria-sort={sort.getAriaSort(isActive(primarySort.sortKey), isReverse)}>
+                Ascending
               </a>
             </li>
-          )}
-        </ul>
+            <li>
+              <a
+                onClick={handleSortClick}
+                onKeyPress={sort.callIfActionKey(handleSortClick)}
+                className={getLinkClass(primarySort.sortKey, isActive)}
+                role="button"
+                tabIndex={0}
+                aria-sort={sort.getAriaSort(isActive(primarySort.sortKey), isReverse)}>
+                Descending
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li
+              key="react-redux-composable-list-row-magic-header-custom-column-selector-info"
+              className="react-redux-composable-list-row-magic-header-custom-column-selector-info"
+              aria-hidden={true}>
+              <small>Toggle column to</small>
+            </li>
+            {magicSorts.map(({ sortKey, label }, key) =>
+              <li key={key} role="presentation">
+                <a
+                  onClick={() => onSetMagic(sortKey)}
+                  role="menuitemradio"
+                  aria-checked={primarySort.sortKey === sortKey}
+                  className={getLinkClass(sortKey, isActive)}>
+                  {label}
+                </a>
+              </li>
+            )}
+          </ul>
         </div>
       </div>
     );
   }
 }
-
 
 CellMagicHeader.propTypes = {
   primarySort: PropTypes.object.isRequired,
