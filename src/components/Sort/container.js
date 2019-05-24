@@ -6,12 +6,9 @@ import { actionCreators, selectors } from '../../ducks';
 import Sort from './presenter';
 
 function mapStateToProps(state, { sortKey, stateKey }) {
-  const { sortKey: stateSortKey, isReverse: stateIsReverse } = selectors.getSort(state, stateKey);
-  const isActive = stateSortKey === sortKey;
-  const isReverse = stateIsReverse && isActive;
-
+  const { sortKey: stateSortKey, isReverse } = selectors.getSort(state, stateKey);
   return {
-    isActive,
+    isActive: sortKey === stateSortKey,
     isReverse,
   };
 }

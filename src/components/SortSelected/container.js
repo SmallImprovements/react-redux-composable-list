@@ -7,16 +7,13 @@ import { actionCreators, selectors } from '../../ducks';
 import Sort from '../Sort/presenter';
 
 const mapStateToProps = (state, { sortKey, stateKey }) => {
-  const { sortKey: stateSortKey, isReverse: stateIsReverse } = selectors.getSort(state, stateKey);
+  const { sortKey: stateSortKey, isReverse } = selectors.getSort(state, stateKey);
   const isActive = stateSortKey === sortKey;
-  const isReverse = stateIsReverse && isActive;
-
   const selection = selectors.getSelection(state, stateKey);
-
   return {
     isActive,
-    isReverse,
     selection,
+    isReverse,
   };
 };
 

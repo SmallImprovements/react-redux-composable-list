@@ -10,13 +10,14 @@ const TABLE_SORT = `${SLICE_NAME}/TABLE_SORT`;
 
 const INITIAL_STATE = {};
 
-function doTableSort(stateKey, sortKey, sortFn) {
+function doTableSort(stateKey, sortKey, sortFn, isReverse) {
   return {
     type: TABLE_SORT,
     payload: {
       stateKey,
       sortKey,
       sortFn,
+      isReverse,
     }
   };
 }
@@ -32,11 +33,11 @@ const reducer = (state = INITIAL_STATE, action) => {
 };
 
 function applyTableSort(state, action) {
-  const { stateKey, sortKey, sortFn } = action.payload;
-
-  const isReverse = !!state[stateKey] && state[stateKey].sortKey === sortKey && !state[stateKey].isReverse;
+  const { stateKey, sortKey, sortFn, isReverse: explicitReverse } = action.payload;
+  const isExplicitlyReverse = explicitReverse !== undefined;
+  const implicitReverse = !!state[stateKey] && state[stateKey].sortKey === sortKey && !state[stateKey].isReverse;
+  const isReverse = isExplicitlyReverse ? explicitReverse : implicitReverse;
   const enhancedSortFn = getEnhancedSortFn(isReverse, sortFn);
-
   return { ...state, [stateKey]: { sortFn: enhancedSortFn, sortKey, isReverse } };
 }
 

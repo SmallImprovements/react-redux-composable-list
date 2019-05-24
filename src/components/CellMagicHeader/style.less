@@ -24,19 +24,11 @@
 }
 
 .react-redux-composable-list-row-magic-header-active {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .react-redux-composable-list-row-magic-header-custom-column {
-  > div {
-    position: relative;
-  }
-
-  .react-redux-composable-list-row-magic-header-column-selector-sign {
-    margin-left: 10px;
-  }
-
-  li.react-redux-composable-list-row-magic-header-custom-column-selector-info {
+  .react-redux-composable-list-row-magic-header-custom-column-selector-info {
     color: #828282;
   }
 }
@@ -49,13 +41,22 @@
   left: -(10px);
   top: calc(100% - 5px);
   min-width: calc(100% + 10px);
-  margin: 12px 0 0 0;
+  margin: 10px 0 0 0;
   padding: 10px 0;
-  list-style-type: none;
   background: #FFFFFF;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   border-radius: 0 0 3px 3px;
   transition: all .2s;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    + ul {
+      margin-top: 10px;
+    }
+  }
 
   li {
     margin: 0;
@@ -64,7 +65,7 @@
     a, &.react-redux-composable-list-row-magic-header-custom-column-selector-info {
       display: block;
       width: 100%;
-      padding: 10px 10px;
+      padding: 5px 10px;
     }
 
     a:hover {

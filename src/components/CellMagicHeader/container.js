@@ -9,14 +9,10 @@ import { actionCreators, selectors } from '../../ducks';
 import CellMagicHeader from './presenter';
 
 function mapStateToProps(state, { magicSorts, stateKey }) {
-  const { sortKey: stateSortKey, isReverse: stateIsReverse } = selectors.getSort(state, stateKey);
+  const { sortKey: stateSortKey, isReverse } = selectors.getSort(state, stateKey);
   const isActive = (sortKey) => sortKey === stateSortKey;
-
   const sortKey = selectors.getMagicSort(state, stateKey, magicSorts);
   const primarySort = find(magicSorts, (s) => s.sortKey === sortKey);
-
-  const isReverse = stateIsReverse && isActive(sortKey);
-
   return {
     magicSorts,
     primarySort,
@@ -27,9 +23,8 @@ function mapStateToProps(state, { magicSorts, stateKey }) {
 
 function mapDispatchToProps(dispatch, { stateKey }) {
   const { doTableSort, doSetMagicSort } = actionCreators;
-
   return bindActionCreators({
-    onSort: (sortKey, sortFn) => doTableSort(stateKey, sortKey, sortFn),
+    onSort: (sortKey, sortFn, isReverse) => doTableSort(stateKey, sortKey, sortFn, isReverse),
     onSetMagic: (sortKey) => doSetMagicSort(stateKey, sortKey),
   }, dispatch);
 }

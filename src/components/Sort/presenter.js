@@ -19,8 +19,7 @@ const Sort = ({ isActive, isReverse, onSort, suffix, children }) => {
         onClick={onSort}
         onKeyPress={sort.callIfActionKey(onSort)}
         className={linkClass.join(' ')}
-        role="button"
-        tabIndex={0}>
+        role="button">
         { children }
         &nbsp;
         <SortCaret suffix={suffix} isActive={isActive} isReverse={isReverse} />
