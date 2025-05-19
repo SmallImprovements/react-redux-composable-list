@@ -29,8 +29,9 @@ class CellMagicHeader extends Component {
   };
 
   handleOutsideClick = (e) => {
+    const isClickOnButton = this.buttonNode && this.buttonNode.contains(e.target);
     const isClickInsideColumnSelector = this.columnSelectorNode && this.columnSelectorNode.contains(e.target);
-    if (!isClickInsideColumnSelector) {
+    if (!(isClickOnButton || isClickInsideColumnSelector)) {
       this.setColumnSelectorShown(false);
     }
   };
@@ -80,7 +81,8 @@ class CellMagicHeader extends Component {
           aria-label={primarySort.label}
           aria-haspopup="true"
           aria-expanded={isColumnSelectorShown}
-          role="button">
+          role="button"
+          ref={ref => { this.buttonNode = ref }}>
           {primarySort.label}
           {children}
           <SortCaret suffix={suffix} isActive={isActive(primarySort.sortKey)} isReverse={isReverse} />
